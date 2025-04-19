@@ -33,6 +33,7 @@ namespace Fiszki
             this.nativePhrase = nativePhrase;
             this.translatedPhrase = translatedPhrase;
             allScores.Add(2.5);
+
         }
     }
 }

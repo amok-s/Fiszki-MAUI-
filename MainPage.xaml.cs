@@ -11,6 +11,8 @@ namespace Fiszki
             InitializeComponent();
         }
 
+
+
         private async void OnAddFiszkaClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
