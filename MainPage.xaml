@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fiszki.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+
+
+    <ScrollView BackgroundColor="#171615">
+        <VerticalStackLayout
+            Padding="30,5"
+            Spacing="15"
+            
+            >
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+
+            <Label
+                Text="Fiszki"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Witaj, w programie do nauki fiszek!"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <VerticalStackLayout x:Name="ButtonGroup"
+                                 Padding="30,5"
+                                 Spacing="20">
+            
+   
+                <Button
+                    x:Name="addFiszkaBtn"
+                    StyleClass="MainMenuButton"
+                    Text="Dodaj Fiszkę" 
+                    SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                    Clicked="OnAddFiszkaClicked"
+                    HorizontalOptions="Fill" />
+
+                <Button
+                     x:Name="browseFiszkaBtn"
+                     StyleClass="MainMenuButton"
+                     Text="Przeglądaj Fiszki" 
+                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     Clicked="OnBrowseFiszkaClicked"
+                     HorizontalOptions="Fill" />
+
+                <Button
+                     x:Name="LearnBtn"
+                     StyleClass="MainMenuButton"
+                     Text="Nauka" 
+                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     Clicked="OnBrowseFiszkaClicked"
+                     HorizontalOptions="Fill" />
+
+            </VerticalStackLayout>
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
