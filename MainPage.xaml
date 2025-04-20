@@ -53,7 +53,7 @@
                      StyleClass="MainMenuButton"
                      Text="Nauka" 
                      SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
-                     Clicked="OnBrowseFiszkaClicked"
+                     Clicked="OnLearnClicked"
                      HorizontalOptions="Fill" />
 
             </VerticalStackLayout>

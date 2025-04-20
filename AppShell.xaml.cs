@@ -7,6 +7,7 @@
             InitializeComponent();
             Routing.RegisterRoute(nameof(AddFiszkaPage), typeof(AddFiszkaPage));
             Routing.RegisterRoute(nameof(BrowseFiszkaPage), typeof(BrowseFiszkaPage));
+            Routing.RegisterRoute(nameof(LearnPage), typeof(LearnPage));
         }
     }
 }

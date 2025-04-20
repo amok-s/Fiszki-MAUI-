@@ -12,8 +12,8 @@
             const int newheight = 715;
             const int newwidth = 1215;
 
-            //var wins = new Window(new AppShell());
-            var wins = new Window(new ContentDemo());
+            var wins = new Window(new AppShell());
+            //var wins = new Window(new ContentDemo());
             wins.Height = newheight;
             wins.Width = newwidth;
             return wins;

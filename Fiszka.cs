@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fiszki
 {
-    internal class Fiszka
+    public class Fiszka
     {
         public static List<Fiszka> fiszkaDeck = new List<Fiszka>();
         public string nativePhrase {  get; set; }
@@ -33,6 +33,26 @@ namespace Fiszki
             this.nativePhrase = nativePhrase;
             this.translatedPhrase = translatedPhrase;
             allScores.Add(2.5);
+
+        }
+
+        public static void GetExampleDeck()
+        {
+            Fiszka.fiszkaDeck.Add(new Fiszka("la maison", "dom"));
+            Fiszka.fiszkaDeck.Add(new Fiszka("le chat", "kot"));
+            Fiszka.fiszkaDeck.Add(new Fiszka("le chien", "pies"));
+            Fiszka.fiszkaDeck.Add(new Fiszka("l'homme", "chłopak"));
+            Fiszka.fiszkaDeck.Add(new Fiszka("l'eau", "woda"));
+            Fiszka.fiszkaDeck.Add(new Fiszka("le doigt", "palec"));
+            Fiszka.fiszkaDeck.Add(new("sac à dos", "plecak"));
+
+            //new ,
+            //new Fiszka("le chat", "kot"),
+            //new Fiszka("le chien", "pies"),
+            //new Fiszka("l'homme", "chłopak"),
+            //new Fiszka("l'eau", "woda"),
+            //new Fiszka("le doigt", "palec"),
+            //new ("sac à dos", "plecak")
 
         }
     }
