@@ -3,14 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fiszki.MainPage">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-
-        </ResourceDictionary>
-
-    </ContentPage.Resources>
-
-
 
     <ScrollView BackgroundColor="#171615">
         <VerticalStackLayout

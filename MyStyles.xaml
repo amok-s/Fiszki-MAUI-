@@ -14,4 +14,15 @@
         <Setter Property="TextColor" Value="#ebc034"/>
     </Style>
 
+    <Style TargetType="Label" Class="FiszkaLabel">
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="TextColor" Value="WhiteSmoke"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="CharacterSpacing" Value="1.2"/>
+    </Style>
+
+
+
+
+
 </ResourceDictionary>
