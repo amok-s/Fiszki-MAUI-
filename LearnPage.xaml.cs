@@ -58,6 +58,8 @@ public partial class LearnPage : ContentPage
 		NextClicked(0, null);
 	}
 
-
-
+    private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
+    {
+		NextClicked(sender, e);
+    }
 }

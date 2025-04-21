@@ -7,20 +7,24 @@
 
 
     <ScrollView BackgroundColor="#171615" HorizontalOptions="Center">
-        
+
 
         
         <VerticalStackLayout Spacing="10" WidthRequest="550">
             
             <!--Widok fiszki-->
-            <Border x:Name="HalfFiszkaFrame" StrokeThickness="0">
-                <controls:HalfFiszkaCard x:Name="halfFiszkaControl"/>
-            </Border>
+            <VerticalStackLayout>
+                <VerticalStackLayout.GestureRecognizers>
+                    <PointerGestureRecognizer PointerPressed="ShowClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
 
-            <Border x:Name="FullFiszkaFrame" StrokeThickness="0">
-                <controls:FiszkaCard x:Name="fullFiszkaControl"/>
-            </Border>
-            
+                <Border x:Name="HalfFiszkaFrame" StrokeThickness="0">
+                    <controls:HalfFiszkaCard x:Name="halfFiszkaControl"/>
+                </Border>
+                <Border x:Name="FullFiszkaFrame" StrokeThickness="0">
+                    <controls:FiszkaCard x:Name="fullFiszkaControl"/>
+                </Border>
+            </VerticalStackLayout>
             
 
             <!--Przyciski do oceny-->
@@ -34,12 +38,6 @@
                     <Button Text="5" StyleClass="MainMenuButton" CommandParameter="5" Clicked="ScoreClicked"/>
                 </FlexLayout>
             </VerticalStackLayout>
-            
-
-            <Button Text="Poka fiszka"
-                    Clicked="ShowClicked"/>
-            <Button Text="Następna losowa"
-                    Clicked="NextClicked"/>
 
         </VerticalStackLayout>
         
