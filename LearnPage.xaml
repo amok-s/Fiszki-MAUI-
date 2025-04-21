@@ -8,36 +8,20 @@
 
     <ScrollView BackgroundColor="#171615">
 
-        <VerticalStackLayout>
-            <controls:FiszkaCard x:Name="cyc"/>
+        <VerticalStackLayout Spacing="10">
+            <Border x:Name="HalfFiszkaFrame">
+                <controls:HalfFiszkaCard x:Name="halfFiszkaControl"/>
+            </Border>
 
-            <Button Text="Poka pierwszą"
-                Clicked="Button_Clicked"/>
-
-            <CollectionView x:Name="collectionView" 
-                 ItemsLayout="VerticalGrid"
-                 SelectionMode="None" 
-                 EmptyView="Nie masz żadnych fiszek :c">
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-
-                        <VerticalStackLayout Padding="20">
-
-                            <controls:FiszkaCard x:Name="dupa"
-                                               FiszkaObject="{Binding}"/>
+            <Border x:Name="FullFiszkaFrame">
+                <controls:FiszkaCard x:Name="fullFiszkaControl"/>
+            </Border>
 
 
-
-
-                        </VerticalStackLayout>
-
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-
-
+            <Button Text="Poka fiszka"
+                    Clicked="ShowClicked"/>
+            <Button Text="Następna losowa"
+                    Clicked="NextClicked"/>
 
         </VerticalStackLayout>
     </ScrollView>

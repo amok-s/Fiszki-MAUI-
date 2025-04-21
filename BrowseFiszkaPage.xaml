@@ -1,112 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.BrowseFiszkaPage"
              Title="BrowseFiszkaPage">
     
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Label" Class="FiszkaLabel">
-                <Setter Property="FontSize" Value="Large"/>
-                <Setter Property="TextColor" Value="WhiteSmoke"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="CharacterSpacing" Value="1.2"/>
-            </Style>
-
-        </ResourceDictionary>
-
-    </ContentPage.Resources>
-
 
     <ScrollView BackgroundColor="#171615">
+        
         <VerticalStackLayout Padding="30,0"
-                         Spacing="25"
-                         MaximumWidthRequest="550">
+                             Spacing="25"
+                             MaximumWidthRequest="550"
+                             HorizontalOptions="Center">
 
-            <!--F I S Z K A-->
-            
-            <!--Obramowanie fiszki-->
-            <Border Stroke="WhiteSmoke"
-                StrokeThickness="2"
-                 StrokeShape="RoundRectangle 10,10,10,10"
-                 Background="WhiteSmoke">
+            <!--Fiszki-->
+            <CollectionView x:Name="collectionView" 
+                            ItemsLayout="VerticalGrid"
+                            SelectionMode="None" 
+                            EmptyView="Nie masz żadnych fiszek :c"> 
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate>
 
-                <VerticalStackLayout>
-                    <Border StrokeThickness="10"
-                StrokeShape="RoundRectangle 5,5,5,5"
-                BackgroundColor="#ebc034">
-
-                        <Border.Stroke>
-                            <LinearGradientBrush EndPoint="0,1.6">
-                                <GradientStop Color="#ebc034"
-                          Offset="0.3" />
-                                <GradientStop Color="#171615"
-                          Offset="0.9" />
-                            </LinearGradientBrush>
-                        </Border.Stroke>
-
-                        
-                        <!--Środek fiszki-->
-                        <VerticalStackLayout>
-                            <!--Górna belka-->
-                            <HorizontalStackLayout Padding="5"
-                                       FlowDirection="RightToLeft">
-                                
-                                <Button x:Name="FiszkaEditBtn"
-                                        Text="Edytuj"
-                                        TextColor="WhiteSmoke"
-                                        BackgroundColor="#333333"
-                                        BorderWidth="0"/>
-
-                            </HorizontalStackLayout>
-
-                            <!--Słówka-->
-                            <VerticalStackLayout Padding="10,10"
-                                                 BackgroundColor="#333333" >
-
-                                <HorizontalStackLayout FlowDirection="RightToLeft">
-
-                                    <Label x:Name="ScoreLabel"
-                                           Text="Score" />
-
-
-                                </HorizontalStackLayout>
-
-                                <VerticalStackLayout Spacing="35"
-                                                     Padding="25,55" >
-
-                                    <Label x:Name="NativePhraseLabel"
-                                       Text="NativePhrase" 
-                                       HorizontalOptions="Center"
-                                       StyleClass="FiszkaLabel"
-                                       TextColor="#96B639"/>
-
-                                    <Line X1="0"
-                                      Y1="20"
-                                      X2="300"
-                                      Y2="20"
-                                      StrokeLineCap="Round"
-                                      Stroke="#171615"
-                                      StrokeThickness="5" 
-                                      HorizontalOptions="Center"
-                                      StrokeDashArray="4,4"
-                                      StrokeDashOffset="1" />
-
-                                    <Label x:Name="TranslatedPhraseLabel"
-                                       Text="TranslatedPhrase" 
-                                       HorizontalOptions="Center"
-                                       StyleClass="FiszkaLabel"/>
-                                </VerticalStackLayout>
-
-                            </VerticalStackLayout>
-
+                        <VerticalStackLayout Padding="20">
+                            <controls:FiszkaCard x:Name="dupa" FiszkaObject="{Binding}"/>
                         </VerticalStackLayout>
 
-                    </Border>
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-                </VerticalStackLayout>
 
-            </Border>
             <!--Przyciski-->
             <FlexLayout Padding="25, 0"
                     JustifyContent="SpaceBetween">
@@ -114,14 +39,12 @@
                 <Button x:Name="PreviousBtn"
                     Text="Poprzednia"
                     StyleClass="MainMenuButton"
-                    FlexLayout.Basis="40%"
-                    Clicked="PreviousBtn_Clicked"/>
+                    FlexLayout.Basis="40%"/>
 
                 <Button x:Name="NextBtn"
                     Text="Następna"
                     StyleClass="MainMenuButton"
-                    FlexLayout.Basis="40%"
-                    Clicked="NextBtn_Clicked"/>
+                    FlexLayout.Basis="40%"/>
 
             </FlexLayout>
 

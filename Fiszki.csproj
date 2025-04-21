@@ -71,7 +71,7 @@
 	  <MauiXaml Update="BrowseFiszkaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentDemo.xaml">
+	  <MauiXaml Update="Controls\HalfFiszkaCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="LearnPage.xaml">
@@ -90,6 +90,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Controls\HalfFiszkaCard.xaml.cs">
+	    <DependentUpon>HalfFiszkaCard.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Controls\FiszkaCard.xaml.cs">
 	    <DependentUpon>FiszkaCard.xaml</DependentUpon>
 	  </Compile>
