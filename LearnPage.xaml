@@ -4,12 +4,41 @@
              xmlns:controls="clr-namespace:Fiszki"
              x:Class="Fiszki.LearnPage"
              Title="LearnPage">
-             
-    <VerticalStackLayout>
-        <controls:ViewDemo x:Name="cyc"/>
+
+
+    <ScrollView BackgroundColor="#171615">
+
+        <VerticalStackLayout>
+            <controls:ViewDemo x:Name="cyc"/>
+
+            <Button Text="Poka pierwszą"
+                Clicked="Button_Clicked"/>
+
+            <CollectionView x:Name="collectionView" 
+                 ItemsLayout="VerticalGrid"
+                 SelectionMode="None" 
+                 EmptyView="Nie masz żadnych fiszek :c">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <VerticalStackLayout Padding="20">
+
+                            <controls:ViewDemo x:Name="dupa"
+                                               FiszkaObject="{Binding}"/>
 
 
 
 
-    </VerticalStackLayout>
+                        </VerticalStackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

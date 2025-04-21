@@ -56,7 +56,7 @@
                             <HorizontalStackLayout FlowDirection="RightToLeft">
 
                                 <Label x:Name="ScoreLabel"
-                                       Text="{Binding FiszkaObject.memoScore}"
+                                       Text="{Binding FiszkaObject.memoScore, FallbackValue='0'}"
                                      />
 
 
@@ -66,7 +66,7 @@
                                               Padding="25,55" >
 
                                 <Label x:Name="NativePhraseLabel"
-                                    Text="{Binding FiszkaObject.nativePhrase}" 
+                                    Text="{Binding FiszkaObject.nativePhrase, FallbackValue='pusta fiszka'}" 
                                     HorizontalOptions="Center"
                                     StyleClass="FiszkaLabel"
                                     TextColor="#96B639"/>
@@ -83,7 +83,7 @@
                                    StrokeDashOffset="1" />
 
                                 <Label x:Name="TranslatedPhraseLabel"
-                                       Text="{Binding FiszkaObject.translatedPhrase}"
+                                       Text="{Binding FiszkaObject.translatedPhrase, FallbackValue='jest smutna :c'}"
                                     HorizontalOptions="Center"
                                     StyleClass="FiszkaLabel"/>
                             </VerticalStackLayout>

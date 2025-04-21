@@ -6,13 +6,19 @@ namespace Fiszki;
 
 public partial class LearnPage : ContentPage
 {
-	
-	
+
+
 	public LearnPage()
 	{
 		InitializeComponent();
 		var lol = Fiszka.fiszkaDeck[Fiszka.fiszkaDeck.Count() - 1];
 		cyc.FiszkaObject = lol;
-		
+		collectionView.ItemsSource = Fiszka.fiszkaDeck;
+	}
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+		cyc.FiszkaObject = null;
+
     }
 }
