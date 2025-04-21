@@ -55,5 +55,10 @@ namespace Fiszki
             //new ("sac à dos", "plecak")
 
         }
+
+        public void AddScore(double score)
+        {
+            allScores.Add(score);
+        }
     }
 }

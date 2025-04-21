@@ -1,18 +1,21 @@
 
 
 using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace Fiszki;
 
 public partial class LearnPage : ContentPage
 {
 	int previous_n;
-	Fiszka currentFiszka;
+	Fiszka? currentFiszka;
 	public LearnPage()
 	{
 		InitializeComponent();
 		halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
 		fullFiszkaControl.IsVisible = false;
+		ScoreButtons.IsVisible = false;
+		
 	}
 
 	private Fiszka ChooseRandomFiszka(IList<Fiszka> deck)
@@ -32,6 +35,8 @@ public partial class LearnPage : ContentPage
     {
 		fullFiszkaControl.IsVisible = false;
 		halfFiszkaControl.IsVisible = true;
+		ScoreButtons.IsVisible = false;
+
         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
 		halfFiszkaControl.ShowRandomPhrase();
 
@@ -42,7 +47,17 @@ public partial class LearnPage : ContentPage
 		fullFiszkaControl.FiszkaObject = currentFiszka;
 		fullFiszkaControl.IsVisible = true;
 		halfFiszkaControl.IsVisible = false;
+		ScoreButtons.IsVisible = true;
     }
+
+	private void ScoreClicked(object sender, EventArgs e)
+    {
+		var param = ((Button)sender).CommandParameter;
+		double score = Double.Parse((string)param);
+		currentFiszka.AddScore(score);
+		NextClicked(0, null);
+	}
+
 
 
 }

@@ -6,17 +6,35 @@
              Title="LearnPage">
 
 
-    <ScrollView BackgroundColor="#171615">
+    <ScrollView BackgroundColor="#171615" HorizontalOptions="Center">
+        
 
-        <VerticalStackLayout Spacing="10">
-            <Border x:Name="HalfFiszkaFrame">
+        
+        <VerticalStackLayout Spacing="10" WidthRequest="550">
+            
+            <!--Widok fiszki-->
+            <Border x:Name="HalfFiszkaFrame" StrokeThickness="0">
                 <controls:HalfFiszkaCard x:Name="halfFiszkaControl"/>
             </Border>
 
-            <Border x:Name="FullFiszkaFrame">
+            <Border x:Name="FullFiszkaFrame" StrokeThickness="0">
                 <controls:FiszkaCard x:Name="fullFiszkaControl"/>
             </Border>
+            
+            
 
+            <!--Przyciski do oceny-->
+            <VerticalStackLayout x:Name="ScoreButtons" HorizontalOptions="Center">
+                <Label Text="Jak oceniasz poziom zapamiętania?" FontAttributes="Italic" TextColor="#ebc034"/>
+                <FlexLayout HorizontalOptions="Center" JustifyContent="SpaceEvenly" Padding="10">
+                    <Button Text="1" StyleClass="MainMenuButton" CommandParameter="1" Clicked="ScoreClicked"/>
+                    <Button Text="2" StyleClass="MainMenuButton" CommandParameter="2" Clicked="ScoreClicked"/>
+                    <Button Text="3" StyleClass="MainMenuButton" CommandParameter="3" Clicked="ScoreClicked"/>
+                    <Button Text="4" StyleClass="MainMenuButton" CommandParameter="4" Clicked="ScoreClicked"/>
+                    <Button Text="5" StyleClass="MainMenuButton" CommandParameter="5" Clicked="ScoreClicked"/>
+                </FlexLayout>
+            </VerticalStackLayout>
+            
 
             <Button Text="Poka fiszka"
                     Clicked="ShowClicked"/>
@@ -24,5 +42,6 @@
                     Clicked="NextClicked"/>
 
         </VerticalStackLayout>
+        
     </ScrollView>
 </ContentPage>

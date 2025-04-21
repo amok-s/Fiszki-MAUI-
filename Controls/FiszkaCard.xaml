@@ -7,7 +7,7 @@
              x:Name="this">
 
 
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Padding="10">
 
         <!--F I S Z K A-->
 
