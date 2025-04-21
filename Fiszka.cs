@@ -60,5 +60,10 @@ namespace Fiszki
         {
             allScores.Add(score);
         }
+
+        public void RemoveFiszka()
+        {
+            Fiszka.fiszkaDeck.Remove(this);
+        }
     }
 }

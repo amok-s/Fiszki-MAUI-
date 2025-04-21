@@ -37,12 +37,15 @@
                     <VerticalStackLayout>
                         <!--Górna belka-->
                         <HorizontalStackLayout Padding="5" FlowDirection="RightToLeft">
-
+                            
+                            
+                            <!--Edytowanie fiszki-->
                             <Button x:Name="FiszkaEditBtn"
-                                 Text="Edytuj"
+                                 Text="Usuń"
                                  TextColor="WhiteSmoke"
                                  BackgroundColor="#333333"
-                                 BorderWidth="0" />
+                                 BorderWidth="0"
+                                    Clicked="FiszkaEditBtn_Clicked"/>
 
                         </HorizontalStackLayout>
 

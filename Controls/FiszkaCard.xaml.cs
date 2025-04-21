@@ -12,5 +12,13 @@ public partial class FiszkaCard : ContentView
 	public FiszkaCard()
 	{
 		InitializeComponent();
+
+		var command = new Command(() => FiszkaObject.RemoveFiszka());
+    }
+
+    private void FiszkaEditBtn_Clicked(object sender, EventArgs e)
+    {
+		
+		FiszkaObject.RemoveFiszka();
     }
 }
