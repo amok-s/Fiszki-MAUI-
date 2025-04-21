@@ -21,6 +21,7 @@
                 <Border x:Name="HalfFiszkaFrame" StrokeThickness="0">
                     <controls:HalfFiszkaCard x:Name="halfFiszkaControl"/>
                 </Border>
+                
                 <Border x:Name="FullFiszkaFrame" StrokeThickness="0">
                     <controls:FiszkaCard x:Name="fullFiszkaControl"/>
                 </Border>

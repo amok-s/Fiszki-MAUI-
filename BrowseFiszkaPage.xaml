@@ -16,14 +16,15 @@
             <!--Fiszki-->
             <CollectionView x:Name="collectionView" 
                             ItemsLayout="VerticalGrid"
-                            SelectionMode="None" 
-                            EmptyView="Nie masz żadnych fiszek :c"> 
+                            EmptyView="Nie masz żadnych fiszek :c"
+                            SelectionMode="None">
+                
                 <CollectionView.ItemTemplate>
                     
                     <DataTemplate>
 
                         <VerticalStackLayout Padding="20">
-                            <controls:FiszkaCard x:Name="dupa" FiszkaObject="{Binding}"/>
+                            <controls:FiszkaCard x:Name="collectionViewItem" FiszkaObject="{Binding}" />
                         </VerticalStackLayout>
 
                     </DataTemplate>

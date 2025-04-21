@@ -22,6 +22,7 @@ public partial class AddFiszkaPage : ContentPage
                 "Fiszka dodana!",
                 p.nativePhrase + "  /  " + p.translatedPhrase,
                 "Ok");
+            
 
         }
         catch (Exception ex) 
