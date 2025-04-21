@@ -80,13 +80,19 @@
 	  <MauiXaml Update="MyStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ViewDemo.xaml">
+	  <MauiXaml Update="Controls\FiszkaCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Controls\FiszkaCard.xaml.cs">
+	    <DependentUpon>FiszkaCard.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>
