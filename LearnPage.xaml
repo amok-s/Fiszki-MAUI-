@@ -40,6 +40,10 @@
                 </FlexLayout>
             </VerticalStackLayout>
 
+
+            <Label Text="Coś innego"/>
+ 
+            
         </VerticalStackLayout>
         
     </ScrollView>

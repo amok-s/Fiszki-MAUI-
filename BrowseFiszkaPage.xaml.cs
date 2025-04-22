@@ -11,6 +11,4 @@ public partial class BrowseFiszkaPage : ContentPage
 		InitializeComponent();
         collectionView.ItemsSource = Fiszka.fiszkaDeck;
     }
-
-
 }

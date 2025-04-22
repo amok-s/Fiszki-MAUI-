@@ -1,7 +1,16 @@
+using System.Collections.ObjectModel;
+
 namespace Fiszki.Controls;
 
 public partial class FiszkaCard : ContentView
 {
+	public static readonly BindableProperty FiszkaDeckProperty = BindableProperty.Create(nameof(FiszkaDeck), typeof(ObservableCollection<Fiszka>), typeof(FiszkaCard), null);
+
+	public ObservableCollection<Fiszka> FiszkaDeck
+	{ 
+		get => (ObservableCollection<Fiszka>)GetValue(FiszkaDeckProperty);
+		set => SetValue(FiszkaDeckProperty, value);
+	}
 
 	public static readonly BindableProperty FiszkaObjectProperty = BindableProperty.Create(nameof(FiszkaObject), typeof(Fiszka), typeof(FiszkaCard), null);
 	public Fiszka FiszkaObject
@@ -16,7 +25,7 @@ public partial class FiszkaCard : ContentView
 		var command = new Command(() => FiszkaObject.RemoveFiszka());
     }
 
-    private void FiszkaEditBtn_Clicked(object sender, EventArgs e)
+    private void RemoveClicked(object sender, EventArgs e)
     {
 		
 		FiszkaObject.RemoveFiszka();

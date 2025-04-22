@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace Fiszki
 {
     public class Fiszka
     {
-        public static List<Fiszka> fiszkaDeck = new List<Fiszka>();
+        public static ObservableCollection<Fiszka> fiszkaDeck = new ObservableCollection<Fiszka>();
+
         public string nativePhrase {  get; set; }
         public string translatedPhrase { get; set; }
 
@@ -66,4 +68,5 @@ namespace Fiszki
             Fiszka.fiszkaDeck.Remove(this);
         }
     }
+
 }

@@ -1,5 +1,6 @@
+﻿
 
-
+using System.Collections.ObjectModel;
 using System.Net.NetworkInformation;
 using System.Xml.Linq;
 
@@ -9,16 +10,18 @@ public partial class LearnPage : ContentPage
 {
 	int previous_n;
 	Fiszka? currentFiszka;
+	
 	public LearnPage()
 	{
 		InitializeComponent();
 		halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
 		fullFiszkaControl.IsVisible = false;
 		ScoreButtons.IsVisible = false;
+        Fiszka.fiszkaDeck.CollectionChanged += FiszkaDeck_CollectionChanged;
 		
 	}
 
-	private Fiszka ChooseRandomFiszka(IList<Fiszka> deck)
+    private Fiszka ChooseRandomFiszka(ObservableCollection<Fiszka> deck)
 	{
 		var r = new Random();
 		int n = r.Next(0, deck.Count() - 1);
@@ -27,11 +30,11 @@ public partial class LearnPage : ContentPage
 			n = r.Next(0, deck.Count() - 1);
         }
 		previous_n = n;
-		currentFiszka = deck[n];
+        currentFiszka = deck[n];
 		return deck[n];
 	}
 
-    private void NextClicked(object sender, EventArgs e)
+    private void Refresh(object sender, EventArgs e)
     {
 		fullFiszkaControl.IsVisible = false;
 		halfFiszkaControl.IsVisible = true;
@@ -55,11 +58,17 @@ public partial class LearnPage : ContentPage
 		var param = ((Button)sender).CommandParameter;
 		double score = Double.Parse((string)param);
 		currentFiszka.AddScore(score);
-		NextClicked(0, null);
+		Refresh(0, null);
 	}
 
-    private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
+    private async void FiszkaDeck_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
     {
-		NextClicked(sender, e);
+        await DisplayAlert(
+				"",
+				"Usunięto fiszkę!",
+				"ok");
+
+		Refresh(0, null);
     }
+
 }

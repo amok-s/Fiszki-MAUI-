@@ -41,11 +41,11 @@
                             
                             <!--Edytowanie fiszki-->
                             <Button x:Name="FiszkaEditBtn"
-                                 Text="Usuń"
-                                 TextColor="WhiteSmoke"
-                                 BackgroundColor="#333333"
-                                 BorderWidth="0"
-                                    Clicked="FiszkaEditBtn_Clicked"/>
+                                     Text="Usuń"
+                                     TextColor="WhiteSmoke"
+                                     BackgroundColor="#333333"
+                                     BorderWidth="0"
+                                     Clicked="RemoveClicked"/>
 
                         </HorizontalStackLayout>
 
