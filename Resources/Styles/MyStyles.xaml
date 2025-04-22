@@ -4,7 +4,17 @@
              x:Class="Fiszki.Resources.Styles.MyStyles">
 
     <Style TargetType="Button" Class="MainMenuButton">
-        <Setter Property="BackgroundColor" Value="#333333"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush>
+
+                    <RadialGradientBrush.GradientStops>
+                        <GradientStop Color="#333333" Offset="0.1"/>
+                        <GradientStop Color="#171417" Offset="1.1"/>
+                    </RadialGradientBrush.GradientStops>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
         <Setter Property="MaximumWidthRequest" Value="300"/>
         <Setter Property="BorderColor" Value="#ebc034"/>
         <Setter Property="BorderWidth" Value="5"/>
