@@ -12,10 +12,10 @@
         <!--F I S Z K A-->
 
         <!--Obramowanie fiszki-->
-        <Border Stroke="WhiteSmoke"
+        <Border Stroke="#475708"
                 StrokeThickness="2"
                 StrokeShape="RoundRectangle 10,10,10,10"
-                Background="WhiteSmoke"
+                Background="#475708"
                 MaximumWidthRequest="500"
                 >
 
@@ -28,7 +28,7 @@
                     <Border.Stroke>
                         <LinearGradientBrush EndPoint="0,1.6">
                             <GradientStop Color="#ebc034" Offset="0.3" />
-                            <GradientStop Color="#171615" Offset="0.9" />
+                            <GradientStop Color="#cfc517" Offset="0.5" />
                         </LinearGradientBrush>
                     </Border.Stroke>
 
@@ -52,7 +52,7 @@
                         <!--Słówka-->
                         <VerticalStackLayout Padding="10,10"
                                           BackgroundColor="#333333" >
-
+        
                             <HorizontalStackLayout FlowDirection="RightToLeft">
 
                                 <Label x:Name="ScoreLabel"
