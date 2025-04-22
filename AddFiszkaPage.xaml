@@ -6,76 +6,83 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="LabelStyle">
-                <Setter Property="BackgroundColor" Value="#cfc517"/>
-                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
                 <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Padding" Value="14,10"/>
-                <Setter Property="MinimumHeightRequest" Value="44"/>
-                <Setter Property="MinimumWidthRequest" Value="44"/>
-
-
+                <Setter Property="Padding" Value="0,6"/>
+                <Setter Property="TextColor" Value="#cfc517"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
             </Style>
-
-        
-            
-            
         </ResourceDictionary>
-        
     </ContentPage.Resources>
     
  
     <ScrollView>
-        <VerticalStackLayout
-        Padding="30,0"
-        Spacing="25"
-        MaximumWidthRequest="750"
-        
-            
-            >
-        
-        <Image
-            Source="dotnet_bot.png"
-            HeightRequest="185"
-            Aspect="AspectFit"
-            SemanticProperties.Description="dot net bot in a hovercraft number nine" />
 
-        <Label Text="Fiszka"
-               FontSize="Medium"
-               TextColor="BlanchedAlmond"
-               FontAttributes="Bold"
-               />
-        
-        <Entry x:Name="NativeTextEntry"
-               Text="wpisz treść fiszki"
-               TextColor="DimGrey"
-               FontAttributes="Italic"
-               />
-            <Border Stroke="#96B639"
-                     StrokeThickness="6"
-                     StrokeShape="RoundRectangle 5,5,5,5">
-                <VerticalStackLayout>
-                    <Label Text="Tłumaczenie"
-                           Style="{StaticResource LabelStyle}"/>
+        <VerticalStackLayout Padding="0,0"
+                             Spacing="25"
+                             MaximumWidthRequest="550">
+
+            <!--Fiszka border-->
+            <Border Stroke="#cfc517"
+                    StrokeThickness="2"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 5,5,5,5">
+                
+
+                <VerticalStackLayout Spacing="25">
+
+                    <!--New fiszka header-->
+                    <VerticalStackLayout>
+                        <Label Text=": nowa fiszka"
+                               FontSize="Medium"
+                               TextColor="#cfc517"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Czasowniki codzienne (przykładowa lista)"/>
+                        <Label Text="Szkoła i studia"/>
+
+                    </VerticalStackLayout>
 
 
-                    <Entry x:Name="TranslatedTextEntry"
-                           Placeholder="wpisz tekst"/>
+                    <!--Text entries-->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="słówko / fraza"
+                               Style="{StaticResource LabelStyle}"/>
 
+                        <Entry x:Name="NativeTextEntry"
+                               Placeholder="wpisz treść fiszki"
+                               ClearButtonVisibility="WhileEditing"
+                               Keyboard="Text"/>
+
+
+
+
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="tłumaczenie"
+                               Style ="{StaticResource LabelStyle}"/>
+                        <Entry x:Name="TranslatedTextEntry"
+                               Placeholder="wpisz tłumaczenie"
+                               ClearButtonVisibility="WhileEditing"/>
+
+                    </VerticalStackLayout>
 
                 </VerticalStackLayout>
-
             </Border>
-            
 
-        <Button
-            x:Name="addFiszkaBtn"
-            StyleClass="MainMenuButton"
-            Text="Dodaj Fiszkę" 
-            Clicked="OnAddFiszkaClicked"
-            SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
-            HorizontalOptions="Center"/>
-     </VerticalStackLayout>
-   </ScrollView>
+
+            <!--Add Button-->
+            <Button x:Name="addFiszkaBtn"
+                    StyleClass="MainMenuButton"
+                    Text="Dodaj Fiszkę" 
+                    Clicked="OnAddFiszkaClicked"
+                    SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                    HorizontalOptions="Center"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
 
 

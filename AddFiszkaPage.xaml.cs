@@ -7,12 +7,10 @@ public partial class AddFiszkaPage : ContentPage
 		InitializeComponent();
 	}
 
-    
     private void OnAddFiszkaClicked(object sender, EventArgs e)
     {
         string nativeString = NativeTextEntry.Text;
         string translatedString = TranslatedTextEntry.Text;
-
 
         try
         {
@@ -22,9 +20,8 @@ public partial class AddFiszkaPage : ContentPage
                 "Fiszka dodana!",
                 p.nativePhrase + "  /  " + p.translatedPhrase,
                 "Ok");
-            
-
         }
+
         catch (Exception ex) 
         {
             DisplayAlert(
@@ -33,10 +30,10 @@ public partial class AddFiszkaPage : ContentPage
                 "Ok");
             Console.WriteLine(ex.ToString());
         }
+    }
 
-       
-
-		
+    private void Label_Focused(object sender, FocusEventArgs e)
+    {
 
     }
 }
