@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fiszki.AddFiszkaPage">
+             x:Class="Fiszki.AddFiszkaPage"
+             xmlns:models="clr-namespace:Fiszki.Models">
    
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -26,22 +27,46 @@
             <Border Stroke="#cfc517"
                     StrokeThickness="2"
                     Padding="15"
-                    StrokeShape="RoundRectangle 5,5,5,5">
+                    StrokeShape="RoundRectangle 0,5,0,5">
                 
 
                 <VerticalStackLayout Spacing="25">
 
                     <!--New fiszka header-->
-                    <VerticalStackLayout>
-                        <Label Text=": nowa fiszka"
-                               FontSize="Medium"
-                               TextColor="#cfc517"
-                               FontAttributes="Bold"/>
+                    <VerticalStackLayout Spacing="10">
+                        <HorizontalStackLayout Spacing="10"> 
+                            <Label FontFamily="FontAwesome"
+                                   Text="{x:Static models:Icons.Clipboard}" 
+                                   FontSize="30"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                            <Label Text="NOWA FISZKA"
+                                   FontSize="Medium"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
 
-                        <Label Text="Czasowniki codzienne (przykładowa lista)"/>
-                        <Label Text="Szkoła i studia"/>
+                        <!--Lists-->
+                        <VerticalStackLayout Spacing="3" Margin="35, 0">
+                            <HorizontalStackLayout Spacing="7">
+                                <Label FontFamily="FontAwesome"
+                                       Text="{x:Static models:Icons.RectangleList}"
+                                       FontSize="20"
+                                       TextColor="LightGray"/>
+                                <Label Text="Czasowniki codzienne (przykładowa lista)" TextColor="LightGray"/>
+                            </HorizontalStackLayout>
+                        
+                            <HorizontalStackLayout Spacing="7">
+                                <Label FontFamily="FontAwesome"
+                                        Text="{x:Static models:Icons.RectangleList}"
+                                        FontSize="20"
+                                        TextColor="LightGrey"/>
+                                    <Label Text="Szkoła i studia" TextColor="LightGray"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
 
                     </VerticalStackLayout>
+                    <!--End of header-->
 
 
                     <!--Text entries-->
