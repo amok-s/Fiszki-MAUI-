@@ -15,86 +15,111 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
- 
-    <ScrollView>
+
+
+    <ScrollView BackgroundColor="#171615">
 
         <VerticalStackLayout Padding="0,0"
-                             Spacing="25"
-                             MaximumWidthRequest="550">
+                             Spacing="25">
 
-            <!--Fiszka border-->
-            <Border Stroke="#cfc517"
-                    StrokeThickness="2"
-                    Padding="15"
-                    StrokeShape="RoundRectangle 0,5,0,5">
+            <HorizontalStackLayout HorizontalOptions="Center">
                 
+                <!--Circles-->
+                <FlexLayout Margin="5,80" Direction="Column" JustifyContent="SpaceBetween">
+                    <Ellipse Stroke="#cfc517"
+                             StrokeThickness="2"
+                             WidthRequest="20"
+                             HeightRequest="20"/>
+                    <Ellipse Stroke="#cfc517"
+                             StrokeThickness="2"
+                             WidthRequest="20"
+                             HeightRequest="20"/>
+                </FlexLayout>
+                
+                <!--Fiszka border-->
+                <Border Stroke="#cfc517"
+                        StrokeThickness="2"
+                        Padding="15"
+                        StrokeShape="RoundRectangle 0,5,0,5"
+                        WidthRequest="550">   
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0">
+                            <GradientStop Color="#282628" Offset="0.95"/>
+                            <GradientStop Color="#cfc517" Offset="0.95"/>
+                        </LinearGradientBrush>
 
-                <VerticalStackLayout Spacing="25">
+                    </Border.Background>
 
-                    <!--New fiszka header-->
-                    <VerticalStackLayout Spacing="10">
-                        <HorizontalStackLayout Spacing="10"> 
-                            <Label FontFamily="FontAwesome"
-                                   Text="{x:Static models:Icons.Clipboard}" 
-                                   FontSize="30"
-                                   TextColor="White"
-                                   FontAttributes="Bold"/>
-                            <Label Text="NOWA FISZKA"
-                                   FontSize="Medium"
-                                   TextColor="White"
-                                   FontAttributes="Bold"/>
-                        </HorizontalStackLayout>
 
-                        <!--Lists-->
-                        <VerticalStackLayout Spacing="3" Margin="35, 0">
-                            <HorizontalStackLayout Spacing="7">
+                    <VerticalStackLayout Spacing="25" Margin="0,0,35,0 ">
+                        <!--New fiszka header-->
+                        <VerticalStackLayout Spacing="10">
+                            <HorizontalStackLayout Spacing="10">
                                 <Label FontFamily="FontAwesome"
-                                       Text="{x:Static models:Icons.RectangleList}"
-                                       FontSize="20"
-                                       TextColor="LightGray"/>
-                                <Label Text="Czasowniki codzienne (przykładowa lista)" TextColor="LightGray"/>
+                                       Text="{x:Static models:Icons.PenToSquare}" 
+                                       FontSize="30"
+                                       TextColor="White"
+                                       FontAttributes="Bold"/>
+                                <Label Text="NOWA FISZKA"
+                                       FontSize="Medium"
+                                       TextColor="White"
+                                       FontAttributes="Bold"/>
                             </HorizontalStackLayout>
-                        
-                            <HorizontalStackLayout Spacing="7">
-                                <Label FontFamily="FontAwesome"
-                                        Text="{x:Static models:Icons.RectangleList}"
-                                        FontSize="20"
-                                        TextColor="LightGrey"/>
+
+                            <!--Lists-->
+                            <VerticalStackLayout Spacing="3" Margin="35, 0">
+                                <HorizontalStackLayout Spacing="7">
+                                    <Label FontFamily="FontAwesome"
+                                           Text="{x:Static models:Icons.Copy}"
+                                           FontSize="20"
+                                           TextColor="LightGray"/>  
+                                    <Label Text="Czasowniki codzienne (przykładowa lista)" TextColor="LightGray"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="7">
+                                    <Label FontFamily="FontAwesome"
+                                            Text="{x:Static models:Icons.Copy}"
+                                            FontSize="20"
+                                            TextColor="LightGrey"/>
                                     <Label Text="Szkoła i studia" TextColor="LightGray"/>
-                            </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                        <!--End of header-->
+
+
+                        <!--Text entries-->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="słówko / fraza"
+                                   Style="{StaticResource LabelStyle}"/>
+
+                            <Entry x:Name="NativeTextEntry"
+                                   Placeholder="wpisz treść fiszki"
+                                   ClearButtonVisibility="WhileEditing"
+                                   Keyboard="Text"
+                                   />
+
+
+
+
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label Text="tłumaczenie"
+                                    Style ="{StaticResource LabelStyle}"/>
+                            <Entry x:Name="TranslatedTextEntry"
+                                   Placeholder="wpisz tłumaczenie"
+                                   ClearButtonVisibility="WhileEditing"/>
+
                         </VerticalStackLayout>
 
                     </VerticalStackLayout>
-                    <!--End of header-->
+                </Border>
+            </HorizontalStackLayout>
 
-
-                    <!--Text entries-->
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="słówko / fraza"
-                               Style="{StaticResource LabelStyle}"/>
-
-                        <Entry x:Name="NativeTextEntry"
-                               Placeholder="wpisz treść fiszki"
-                               ClearButtonVisibility="WhileEditing"
-                               Keyboard="Text"/>
-
-
-
-
-                    </VerticalStackLayout>
-
-                    <VerticalStackLayout>
-                        <Label Text="tłumaczenie"
-                               Style ="{StaticResource LabelStyle}"/>
-                        <Entry x:Name="TranslatedTextEntry"
-                               Placeholder="wpisz tłumaczenie"
-                               ClearButtonVisibility="WhileEditing"/>
-
-                    </VerticalStackLayout>
-
-                </VerticalStackLayout>
-            </Border>
+            
+            
 
 
             <!--Add Button-->

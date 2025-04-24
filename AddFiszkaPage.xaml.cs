@@ -2,38 +2,69 @@
 
 public partial class AddFiszkaPage : ContentPage
 {
+    string? nativeString;
+    string? translatedString;
+
 	public AddFiszkaPage()
 	{
 		InitializeComponent();
 	}
-
-    private void OnAddFiszkaClicked(object sender, EventArgs e)
+    
+    private static bool CheckStrings(string a, string b)
     {
-        string nativeString = NativeTextEntry.Text;
-        string translatedString = TranslatedTextEntry.Text;
-
-        try
+        if (String.IsNullOrWhiteSpace(a) || String.IsNullOrWhiteSpace(b))
         {
-            var p = new Fiszka(nativeString, translatedString);
-            Fiszka.fiszkaDeck.Add(p);
-            DisplayAlert(
-                "Fiszka dodana!",
-                p.nativePhrase + "  /  " + p.translatedPhrase,
+            return false;
+        }
+        else return true;
+
+    }
+    private async void OnAddFiszkaClicked(object sender, EventArgs e)
+    {
+        nativeString = NativeTextEntry.Text;
+        translatedString = TranslatedTextEntry.Text;
+
+        bool StringsNotEmpty = CheckStrings(nativeString, translatedString);
+
+        if (StringsNotEmpty)
+        {
+            try
+            {
+                var p = new Fiszka(nativeString, translatedString);
+                Fiszka.fiszkaDeck.Add(p);
+                await DisplayAlert(
+                    "Fiszka dodana!",
+                    p.nativePhrase + "  /  " + p.translatedPhrase,
+                    "Ok");
+                RefreshPage();
+            }
+
+            catch (Exception ex) 
+            {
+                await DisplayAlert(
+                    "Wystąpił błąd!",
+                    ex.Message,
+                    "Ok");
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        else
+        {
+            await DisplayAlert(
+                "",
+                "Fiszka nie może być pusta!",
                 "Ok");
         }
 
-        catch (Exception ex) 
-        {
-            DisplayAlert(
-                "Wystąpił błąd!",
-                ex.Message,
-                "Ok");
-            Console.WriteLine(ex.ToString());
-        }
     }
 
-    private void Label_Focused(object sender, FocusEventArgs e)
+    private void RefreshPage()
     {
+        NativeTextEntry.Text = null;
+        TranslatedTextEntry.Text = null;
+        NativeTextEntry.Focus();
+
+
 
     }
 }

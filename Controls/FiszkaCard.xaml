@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.Controls.FiszkaCard"
              x:DataType="local:FiszkaCard"
-             x:Name="this">
+             x:Name="this"
+             xmlns:models="clr-namespace:Fiszki.Models">
 
 
     <VerticalStackLayout Padding="10">
@@ -41,8 +42,10 @@
                             
                             <!--Edytowanie fiszki-->
                             <Button x:Name="FiszkaEditBtn"
-                                     Text="Usuń"
+                                    FontFamily="FontAwesome"
+                                     Text="{x:Static models:Icons.CircleXmark}"
                                      TextColor="WhiteSmoke"
+                                     FontSize="Medium"
                                      BackgroundColor="#333333"
                                      BorderWidth="0"
                                      Clicked="RemoveClicked"/>
