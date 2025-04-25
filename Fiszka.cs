@@ -30,14 +30,23 @@ namespace Fiszki
 
         private List<double> allScores = new List<double>();
 
+        public DateTime LastTimeLearn {  get; set; }
+
+
+
+        //-----Constructor--->
         public Fiszka(string nativePhrase, string translatedPhrase)
         {
             this.nativePhrase = nativePhrase;
             this.translatedPhrase = translatedPhrase;
-            allScores.Add(2.5);
+            allScores.Add(0);
+            LastTimeLearn = DateTime.Now;
 
         }
 
+
+
+        //--------Methods--->
         public static void GetExampleDeck()
         {
             Fiszka.fiszkaDeck.Add(new Fiszka("la maison", "dom"));
@@ -61,6 +70,11 @@ namespace Fiszki
         public void AddScore(double score)
         {
             allScores.Add(score);
+            LastTimeLearn = DateTime.Now;
+            if (allScores.Count > 15)
+            {
+                allScores.RemoveAt(0);
+            }
         }
 
         public void RemoveFiszka()

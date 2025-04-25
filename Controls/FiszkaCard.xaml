@@ -22,8 +22,8 @@
 
             <VerticalStackLayout>
                 <Border StrokeThickness="10"
-                 StrokeShape="RoundRectangle 5,5,5,5"
-                 BackgroundColor="#ebc034"
+                        StrokeShape="RoundRectangle 5,5,5,5"
+                        BackgroundColor="#ebc034"
                         BindingContext="{x:Reference this}">
 
                     <Border.Stroke>
@@ -46,24 +46,31 @@
                                      Text="{x:Static models:Icons.CircleXmark}"
                                      TextColor="WhiteSmoke"
                                      FontSize="Medium"
-                                     BackgroundColor="#333333"
+                                     BackgroundColor="Transparent"
                                      BorderWidth="0"
-                                     Clicked="RemoveClicked"/>
+                                     Clicked="RemoveClicked">
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="FiszkaEditBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="FiszkaEditBtn_PointerExited"/>
+                                </Button.GestureRecognizers>
+
+                            </Button>
 
                         </HorizontalStackLayout>
 
                         <!--Słówka-->
                         <VerticalStackLayout Padding="10,10"
-                                          BackgroundColor="#333333" >
+                                          BackgroundColor="#333333"   >
         
-                            <HorizontalStackLayout FlowDirection="RightToLeft">
+                            <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
 
                                 <Label x:Name="ScoreLabel"
-                                       Text="{Binding FiszkaObject.memoScore, FallbackValue='0'}"
-                                     />
+                                       Text="{Binding FiszkaObject.memoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}"/>
+
+                                <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}"/>
 
 
-                            </HorizontalStackLayout>
+                            </FlexLayout>
 
                             <VerticalStackLayout Spacing="35"
                                               Padding="25,55" >

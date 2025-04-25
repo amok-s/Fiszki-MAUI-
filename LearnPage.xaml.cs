@@ -10,17 +10,30 @@ public partial class LearnPage : ContentPage
 {
 	int previous_n;
 	Fiszka? currentFiszka;
+	ObservableCollection<Fiszka>? currentDeck;
 	
 	public LearnPage()
 	{
 		InitializeComponent();
-		halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
-		fullFiszkaControl.IsVisible = false;
-		ScoreButtons.IsVisible = false;
+
         Fiszka.fiszkaDeck.CollectionChanged += FiszkaDeck_CollectionChanged;
-		
+        fullFiszkaControl.IsVisible = false;
+        ScoreButtons.IsVisible = false;
+		currentDeck = Fiszka.fiszkaDeck;
+
+        if (CheckIfNotEmpty())
+		{
+         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
+        }
 	}
 
+
+	private bool CheckIfNotEmpty()
+	{
+		if (currentDeck.Count > 0) return true;
+		else return false;
+
+	}
     private Fiszka ChooseRandomFiszka(ObservableCollection<Fiszka> deck)
 	{
 		var r = new Random();

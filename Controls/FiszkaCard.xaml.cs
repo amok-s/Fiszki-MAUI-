@@ -4,6 +4,7 @@ namespace Fiszki.Controls;
 
 public partial class FiszkaCard : ContentView
 {
+	
 	public static readonly BindableProperty FiszkaDeckProperty = BindableProperty.Create(nameof(FiszkaDeck), typeof(ObservableCollection<Fiszka>), typeof(FiszkaCard), null);
 
 	public ObservableCollection<Fiszka> FiszkaDeck
@@ -29,5 +30,16 @@ public partial class FiszkaCard : ContentView
     {
 		
 		FiszkaObject.RemoveFiszka();
+    }
+
+
+    private void FiszkaEditBtn_PointerEntered(object sender, PointerEventArgs e)
+    {
+        FiszkaEditBtn.TextColor = Color.FromArgb("#96B639");
+    }
+
+    private void FiszkaEditBtn_PointerExited(object sender, PointerEventArgs e)
+    {
+        FiszkaEditBtn.TextColor = Color.FromArgb("#FFF5F5F5");
     }
 }

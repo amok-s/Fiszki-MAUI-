@@ -3,11 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fiszki.Resources.Styles.MyStyles">
 
+    
+    <!--Main Button-->
     <Style TargetType="Button" Class="MainMenuButton">
+        
+        <!--Visual States-->
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <Setter.Value>
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+
+                        <!--Normal-->
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                        Value="1"/>
+                                <Setter Property="Background"
+                                        Value="Transparent">
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <!--Pointer Over-->
+                        <VisualState Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                        Value="1.03"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.GradientStops>
+                                                <GradientStop Color="#333333" Offset="0.3"/>
+                                                <GradientStop Color="Transparent" Offset="1.1"/>
+                                            </RadialGradientBrush.GradientStops>
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter.Value>
+        </Setter>
+        
+        
         <Setter Property="Background">
             <Setter.Value>
                 <RadialGradientBrush>
-
                     <RadialGradientBrush.GradientStops>
                         <GradientStop Color="#333333" Offset="0.1"/>
                         <GradientStop Color="#171417" Offset="1.1"/>
@@ -15,15 +58,18 @@
                 </RadialGradientBrush>
             </Setter.Value>
         </Setter>
+        
         <Setter Property="MaximumWidthRequest" Value="300"/>
         <Setter Property="BorderColor" Value="#cfc517"/>
-        <Setter Property="BorderWidth" Value="5"/>
+        <Setter Property="BorderWidth" Value="3"/>
         <Setter Property="FontSize" Value="Subtitle"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
         <Setter Property="TextColor" Value="#cfc517"/>
     </Style>
 
+    
+    
     <Style TargetType="Label" Class="FiszkaLabel">
         <Setter Property="FontSize" Value="Large"/>
         <Setter Property="TextColor" Value="WhiteSmoke"/>
