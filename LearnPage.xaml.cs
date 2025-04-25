@@ -10,28 +10,28 @@ namespace Fiszki;
 public partial class LearnPage : ContentPage
 {
 	int previous_n;
+	FiszkaDeck? currentDeck;
 	Fiszka? currentFiszka;
-	ObservableCollection<Fiszka>? currentDeck;
 	
 	public LearnPage()
 	{
 		InitializeComponent();
 
-        Fiszka.fiszkaDeck.CollectionChanged += FiszkaDeck_CollectionChanged;
+		currentDeck = FiszkaDeck.AllDecks[0];
+		currentDeck.Deck.CollectionChanged += FiszkaDeck_CollectionChanged;
         fullFiszkaControl.IsVisible = false;
         ScoreButtons.IsVisible = false;
-		currentDeck = Fiszka.fiszkaDeck;
 
         if (CheckIfNotEmpty())
 		{
-         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
+         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(currentDeck.Deck);
         }
 	}
 
 
 	private bool CheckIfNotEmpty()
 	{
-		if (currentDeck.Count > 0) return true;
+		if (currentDeck.Deck.Count > 0) return true;
 		else return false;
 
 	}
@@ -54,7 +54,7 @@ public partial class LearnPage : ContentPage
 		halfFiszkaControl.IsVisible = true;
 		ScoreButtons.IsVisible = false;
 
-        halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(Fiszka.fiszkaDeck);
+        halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(currentDeck.Deck);
 		halfFiszkaControl.ShowRandomPhrase();
 
     }

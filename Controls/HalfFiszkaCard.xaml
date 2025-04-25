@@ -52,7 +52,7 @@
 
 
                                 <Label x:Name="NativePhraseLabel"
-                                    Text="{Binding FiszkaObject.nativePhrase, FallbackValue='brakuje fiszki :c'}" 
+                                    Text="{Binding FiszkaObject.NativePhrase, FallbackValue='brakuje fiszki :c'}" 
                                     HorizontalOptions="Center"
                                     StyleClass="FiszkaLabel"
                                     TextColor="#96B639"
@@ -61,7 +61,7 @@
                                        />
 
                                 <Label x:Name="TranslatedPhraseLabel"
-                                        Text="{Binding FiszkaObject.translatedPhrase, FallbackValue='brakuje fiszki :c'}" 
+                                        Text="{Binding FiszkaObject.TranslatedPhrase, FallbackValue='brakuje fiszki :c'}" 
                                         HorizontalOptions="Center"
                                         StyleClass="FiszkaLabel"
                                         TextColor="#96B639"

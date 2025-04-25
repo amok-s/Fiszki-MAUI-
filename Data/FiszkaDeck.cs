@@ -9,7 +9,7 @@ namespace Fiszki.Data
 {
     public class FiszkaDeck
     {
-        private static ObservableCollection<FiszkaDeck> AllDecks = new ObservableCollection<FiszkaDeck>();
+        public static ObservableCollection<FiszkaDeck> AllDecks = new ObservableCollection<FiszkaDeck>();
 
 
         //-----Properties--->
