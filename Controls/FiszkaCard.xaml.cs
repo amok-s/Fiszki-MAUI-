@@ -19,7 +19,7 @@ public partial class FiszkaCard : ContentView
 
     private void RemoveClicked(object sender, EventArgs e)
     {
-        var decknames = FiszkaObject.DecksIsIn;
+        var decknames = FiszkaObject.DecksIsIn.ToList();
         foreach (var deckname in decknames)
         {
             foreach (var deck in FiszkaDeck.AllDecks)

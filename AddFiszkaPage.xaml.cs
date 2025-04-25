@@ -4,13 +4,15 @@ namespace Fiszki;
 
 public partial class AddFiszkaPage : ContentPage
 {
+    FiszkaDeck? currentDeck;
     string? nativeString;
     string? translatedString;
 
-	public AddFiszkaPage()
-	{
-		InitializeComponent();
-	}
+    public AddFiszkaPage()
+    {
+        InitializeComponent();
+        currentDeck = FiszkaDeck.AllDecks[0];
+    }
     
     private static bool CheckStrings(string a, string b)
     {
@@ -33,10 +35,10 @@ public partial class AddFiszkaPage : ContentPage
             try
             {
                 var p = new Fiszka(nativeString, translatedString);
-                Fiszka.fiszkaDeck.Add(p);
+                currentDeck.AddFiszka(p);
                 await DisplayAlert(
                     "Fiszka dodana!",
-                    p.nativePhrase + "  /  " + p.translatedPhrase,
+                    p.NativePhrase + "  /  " + p.TranslatedPhrase,
                     "Ok");
                 RefreshPage();
             }
