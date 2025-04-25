@@ -66,6 +66,7 @@
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
         <Setter Property="TextColor" Value="#cfc517"/>
+        <Setter Property="CornerRadius" Value="5"/>
     </Style>
 
     

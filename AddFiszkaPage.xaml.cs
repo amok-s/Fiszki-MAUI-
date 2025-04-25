@@ -1,4 +1,6 @@
-﻿namespace Fiszki;
+﻿using Fiszki.Data;
+
+namespace Fiszki;
 
 public partial class AddFiszkaPage : ContentPage
 {

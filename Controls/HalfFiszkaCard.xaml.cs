@@ -1,3 +1,5 @@
+using Fiszki.Data;
+
 namespace Fiszki.Controls;
 
 public partial class HalfFiszkaCard : ContentView

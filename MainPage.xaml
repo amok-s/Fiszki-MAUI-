@@ -30,15 +30,18 @@
             <VerticalStackLayout x:Name="ButtonGroup"
                                  Padding="30,5"
                                  Spacing="20">
-            
-   
+
+          
                 <Button
+                    
                     x:Name="addFiszkaBtn"
                     StyleClass="MainMenuButton"
                     Text="Dodaj Fiszkę" 
                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
                     Clicked="OnAddFiszkaClicked"
                     HorizontalOptions="Fill" />
+              
+
 
                 <Button
                      x:Name="browseFiszkaBtn"

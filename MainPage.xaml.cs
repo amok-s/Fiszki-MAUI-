@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Fiszki.Data;
 
 namespace Fiszki
 {
@@ -9,7 +11,7 @@ namespace Fiszki
         public MainPage()
         {
             InitializeComponent();
-            Fiszka.GetExampleDeck();
+            GetExamples();
         }
 
 
@@ -44,6 +46,32 @@ namespace Fiszki
         {
             await Shell.Current.GoToAsync(nameof(LearnPage));
         }
+
+        public void GetExamples()
+        {
+            FiszkaDeck AnimalDeck = new FiszkaDeck("les animaux");
+
+            AnimalDeck.AddFiszka(new Fiszka("un chat", "kot"));
+            AnimalDeck.AddFiszka(new Fiszka("un chat", "kot"));
+            AnimalDeck.AddFiszka(new Fiszka("un chien", "pies"));
+            AnimalDeck.AddFiszka(new Fiszka("un lapin", "królik"));
+            AnimalDeck.AddFiszka(new Fiszka("une tortue", "żółw"));
+            AnimalDeck.AddFiszka(new Fiszka("un poisson", "ryba"));
+            AnimalDeck.AddFiszka(new Fiszka("une souris", "mysz"));
+            AnimalDeck.AddFiszka(new Fiszka("une vache", "krowa"));
+            AnimalDeck.AddFiszka(new Fiszka("un renard", "lis"));
+
+            FiszkaDeck Verbs = new FiszkaDeck("verbes utiles");
+
+            Verbs.AddFiszka(new Fiszka("être", "być"));
+            Verbs.AddFiszka(new Fiszka("avoir", "mieć"));
+            Verbs.AddFiszka(new Fiszka("faire", "robić"));
+            Verbs.AddFiszka(new Fiszka("dire", "mówić"));
+            Verbs.AddFiszka(new Fiszka("venir", "przychodzić, przyjeżdżać"));
+            Verbs.AddFiszka(new Fiszka("manger", "jeść"));
+
+        }
+
     }
 
 }
