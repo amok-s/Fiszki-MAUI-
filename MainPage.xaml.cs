@@ -39,12 +39,15 @@ namespace Fiszki
         private async void OnBrowseFiszkaClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(BrowseFiszkaPage));
-            
         }
-
         private async void OnLearnClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(LearnPage));
+        }
+
+        private async void OnTestClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(Test));
         }
 
         public void GetExamples()

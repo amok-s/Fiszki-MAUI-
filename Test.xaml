@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Fiszki.Controls"
+             x:Class="Fiszki.Test"
+             x:Name="Testa">
+    
+
+    <ScrollView BackgroundColor="#171615">
+        
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25"
+                             HorizontalOptions="Center">
+
+
+            <CollectionView x:Name="collectionView" 
+                       ItemsLayout="VerticalGrid"
+                       EmptyView="Nie masz żadnych fiszek :c"
+                       SelectionMode="Multiple">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <VerticalStackLayout Padding="20">
+                            <controls:DeckCard x:Name="collectionViewItem" DeckObject="{Binding}"/>
+                        </VerticalStackLayout>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            
+            <Picker Title="Wybierz talię">
+                <Picker.Items>
+                    <x:String>Baboon</x:String>
+                    <x:String>Capuchin Monkey</x:String>
+                    <x:String>Blue Monkey</x:String>
+                    <x:String>Squirrel Monkey</x:String>
+                    <x:String>Golden Lion Tamarin</x:String>
+                    <x:String>Howler Monkey</x:String>
+                    <x:String>Japanese Macaque</x:String>
+                </Picker.Items>
+            </Picker>
+
+
+
+
+            <!--Fiszki-->
+            <!--<CollectionView x:Name="collectionView" 
+                            ItemsLayout="VerticalGrid"
+                            EmptyView="Nie masz żadnych fiszek :c"
+                            SelectionMode="None">
+                
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate>
+
+                        <VerticalStackLayout Padding="20">
+                            <controls:FiszkaCard x:Name="collectionViewItem" FiszkaObject="{Binding}" />
+                        </VerticalStackLayout>
+
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+
+       
+            </CollectionView>-->
+
+
+            <!--Przyciski-->
+            <FlexLayout Padding="25, 0"
+                    JustifyContent="SpaceBetween">
+
+                <Button x:Name="PreviousBtn"
+                    Text="Poprzednia"
+                    StyleClass="MainMenuButton"
+                    FlexLayout.Basis="40%"/>
+
+                <Button x:Name="NextBtn"
+                    Text="Następna"
+                    StyleClass="MainMenuButton"
+                    FlexLayout.Basis="40%"/>
+
+            </FlexLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

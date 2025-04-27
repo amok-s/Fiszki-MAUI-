@@ -14,7 +14,7 @@
                 Source="dotnet_bot.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+                SemanticProperties.Description="dot net bot in a hovercraft number nine"/>
 
             <Label
                 Text="Fiszki"
@@ -58,6 +58,14 @@
                      SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
                      Clicked="OnLearnClicked"
                      HorizontalOptions="Fill" />
+
+                <Button
+                     x:Name="TestBtn"
+                     StyleClass="MainMenuButton"
+                     Text="Test" 
+                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     Clicked="OnTestClicked"
+                     HorizontalOptions="Fill" />        
 
             </VerticalStackLayout>
 

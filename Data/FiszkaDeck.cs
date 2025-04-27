@@ -11,6 +11,8 @@ namespace Fiszki.Data
     {
         public static ObservableCollection<FiszkaDeck> AllDecks = new ObservableCollection<FiszkaDeck>();
 
+        
+
 
         //-----Properties--->
         public string Name { get; set; }

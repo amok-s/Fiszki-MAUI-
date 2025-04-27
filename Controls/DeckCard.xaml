@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Fiszki.Controls"
+             x:Class="Fiszki.Controls.DeckCard"
+             x:DataType="local:DeckCard"
+             x:Name="this"
+             xmlns:models="clr-namespace:Fiszki.Models">
+
+    <VerticalStackLayout Padding="10" HorizontalOptions="Center">
+
+       
+
+            <!--Fiszka border-->
+        
+        <Border Stroke="#cfc517"
+            StrokeThickness="2"
+            Padding="15"
+            StrokeShape="RoundRectangle 5,5,5,5"
+            WidthRequest="550"
+            BindingContext="{x:Reference this}">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,0">
+
+                    <GradientStop Color="#cfc517" Offset="0.05"/>
+                    <GradientStop Color="#282628" Offset="0.05"/>
+                    <GradientStop Color="#282628" Offset="0.95"/>
+                    <GradientStop Color="#cfc517" Offset="0.95"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="5,10"/>
+            </Border.Shadow>
+          
+
+
+            <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
+                <!--New fiszka header-->
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label FontFamily="FontAwesome"
+                           Text="{x:Static models:Icons.Copy}" 
+                           FontSize="30"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                        <Label Text="{Binding DeckObject.Name}"
+                           FontSize="Medium"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                    <!--Lists-->
+                    <VerticalStackLayout Spacing="3" Margin="35, 0">
+                        <HorizontalStackLayout Spacing="7">
+                            <Label FontFamily="FontAwesome"
+                               Text="{x:Static models:Icons.PenToSquare}"
+                               FontSize="20"
+                               TextColor="LightGray"/>
+                            <Label Text="{Binding DeckObject.Deck.Count}" TextColor="LightGray"/>
+                            <Label Text="fiszek" TextColor="LightGray"/>
+                        </HorizontalStackLayout>
+
+       
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+                <!--End of header-->
+
+
+                <!--Text entries-->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="słówko / fraza"
+                       Style="{StaticResource LabelStyle}"/>
+
+                    <Entry x:Name="NativeTextEntry"
+                       Placeholder="wpisz treść fiszki"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Text"
+                       />
+
+
+
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="tłumaczenie"
+                        Style ="{StaticResource LabelStyle}"/>
+                    <Entry x:Name="TranslatedTextEntry"
+                       Placeholder="wpisz tłumaczenie"
+                       ClearButtonVisibility="WhileEditing"/>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+
+
+    </VerticalStackLayout>
+</ContentView>
