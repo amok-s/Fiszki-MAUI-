@@ -4,7 +4,27 @@
              xmlns:controls="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.Test"
              x:Name="Testa">
-    
+
+    <ContentPage.Resources>
+        <Style TargetType="VerticalStackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+
+
 
     <ScrollView BackgroundColor="#171615">
         
@@ -13,60 +33,28 @@
                              HorizontalOptions="Center">
 
 
-            <CollectionView x:Name="collectionView" 
+            <CollectionView x:Name="DeckCollectionView" 
                        ItemsLayout="VerticalGrid"
                        EmptyView="Nie masz żadnych fiszek :c"
-                       SelectionMode="Multiple">
+                       SelectionMode="Multiple"
+                            WidthRequest="600">
 
                 <CollectionView.ItemTemplate>
 
                     <DataTemplate>
 
                         <VerticalStackLayout Padding="20">
-                            <controls:DeckCard x:Name="collectionViewItem" DeckObject="{Binding}"/>
+
+                            <controls:DeckCard DeckObject="{Binding}"/>
+
+
                         </VerticalStackLayout>
-
                     </DataTemplate>
-
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+              </CollectionView>
+
 
             
-            <Picker Title="Wybierz talię">
-                <Picker.Items>
-                    <x:String>Baboon</x:String>
-                    <x:String>Capuchin Monkey</x:String>
-                    <x:String>Blue Monkey</x:String>
-                    <x:String>Squirrel Monkey</x:String>
-                    <x:String>Golden Lion Tamarin</x:String>
-                    <x:String>Howler Monkey</x:String>
-                    <x:String>Japanese Macaque</x:String>
-                </Picker.Items>
-            </Picker>
-
-
-
-
-            <!--Fiszki-->
-            <!--<CollectionView x:Name="collectionView" 
-                            ItemsLayout="VerticalGrid"
-                            EmptyView="Nie masz żadnych fiszek :c"
-                            SelectionMode="None">
-                
-                <CollectionView.ItemTemplate>
-                    
-                    <DataTemplate>
-
-                        <VerticalStackLayout Padding="20">
-                            <controls:FiszkaCard x:Name="collectionViewItem" FiszkaObject="{Binding}" />
-                        </VerticalStackLayout>
-
-                    </DataTemplate>
-                    
-                </CollectionView.ItemTemplate>
-
-       
-            </CollectionView>-->
 
 
             <!--Przyciski-->

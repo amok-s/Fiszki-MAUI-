@@ -72,7 +72,7 @@
     
     
     <Style TargetType="Label" Class="FiszkaLabel">
-        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="FontSize" Value="35"/>
         <Setter Property="TextColor" Value="WhiteSmoke"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="CharacterSpacing" Value="1.2"/>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Net.NetworkInformation;
 using Fiszki.Data;
 
 namespace Fiszki;
@@ -7,13 +8,18 @@ public partial class Test : ContentPage
 {
 	public FiszkaDeck? currentDeck;
     public static List<string>? cards;
-	public Test()
+
+
+    public Test()
 	{
-		InitializeComponent();
+        InitializeComponent();
+        DeckCollectionView.ItemsSource = FiszkaDeck.AllDecks;
         //currentDeck = FiszkaDeck.AllDecks[0];
         //      collectionView.ItemsSource = currentDeck.Deck;
         GetNames();
-        collectionView.ItemsSource = FiszkaDeck.AllDecks;
+        
+       
+      
     }
 
     public ObservableCollection<Fiszka> GetAllCheckedDecks()

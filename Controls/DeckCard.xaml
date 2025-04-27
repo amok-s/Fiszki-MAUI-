@@ -3,22 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.Controls.DeckCard"
-             x:DataType="local:DeckCard"
              x:Name="this"
              xmlns:models="clr-namespace:Fiszki.Models">
 
-    <VerticalStackLayout Padding="10" HorizontalOptions="Center">
 
        
-
             <!--Fiszka border-->
+    <VerticalStackLayout>
         
+   
         <Border Stroke="#cfc517"
-            StrokeThickness="2"
-            Padding="15"
-            StrokeShape="RoundRectangle 5,5,5,5"
-            WidthRequest="550"
-            BindingContext="{x:Reference this}">
+                StrokeThickness="2"
+                Padding="15"
+                StrokeShape="RoundRectangle 5,5,5,5"
+                WidthRequest="550"
+                BindingContext="{x:Reference this}">
             <Border.Background>
                 <LinearGradientBrush EndPoint="1,0">
 
@@ -32,7 +31,7 @@
             <Border.Shadow>
                 <Shadow Brush="Black" Offset="5,10"/>
             </Border.Shadow>
-          
+
 
 
             <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
@@ -61,7 +60,7 @@
                             <Label Text="fiszek" TextColor="LightGray"/>
                         </HorizontalStackLayout>
 
-       
+
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
@@ -69,7 +68,7 @@
 
 
                 <!--Text entries-->
-                <VerticalStackLayout Spacing="5">
+                <!--<VerticalStackLayout Spacing="5">
                     <Label Text="słówko / fraza"
                        Style="{StaticResource LabelStyle}"/>
 
@@ -82,20 +81,43 @@
 
 
 
-                </VerticalStackLayout>
+                </VerticalStackLayout>-->
 
-                <VerticalStackLayout>
+                <!--<VerticalStackLayout>
                     <Label Text="tłumaczenie"
                         Style ="{StaticResource LabelStyle}"/>
                     <Entry x:Name="TranslatedTextEntry"
                        Placeholder="wpisz tłumaczenie"
                        ClearButtonVisibility="WhileEditing"/>
 
-                </VerticalStackLayout>
+                </VerticalStackLayout>-->
 
             </VerticalStackLayout>
         </Border>
 
+    <CollectionView x:Name="DeckCollectionView" 
+            ItemsLayout="VerticalGrid"
+            EmptyView="Nie masz żadnych fiszek :c"
+            SelectionMode="Multiple"
+                 WidthRequest="600"
+                    BindingContext="{x:Reference this}"
+              ItemsSource="{Binding DeckObject.Deck}">
+
+        <CollectionView.ItemTemplate>
+
+            <DataTemplate>
+
+                <VerticalStackLayout Padding="20">
+
+                        <local:FiszkaCard FiszkaObject="{Binding}"/>
+
+
+
+                    </VerticalStackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
     </VerticalStackLayout>
+
 </ContentView>
