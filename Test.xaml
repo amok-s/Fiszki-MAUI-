@@ -34,9 +34,9 @@
 
 
             <CollectionView x:Name="DeckCollectionView" 
-                       ItemsLayout="VerticalGrid"
-                       EmptyView="Nie masz żadnych fiszek :c"
-                       SelectionMode="Multiple"
+                         ItemsLayout="VerticalGrid"
+                         EmptyView="Nie masz żadnych fiszek :c"
+                           SelectionMode="None"
                             WidthRequest="600">
 
                 <CollectionView.ItemTemplate>

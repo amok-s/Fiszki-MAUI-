@@ -20,6 +20,8 @@ namespace Fiszki.Data
 
         public bool IsChecked { get; set; } = false;
 
+        public bool ShowFiszkaInDeck { get; set; } = false;
+
         //-----Constructor--->
         public FiszkaDeck(string name)
         {

@@ -7,7 +7,7 @@
              xmlns:models="clr-namespace:Fiszki.Models">
 
 
-       
+   
             <!--Fiszka border-->
     <VerticalStackLayout>
         
@@ -18,9 +18,9 @@
                 StrokeShape="RoundRectangle 5,5,5,5"
                 WidthRequest="550"
                 BindingContext="{x:Reference this}">
+            
             <Border.Background>
                 <LinearGradientBrush EndPoint="1,0">
-
                     <GradientStop Color="#cfc517" Offset="0.05"/>
                     <GradientStop Color="#282628" Offset="0.05"/>
                     <GradientStop Color="#282628" Offset="0.95"/>
@@ -31,6 +31,7 @@
             <Border.Shadow>
                 <Shadow Brush="Black" Offset="5,10"/>
             </Border.Shadow>
+
 
 
 
@@ -64,59 +65,30 @@
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
-                <!--End of header-->
-
-
-                <!--Text entries-->
-                <!--<VerticalStackLayout Spacing="5">
-                    <Label Text="słówko / fraza"
-                       Style="{StaticResource LabelStyle}"/>
-
-                    <Entry x:Name="NativeTextEntry"
-                       Placeholder="wpisz treść fiszki"
-                       ClearButtonVisibility="WhileEditing"
-                       Keyboard="Text"
-                       />
-
-
-
-
-                </VerticalStackLayout>-->
-
-                <!--<VerticalStackLayout>
-                    <Label Text="tłumaczenie"
-                        Style ="{StaticResource LabelStyle}"/>
-                    <Entry x:Name="TranslatedTextEntry"
-                       Placeholder="wpisz tłumaczenie"
-                       ClearButtonVisibility="WhileEditing"/>
-
-                </VerticalStackLayout>-->
+           
 
             </VerticalStackLayout>
         </Border>
 
-    <CollectionView x:Name="DeckCollectionView" 
-            ItemsLayout="VerticalGrid"
-            EmptyView="Nie masz żadnych fiszek :c"
-            SelectionMode="Multiple"
-                 WidthRequest="600"
-                    BindingContext="{x:Reference this}"
-              ItemsSource="{Binding DeckObject.Deck}">
 
-        <CollectionView.ItemTemplate>
+        <CollectionView x:Name="DeckCollectionView" 
+                        ItemsLayout="VerticalGrid"
+                        EmptyView="Nie masz żadnych fiszek :c"
+                        SelectionMode="None"
+                        WidthRequest="600"
+                        BindingContext="{x:Reference this}"
+                        ItemsSource="{Binding DeckObject.Deck}">
 
-            <DataTemplate>
-
-                <VerticalStackLayout Padding="20">
-
+            <CollectionView.ItemTemplate>
+                
+                <DataTemplate>
+                    <VerticalStackLayout Padding="20">
                         <local:FiszkaCard FiszkaObject="{Binding}"/>
-
-
-
                     </VerticalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
 
