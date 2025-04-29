@@ -12,13 +12,9 @@ namespace Fiszki.Data
         public static ObservableCollection<FiszkaDeck> AllDecks = new ObservableCollection<FiszkaDeck>();
 
         
-
-
         //-----Properties--->
         public string Name { get; set; }
         public ObservableCollection<Fiszka> Deck { get; set; }
-
-        public bool IsChecked { get; set; } = false;
 
         public bool ShowFiszkaInDeck { get; set; } = false;
 

@@ -71,9 +71,6 @@ namespace Fiszki
             Verbs.AddFiszka(new Fiszka("dire", "mówić"));
             Verbs.AddFiszka(new Fiszka("venir", "przychodzić, przyjeżdżać"));
             Verbs.AddFiszka(new Fiszka("manger", "jeść"));
-
-            AnimalDeck.IsChecked = true;
-            Verbs.IsChecked = true;
         }
 
     }

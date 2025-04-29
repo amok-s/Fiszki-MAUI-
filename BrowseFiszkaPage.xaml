@@ -3,53 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.BrowseFiszkaPage"
-             Title="BrowseFiszkaPage">
-    
+             x:Name="Testa">
 
     <ScrollView BackgroundColor="#171615">
         
         <VerticalStackLayout Padding="30,0"
                              Spacing="25"
-                             MaximumWidthRequest="550"
                              HorizontalOptions="Center">
 
-            <!--Fiszki-->
-            <CollectionView x:Name="collectionView" 
-                            ItemsLayout="VerticalGrid"
-                            EmptyView="Nie masz żadnych fiszek :c"
-                            SelectionMode="None">
-                
-                <CollectionView.ItemTemplate>
-                    
+            <!--CollectionView-->
+            <VerticalStackLayout x:Name="DeckCollectionView"
+                                 WidthRequest="600"
+                                 Spacing="15">
+                <BindableLayout.ItemTemplate>
                     <DataTemplate>
-
-                        <VerticalStackLayout Padding="20">
-                            <controls:FiszkaCard x:Name="collectionViewItem" FiszkaObject="{Binding}" />
-                        </VerticalStackLayout>
-
+                        <controls:DeckCard DeckObject="{Binding}"/>
                     </DataTemplate>
-                    
-                </CollectionView.ItemTemplate>
+                </BindableLayout.ItemTemplate>
 
-       
-            </CollectionView>
-
-
-            <!--Przyciski-->
-            <FlexLayout Padding="25, 0"
-                    JustifyContent="SpaceBetween">
-
-                <Button x:Name="PreviousBtn"
-                    Text="Poprzednia"
-                    StyleClass="MainMenuButton"
-                    FlexLayout.Basis="40%"/>
-
-                <Button x:Name="NextBtn"
-                    Text="Następna"
-                    StyleClass="MainMenuButton"
-                    FlexLayout.Basis="40%"/>
-
-            </FlexLayout>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
