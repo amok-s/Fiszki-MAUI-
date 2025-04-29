@@ -1,4 +1,5 @@
 using Fiszki.Data;
+using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 
 namespace Fiszki.Controls;
 
@@ -17,4 +18,15 @@ public partial class DeckCard : ContentView
 		InitializeComponent();
 	}
 
+    private void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
+    {
+        if (!UnfoldDeck.IsVisible)
+        {
+            UnfoldDeck.IsVisible = true;
+        }
+        else if (UnfoldDeck.IsVisible)
+        {
+            UnfoldDeck.IsVisible = false;
+        }
+    }
 }

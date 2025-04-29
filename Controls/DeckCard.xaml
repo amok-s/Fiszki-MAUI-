@@ -32,6 +32,10 @@
                 <Shadow Brush="Black" Offset="5,10"/>
             </Border.Shadow>
 
+            <Border.GestureRecognizers>
+                <PointerGestureRecognizer PointerPressed="PointerGestureRecognizer_PointerPressed"/>
+            </Border.GestureRecognizers>
+
 
             <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
                 
@@ -67,9 +71,11 @@
             </VerticalStackLayout>
         </Border>
 
-        <VerticalStackLayout BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
+        <VerticalStackLayout x:Name="UnfoldDeck"
+                             BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
                              BindingContext="{x:Reference this}"
                              WidthRequest="600"
+                             IsVisible="False"
                              Spacing="20">
 
             <BindableLayout.ItemTemplate>
