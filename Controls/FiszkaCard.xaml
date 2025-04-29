@@ -10,7 +10,7 @@
 
     <VerticalStackLayout Padding="10">
         
-        <!--Fiszka-->
+             <!--Fiszka-->
             <HorizontalStackLayout x:Name="Fiszka"
                                    HorizontalOptions="Center"
                                    BindingContext="{x:Reference FiszkaContentView}">
@@ -18,23 +18,23 @@
                 <!--Circles-->
                 <FlexLayout Margin="5, 45" Direction="Column" JustifyContent="SpaceAround">
                     <Ellipse Stroke="#cfc517"
-                       StrokeThickness="2"
-                       WidthRequest="20"
-                       HeightRequest="20"/>
+                             StrokeThickness="2"
+                             WidthRequest="20"
+                             HeightRequest="20"/>
                     <Ellipse Stroke="#cfc517"
-                       StrokeThickness="2"
-                       WidthRequest="20"
-                       HeightRequest="20"/>
+                             StrokeThickness="2"
+                             WidthRequest="20"
+                             HeightRequest="20"/>
                 </FlexLayout>
 
                 <!--Fiszka border-->
                 <Border Stroke="#cfc517"
-                  StrokeThickness="2"
-                  StrokeShape="RoundRectangle 0,5,0,5"
-                  WidthRequest="500">
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 0,5,0,5"
+                        WidthRequest="500">
                     
                     <!--Background-->
-                    <Border.Background>
+                   <Border.Background>
                         <LinearGradientBrush EndPoint="1,0">
                             <GradientStop Color="#282628" Offset="0.95"/>
                             <GradientStop Color="#cfc517" Offset="0.95"/>
@@ -48,9 +48,9 @@
                         <FlexLayout Margin="7,0,16,0" JustifyContent="SpaceBetween">
                             
                             <VerticalStackLayout Padding="4">
-                            <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}" TextColor="Gray"/>
-                            <Label Text="{Binding FiszkaObject.MemoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}" TextColor="Gray"/>
-                        </VerticalStackLayout>
+                                <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}" TextColor="Gray"/>
+                                <Label Text="{Binding FiszkaObject.MemoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}" TextColor="Gray"/>
+                            </VerticalStackLayout>
                             
                             <Button HorizontalOptions="End"
                                     VerticalOptions="Start"
@@ -63,10 +63,11 @@
                                     BorderWidth="0"
                                     Clicked="RemoveClicked">
 
-                            <Button.GestureRecognizers>
-                                <PointerGestureRecognizer PointerEntered="FiszkaEditBtn_PointerEntered"/>
-                                <PointerGestureRecognizer PointerExited="FiszkaEditBtn_PointerExited"/>
-                            </Button.GestureRecognizers>
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="FiszkaEditBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="FiszkaEditBtn_PointerExited"/>
+                                </Button.GestureRecognizers>
+                                
                             </Button>
 
                         </FlexLayout>

@@ -8,10 +8,9 @@
 
 
    
-            <!--Fiszka border-->
+    <!--Deck border-->
     <VerticalStackLayout Spacing="30">
         
-   
         <Border Stroke="#cfc517"
                 StrokeThickness="2"
                 Padding="15"
@@ -33,33 +32,33 @@
             </Border.Shadow>
 
             <Border.GestureRecognizers>
-                <PointerGestureRecognizer PointerPressed="PointerGestureRecognizer_PointerPressed"/>
+                <PointerGestureRecognizer PointerPressed="PointerPressed"/>
             </Border.GestureRecognizers>
 
 
             <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
                 
-                <!--New fiszka header-->
+                <!--deck header-->
                 <VerticalStackLayout Spacing="10">
                     <HorizontalStackLayout Spacing="10">
                         <Label FontFamily="FontAwesome"
-                           Text="{x:Static models:Icons.Copy}" 
-                           FontSize="30"
-                           TextColor="White"
-                           FontAttributes="Bold"/>
+                               Text="{x:Static models:Icons.Copy}" 
+                               FontSize="30"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
                         <Label Text="{Binding DeckObject.Name}"
-                           FontSize="Medium"
-                           TextColor="White"
-                           FontAttributes="Bold"/>
+                               FontSize="Medium"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
                     </HorizontalStackLayout>
 
-                    <!--Lists-->
+                    <!--subheader, number of FiszkaCard in deck-->
                     <VerticalStackLayout Spacing="3" Margin="35, 0">
                         <HorizontalStackLayout Spacing="7">
                             <Label FontFamily="FontAwesome"
-                               Text="{x:Static models:Icons.PenToSquare}"
-                               FontSize="20"
-                               TextColor="LightGray"/>
+                                   Text="{x:Static models:Icons.PenToSquare}"
+                                   FontSize="20"
+                                   TextColor="LightGray"/>
                             <Label Text="{Binding DeckObject.Deck.Count}" TextColor="LightGray"/>
                             <Label Text="fiszek" TextColor="LightGray"/>
                         </HorizontalStackLayout>
@@ -70,7 +69,8 @@
            
             </VerticalStackLayout>
         </Border>
-
+         
+        <!--List of FiszkaCards in Deck-->
         <VerticalStackLayout x:Name="UnfoldDeck"
                              BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
                              BindingContext="{x:Reference this}"
@@ -80,37 +80,12 @@
 
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    
-                        <local:FiszkaCard FiszkaObject="{Binding}"/>
-                    
-
+                    <local:FiszkaCard FiszkaObject="{Binding}"/>
                 </DataTemplate>
-                
+
             </BindableLayout.ItemTemplate>
-            
-            
-            
+
         </VerticalStackLayout>
-
-
-        <!--<CollectionView x:Name="DeckCollectionView" 
-                        ItemsLayout="VerticalGrid"
-                        EmptyView="Nie masz żadnych fiszek :c"
-                        SelectionMode="None"
-                        WidthRequest="600"
-                        BindingContext="{x:Reference this}"
-                        ItemsSource="{Binding DeckObject.Deck}">
-
-            <CollectionView.ItemTemplate>
-                
-                <DataTemplate>
-                    <VerticalStackLayout Padding="20">
-                        <local:FiszkaCard FiszkaObject="{Binding}"/>
-                    </VerticalStackLayout>
-                </DataTemplate>
-
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
 
     </VerticalStackLayout>
 

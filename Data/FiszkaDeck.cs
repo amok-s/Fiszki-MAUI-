@@ -64,7 +64,7 @@ namespace Fiszki.Data
             AllDecks.Remove(selectedDeck);
         }
 
-        private void AddDeck(FiszkaDeck newDeck)
+        public void AddDeck(FiszkaDeck newDeck)
         {
             AllDecks.Add(newDeck);
         }
