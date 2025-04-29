@@ -5,27 +5,6 @@
              x:Class="Fiszki.Test"
              x:Name="Testa">
 
-    <ContentPage.Resources>
-        <Style TargetType="VerticalStackLayout">
-            <Setter Property="VisualStateManager.VisualStateGroups">
-                <VisualStateGroupList>
-                    <VisualStateGroup x:Name="CommonStates">
-                        <VisualState x:Name="Normal" />
-                        <VisualState x:Name="Selected">
-                            <VisualState.Setters>
-                                <Setter Property="BackgroundColor"
-                                        Value="Transparent" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateGroupList>
-            </Setter>
-        </Style>
-    </ContentPage.Resources>
-
-
-
-
     <ScrollView BackgroundColor="#171615">
         
         <VerticalStackLayout Padding="30,0"
@@ -33,7 +12,20 @@
                              HorizontalOptions="Center">
 
 
-            <CollectionView x:Name="DeckCollectionView" 
+            <VerticalStackLayout x:Name="DeckCollectionView"
+                                 WidthRequest="600"
+                                 Spacing="15">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+
+                        <controls:DeckCard DeckObject="{Binding}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                
+                
+            </VerticalStackLayout>
+            
+            <CollectionView x:Name="DeckCollectionView2" 
                          ItemsLayout="VerticalGrid"
                          EmptyView="Nie masz żadnych fiszek :c"
                            SelectionMode="None"
@@ -45,7 +37,7 @@
 
                         <VerticalStackLayout Padding="20">
 
-                            <controls:DeckCard DeckObject="{Binding}"/>
+                            
 
 
                         </VerticalStackLayout>
@@ -55,8 +47,6 @@
 
 
             
-
-
             <!--Przyciski-->
             <FlexLayout Padding="25, 0"
                     JustifyContent="SpaceBetween">

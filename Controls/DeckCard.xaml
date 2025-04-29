@@ -9,7 +9,7 @@
 
    
             <!--Fiszka border-->
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="30">
         
    
         <Border Stroke="#cfc517"
@@ -33,9 +33,8 @@
             </Border.Shadow>
 
 
-
-
             <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
+                
                 <!--New fiszka header-->
                 <VerticalStackLayout Spacing="10">
                     <HorizontalStackLayout Spacing="10">
@@ -60,18 +59,35 @@
                             <Label Text="{Binding DeckObject.Deck.Count}" TextColor="LightGray"/>
                             <Label Text="fiszek" TextColor="LightGray"/>
                         </HorizontalStackLayout>
-
-
                     </VerticalStackLayout>
 
+                    
                 </VerticalStackLayout>
            
-
             </VerticalStackLayout>
         </Border>
 
+        <VerticalStackLayout BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
+                             BindingContext="{x:Reference this}"
+                             WidthRequest="600"
+                             Spacing="20">
 
-        <CollectionView x:Name="DeckCollectionView" 
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    
+                        <local:FiszkaCard FiszkaObject="{Binding}"/>
+                    
+
+                </DataTemplate>
+                
+            </BindableLayout.ItemTemplate>
+            
+            
+            
+        </VerticalStackLayout>
+
+
+        <!--<CollectionView x:Name="DeckCollectionView" 
                         ItemsLayout="VerticalGrid"
                         EmptyView="Nie masz żadnych fiszek :c"
                         SelectionMode="None"
@@ -88,7 +104,7 @@
                 </DataTemplate>
 
             </CollectionView.ItemTemplate>
-        </CollectionView>
+        </CollectionView>-->
 
     </VerticalStackLayout>
 

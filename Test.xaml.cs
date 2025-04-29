@@ -13,9 +13,7 @@ public partial class Test : ContentPage
     public Test()
 	{
         InitializeComponent();
-        DeckCollectionView.ItemsSource = FiszkaDeck.AllDecks;
-        //currentDeck = FiszkaDeck.AllDecks[0];
-        //      collectionView.ItemsSource = currentDeck.Deck;
+        BindableLayout.SetItemsSource(DeckCollectionView, FiszkaDeck.AllDecks);
         GetNames();
         
        
