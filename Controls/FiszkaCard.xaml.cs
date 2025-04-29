@@ -17,8 +17,9 @@ public partial class FiszkaCard : ContentView
 		InitializeComponent();
     }
 
-    private void RemoveClicked(object sender, EventArgs e)
+    private async void RemoveClicked(object sender, EventArgs e)
     {
+        await RemoveAnimation();
         var decknames = FiszkaObject.DecksIsIn.ToList();
         foreach (var deckname in decknames)
         {
@@ -32,6 +33,11 @@ public partial class FiszkaCard : ContentView
         }
     }
 
+    private async Task RemoveAnimation()
+    {
+        Fiszka.FadeTo(0.2, 300);
+        await Fiszka.ScaleTo(0.8, 120);
+    }
 
     private void FiszkaEditBtn_PointerEntered(object sender, PointerEventArgs e)
     {

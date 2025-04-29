@@ -11,7 +11,8 @@
     <VerticalStackLayout Padding="10">
         
         <!--Fiszka-->
-            <HorizontalStackLayout HorizontalOptions="Center"
+            <HorizontalStackLayout x:Name="Fiszka"
+                                   HorizontalOptions="Center"
                                    BindingContext="{x:Reference FiszkaContentView}">
 
                 <!--Circles-->

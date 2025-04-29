@@ -55,7 +55,6 @@ namespace Fiszki
             FiszkaDeck AnimalDeck = new FiszkaDeck("les animaux");
 
             AnimalDeck.AddFiszka(new Fiszka("un chat", "kot"));
-            AnimalDeck.AddFiszka(new Fiszka("un chat", "kot"));
             AnimalDeck.AddFiszka(new Fiszka("un chien", "pies"));
             AnimalDeck.AddFiszka(new Fiszka("un lapin", "królik"));
             AnimalDeck.AddFiszka(new Fiszka("une tortue", "żółw"));
