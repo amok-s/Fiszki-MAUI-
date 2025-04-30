@@ -8,16 +8,20 @@
 
 
    
-    <!--Deck border-->
-    <VerticalStackLayout Spacing="30">
-        
+    
+    <VerticalStackLayout Spacing="20"
+                         x:Name="WholeView">
+
+        <!--Deck border-->
         <Border Stroke="#cfc517"
                 StrokeThickness="2"
                 Padding="15"
                 StrokeShape="RoundRectangle 5,5,5,5"
                 WidthRequest="550"
-                BindingContext="{x:Reference this}">
-            
+                BindingContext="{x:Reference this}"
+                x:Name="DeckBorder"
+                Margin="0,3">
+
             <Border.Background>
                 <LinearGradientBrush EndPoint="1,0">
                     <GradientStop Color="#cfc517" Offset="0.05"/>
@@ -32,12 +36,14 @@
             </Border.Shadow>
 
             <Border.GestureRecognizers>
-                <PointerGestureRecognizer PointerPressed="PointerPressed"/>
+                <PointerGestureRecognizer PointerEntered="DeckBorder_PointerEntered"/>
+                <PointerGestureRecognizer PointerExited="DeckBorder_PointerExited"/>
+                <PointerGestureRecognizer PointerPressed="DeckBorder_PointerPressed"/>
             </Border.GestureRecognizers>
 
 
             <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
-                
+
                 <!--deck header-->
                 <VerticalStackLayout Spacing="10">
                     <HorizontalStackLayout Spacing="10">
@@ -64,12 +70,11 @@
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 
-                    
+
                 </VerticalStackLayout>
-           
+
             </VerticalStackLayout>
         </Border>
-         
         <!--List of FiszkaCards in Deck-->
         <VerticalStackLayout x:Name="UnfoldDeck"
                              BindableLayout.ItemsSource="{Binding DeckObject.Deck}"

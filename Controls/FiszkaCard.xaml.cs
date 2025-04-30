@@ -35,6 +35,7 @@ public partial class FiszkaCard : ContentView
 
     private async Task RemoveAnimation()
     {
+        await Fiszka.ScaleTo(1.02, 80);
         Fiszka.FadeTo(0.2, 300);
         await Fiszka.ScaleTo(0.8, 120);
     }
