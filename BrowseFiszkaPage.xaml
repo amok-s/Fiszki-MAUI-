@@ -23,6 +23,9 @@
 
             </VerticalStackLayout>
 
+            <Label Text="Dupa"/>
+
+
         </VerticalStackLayout>
     </ScrollView>
 

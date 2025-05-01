@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Fiszki.Data;
 
 namespace Fiszki.Controls;
@@ -19,18 +19,28 @@ public partial class FiszkaCard : ContentView
 
     private async void RemoveClicked(object sender, EventArgs e)
     {
-        await RemoveAnimation();
-        var decknames = FiszkaObject.DecksIsIn.ToList();
-        foreach (var deckname in decknames)
+        bool answer = await App.Current?.Windows[0]?.Page?.DisplayAlert(
+            "Usunąć Fiszkę?",
+            "Czy na pewno chcesz usunąć daną fiszkę?",
+            "Tak",
+            "Nie");
+
+        if (answer)
         {
-            foreach (var deck in FiszkaDeck.AllDecks)
+            await RemoveAnimation();
+            var decknames = FiszkaObject.DecksIsIn.ToList();
+            foreach (var deckname in decknames)
             {
-                if (deck.Name == deckname)
+                foreach (var deck in FiszkaDeck.AllDecks)
                 {
-                    deck.RemoveFiszka(FiszkaObject);
+                    if (deck.Name == deckname)
+                    {
+                        deck.RemoveFiszka(FiszkaObject);
+                    }
                 }
             }
         }
+        
     }
 
     private async Task RemoveAnimation()

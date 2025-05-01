@@ -10,6 +10,7 @@
 
     <VerticalStackLayout Padding="10">
         
+        
              <!--Fiszka-->
             <HorizontalStackLayout x:Name="Fiszka"
                                    HorizontalOptions="Center"
