@@ -1,10 +1,8 @@
-using Fiszki.Pages;
-
 namespace Fiszki.Controls;
 
-public partial class AddDeck : ContentView
+public partial class AddFiszka : ContentView
 {
-	public AddDeck()
+	public AddFiszka()
 	{
 		InitializeComponent();
 	}
@@ -23,6 +21,6 @@ public partial class AddDeck : ContentView
 
     private async void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(AddDeckPage));
+        await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
     }
 }

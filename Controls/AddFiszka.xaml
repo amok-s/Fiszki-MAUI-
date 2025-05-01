@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Fiszki.Controls"
              xmlns:models="clr-namespace:Fiszki.Models"
-             x:Class="Fiszki.Controls.AddDeck"
-             x:Name="this">
-
+             x:Class="Fiszki.Controls.AddFiszka">
 
     <ContentView.Resources>
         <ResourceDictionary>
             <Shadow Brush="#cfc517"
-                    x:Key="ShadowOnHover"
-                    Offset="0,0"
-                    Opacity="1"/>
+                x:Key="ShadowOnHover"
+                Offset="0,0"
+                Opacity="1"/>
 
             <Shadow Brush="#DEDBAB"
-                    x:Key="ShadowNormal"
-                    Offset="0,0"
-                    Opacity="0.9"/>
+                x:Key="ShadowNormal"
+                Offset="0,0"
+                Opacity="0.9"/>
 
             <Style TargetType="Border" x:Key="BorderOnHover">
                 <Setter Property="Stroke" Value="#cfc517"/>
@@ -36,7 +33,7 @@
                 </Setter>
 
             </Style>
-            
+
 
             <Style TargetType="Border" x:Key="BorderNormal">
                 <Setter Property="Stroke" Value="#DEDBAB"/>
@@ -45,55 +42,60 @@
                 <Setter Property="Shadow" Value="{DynamicResource ShadowNormal}"/>
                 <Setter Property="Background" Value="Transparent"/>
             </Style>
-            
+
         </ResourceDictionary>
-        
+
     </ContentView.Resources>
 
-    
-    <VerticalStackLayout Padding="0,10,0,0">
-        <Border  StrokeThickness="2"
-                 Padding="15"
-                 StrokeShape="RoundRectangle 5,5,5,5"
-                 WidthRequest="550"
-                 BindingContext="{x:Reference this}"
-                 x:Name="DeckBorder"
-                 Margin="0,3"
-                 Style="{DynamicResource BorderNormal}">
+
+    <VerticalStackLayout Padding="10">
 
 
-            <Border.GestureRecognizers>
-                <PointerGestureRecognizer PointerEntered="PointerGestureRecognizer_PointerEntered"/>
-                <PointerGestureRecognizer PointerExited="PointerGestureRecognizer_PointerExited"/>
-                <PointerGestureRecognizer PointerPressed="PointerGestureRecognizer_PointerPressed"/>
-            </Border.GestureRecognizers>
+        <!--Fiszka-->
+        <HorizontalStackLayout x:Name="Fiszka"
+                               HorizontalOptions="Center"
+                               Margin="28,0,0,0" >
 
+      
+            <!--Fiszka border-->
+            <Border Stroke="#DEDBAB"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 0,5,0,5"
+                    WidthRequest="500"
+                    Style="{DynamicResource BorderNormal}"
+                    x:Name="DeckBorder">
 
-            <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
+                <Border.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="PointerGestureRecognizer_PointerEntered"/>
+                    <PointerGestureRecognizer PointerExited="PointerGestureRecognizer_PointerExited"/>
+                    <PointerGestureRecognizer PointerPressed="PointerGestureRecognizer_PointerPressed"/>
+                </Border.GestureRecognizers>
 
-                <!--deck header-->
-                <VerticalStackLayout Spacing="10"
-                                     MinimumHeightRequest="60"
-                                     VerticalOptions="Center">
-                    <HorizontalStackLayout Spacing="10"
-                                           VerticalOptions="Center">
+                <!--Inside of Fiszka-->
+                <VerticalStackLayout VerticalOptions="Center" Margin="35" MinimumHeightRequest="50">
+
+                    <HorizontalStackLayout Spacing="10">
                         <Label FontFamily="FontAwesome"
                                Text="{x:Static models:Icons.SquarePlus}" 
                                FontSize="30"
                                TextColor="#DEDBAB"
                                FontAttributes="Bold"/>
-                        <Label Text="Dodaj nową talię"
+                        <Label Text="Dodaj nową fiszkę"
                                TextColor="#DEDBAB"
                                FontSize="Medium"
                                FontAttributes="Bold"
                                TextTransform="Uppercase"/>
                     </HorizontalStackLayout>
 
-
                 </VerticalStackLayout>
 
-            </VerticalStackLayout>
-        </Border>
+            </Border>
+        </HorizontalStackLayout>
+
+
 
     </VerticalStackLayout>
+    
+    
+    
 </ContentView>
