@@ -4,29 +4,70 @@
              xmlns:local="clr-namespace:Fiszki.Controls"
              xmlns:models="clr-namespace:Fiszki.Models"
              x:Class="Fiszki.Controls.AddDeck"
-             x:Name="this"
-             >
+             x:Name="this">
 
-    <VerticalStackLayout Padding="0,10,0,0">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Shadow Brush="#cfc517"
+                    x:Key="ShadowOnHover"
+                    Offset="0,0"
+                    Opacity="1"/>
+
+            <Shadow Brush="#DEDBAB"
+                    x:Key="ShadowNormal"
+                    Offset="0,0"
+                    Opacity="0.9"/>
+
+
+            <Style TargetType="Border" x:Key="BorderOnHover">
+                <Setter Property="Stroke" Value="#cfc517"/>
+                <Setter Property="Opacity" Value="1"/>
+                <Setter Property="Shadow" Value="{DynamicResource ShadowOnHover}"/>
+                <Setter Property="Scale" Value="1.02"/>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <RadialGradientBrush>
+                            <RadialGradientBrush.GradientStops>
+                                <GradientStop Color="#cfc517" Offset="-1.6"/>
+                                <GradientStop Color="Transparent" Offset="1."/>
+                            </RadialGradientBrush.GradientStops>
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            
+
+            <Style TargetType="Border" x:Key="BorderNormal">
+                <Setter Property="Stroke" Value="#DEDBAB"/>
+                <Setter Property="Opacity" Value="0.75"/>
+                <Setter Property="Shadow.Brush"  Value="#DEDBAB"/>
+                <Setter Property="Shadow" Value="{DynamicResource ShadowNormal}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            
+        </ResourceDictionary>
         
+    </ContentView.Resources>
 
-        <Border Stroke="#cfc517"
-        StrokeThickness="2"
+    
+    
+    
+    <VerticalStackLayout Padding="0,10,0,0">
+        <Border  StrokeThickness="2"
         Padding="15"
         StrokeShape="RoundRectangle 5,5,5,5"
         WidthRequest="550"
         BindingContext="{x:Reference this}"
         x:Name="DeckBorder"
-        Opacity="0.75"
-        Margin="0,3">
+        Margin="0,3"
+        Style="{DynamicResource BorderNormal}">
 
 
-            <Border.Shadow>
-                <Shadow Brush="#cfc517" Offset="0,0" Opacity="0.8"/>
-            </Border.Shadow>
-            
             <Border.GestureRecognizers>
-                 
+                <PointerGestureRecognizer PointerEntered="PointerGestureRecognizer_PointerEntered"/>
+                <PointerGestureRecognizer PointerExited="PointerGestureRecognizer_PointerExited"/>
             </Border.GestureRecognizers>
 
 
@@ -41,10 +82,10 @@
                         <Label FontFamily="FontAwesome"
                                Text="{x:Static models:Icons.SquarePlus}" 
                                FontSize="30"
-                               TextColor="#cfc517"
+                               TextColor="#DEDBAB"
                                FontAttributes="Bold"/>
                         <Label Text="Dodaj nową talię"
-                               TextColor="#cfc517"
+                               TextColor="#DEDBAB"
                                FontSize="Medium"
                                FontAttributes="Bold"
                                TextTransform="Uppercase"/>
