@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Fiszki.Controls"
+             xmlns:models="clr-namespace:Fiszki.Models"
+             x:Class="Fiszki.Controls.AddDeck"
+             x:Name="this"
+             >
+
+    <VerticalStackLayout Padding="0,10,0,0">
+        
+
+        <Border Stroke="#cfc517"
+        StrokeThickness="2"
+        Padding="15"
+        StrokeShape="RoundRectangle 5,5,5,5"
+        WidthRequest="550"
+        BindingContext="{x:Reference this}"
+        x:Name="DeckBorder"
+        Opacity="0.75"
+        Margin="0,3">
+
+
+            <Border.Shadow>
+                <Shadow Brush="#cfc517" Offset="0,0" Opacity="0.8"/>
+            </Border.Shadow>
+            
+            <Border.GestureRecognizers>
+                 
+            </Border.GestureRecognizers>
+
+
+            <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
+
+                <!--deck header-->
+                <VerticalStackLayout Spacing="10"
+                                     MinimumHeightRequest="60"
+                                     VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="10"
+                                           VerticalOptions="Center">
+                        <Label FontFamily="FontAwesome"
+                               Text="{x:Static models:Icons.SquarePlus}" 
+                               FontSize="30"
+                               TextColor="#cfc517"
+                               FontAttributes="Bold"/>
+                        <Label Text="Dodaj nową talię"
+                               TextColor="#cfc517"
+                               FontSize="Medium"
+                               FontAttributes="Bold"
+                               TextTransform="Uppercase"/>
+                    </HorizontalStackLayout>
+
+
+
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+
+    </VerticalStackLayout>
+</ContentView>

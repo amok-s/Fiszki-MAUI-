@@ -68,6 +68,9 @@
 	  <MauiXaml Update="AddFiszkaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\AddDeck.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\DeckCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

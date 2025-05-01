@@ -26,11 +26,13 @@ public partial class DeckCard : ContentView
 
     private void DeckBorder_PointerEntered(object sender, PointerEventArgs e)
     {
+        DeckBorder.Scale = 1.02;
         DeckBorder.Stroke = Color.FromArgb("#FFF5F5F5");
     }
 
     private void DeckBorder_PointerExited(object sender, PointerEventArgs e)
     {
+        DeckBorder.Scale = 1.0;
         DeckBorder.Stroke = Color.FromArgb("#cfc517");
     }
 

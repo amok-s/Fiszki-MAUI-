@@ -6,10 +6,13 @@
              x:Name="Testa">
 
     <ScrollView BackgroundColor="#171615">
+
         
         <VerticalStackLayout Padding="30,0"
                              Spacing="25"
                              HorizontalOptions="Center">
+
+            <controls:AddDeck/>
 
             <!--CollectionView-->
             <VerticalStackLayout x:Name="DeckCollectionView"
@@ -23,7 +26,7 @@
 
             </VerticalStackLayout>
 
-            <Label Text="Dupa"/>
+            
 
 
         </VerticalStackLayout>
