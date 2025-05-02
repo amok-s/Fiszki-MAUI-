@@ -9,18 +9,23 @@ public partial class AddFiszka : ContentView
 
     private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
     {
-        var hasStyle = Resources.TryGetValue("BorderOnHover", out object style);
-        DeckBorder.Style = (Style)style;
+        ChangeBorderStyle("BorderOnHover");
     }
 
     private void PointerGestureRecognizer_PointerExited(object sender, PointerEventArgs e)
     {
-        var hasStyle = Resources.TryGetValue("BorderNormal", out object style);
-        DeckBorder.Style = (Style)style;
+        ChangeBorderStyle("BorderNormal");
     }
 
     private async void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
+        ChangeBorderStyle("BorderNormal");
         await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
+    }
+
+    private void ChangeBorderStyle(string styleName)
+    {
+        var hasStyle = Resources.TryGetValue(styleName, out object style);
+        DeckBorder.Style = (Style)style;
     }
 }

@@ -60,9 +60,9 @@ namespace Fiszki.Data
             AllDecks.Remove(selectedDeck);
         }
 
-        public void AddDeck(FiszkaDeck newDeck)
+        static public void AddDeck(string newDeck)
         {
-            AllDecks.Add(newDeck);
+            AllDecks.Add(new FiszkaDeck(newDeck));
         }
 
   

@@ -48,15 +48,11 @@
     </ContentView.Resources>
 
 
-    <VerticalStackLayout Padding="10">
+    <VerticalStackLayout Padding="10"
+                         x:Name="Fiszka"
+                         HorizontalOptions="Center"
+                         Margin="28,0,0,0">
 
-
-        <!--Fiszka-->
-        <HorizontalStackLayout x:Name="Fiszka"
-                               HorizontalOptions="Center"
-                               Margin="28,0,0,0" >
-
-      
             <!--Fiszka border-->
             <Border Stroke="#DEDBAB"
                     StrokeThickness="2"
@@ -74,7 +70,11 @@
                 <!--Inside of Fiszka-->
                 <VerticalStackLayout VerticalOptions="Center" Margin="35" MinimumHeightRequest="50">
 
-                    <HorizontalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="10"
+                     MinimumHeightRequest="60"
+                     VerticalOptions="Center">
+
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                         <Label FontFamily="FontAwesome"
                                Text="{x:Static models:Icons.SquarePlus}" 
                                FontSize="30"
@@ -86,11 +86,12 @@
                                FontAttributes="Bold"
                                TextTransform="Uppercase"/>
                     </HorizontalStackLayout>
-
                 </VerticalStackLayout>
 
+            </VerticalStackLayout>
+
             </Border>
-        </HorizontalStackLayout>
+        
 
 
 

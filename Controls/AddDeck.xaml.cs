@@ -1,3 +1,4 @@
+﻿using Fiszki.Data;
 using Fiszki.Pages;
 
 namespace Fiszki.Controls;
@@ -11,18 +12,40 @@ public partial class AddDeck : ContentView
 
     private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
     {
-        var hasStyle = Resources.TryGetValue("BorderOnHover", out object style);
-        DeckBorder.Style = (Style)style;
+        ChangeBorderStyle("BorderOnHover");
     }
 
     private void PointerGestureRecognizer_PointerExited(object sender, PointerEventArgs e)
     {
-        var hasStyle = Resources.TryGetValue("BorderNormal", out object style);
-        DeckBorder.Style = (Style)style;
+        ChangeBorderStyle("BorderNormal");
     }
 
     private async void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(AddDeckPage));
+        ChangeBorderStyle("BorderNormal");
+        DisplayNewDeckPrompt();
+        //await Shell.Current.GoToAsync(nameof(AddDeckPage));
+    }
+    private void ChangeBorderStyle(string styleName)
+    {
+        var hasStyle = Resources.TryGetValue(styleName, out object style);
+        DeckBorder.Style = (Style)style;
+    }
+
+    private async void DisplayNewDeckPrompt()
+    {
+        string result = await App.Current?.Windows[0]?.Page?.DisplayPromptAsync(
+            "Podaj nazwę talii",
+            "",
+            initialValue: "Nowa talia",
+            maxLength: 30,
+            cancel: "Anuluj",
+            accept: "Ok");
+
+        if (!String.IsNullOrWhiteSpace(result))
+        {
+            var newDeck = new FiszkaDeck(result);
+        }
+        
     }
 }

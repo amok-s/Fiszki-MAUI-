@@ -6,4 +6,10 @@ public partial class AddDeckPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void OnAddDeckClicked(object sender, EventArgs e)
+	{
+
+	}
+
 }
