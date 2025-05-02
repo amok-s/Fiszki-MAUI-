@@ -52,7 +52,8 @@ namespace Fiszki
 
         public void GetExamples()
         {
-            FiszkaDeck AnimalDeck = new FiszkaDeck("les animaux");
+            FiszkaDeck.AddDeck("les animaux");
+            FiszkaDeck AnimalDeck = FiszkaDeck.AllDecks[0];
 
             AnimalDeck.AddFiszka(new Fiszka("un chat", "kot"));
             AnimalDeck.AddFiszka(new Fiszka("un chien", "pies"));
@@ -63,7 +64,9 @@ namespace Fiszki
             AnimalDeck.AddFiszka(new Fiszka("une vache", "krowa"));
             AnimalDeck.AddFiszka(new Fiszka("un renard", "lis"));
 
-            FiszkaDeck Verbs = new FiszkaDeck("verbes utiles");
+
+            FiszkaDeck.AddDeck("verbes utiles");
+            FiszkaDeck Verbs = FiszkaDeck.AllDecks[0];
 
             Verbs.AddFiszka(new Fiszka("être", "być"));
             Verbs.AddFiszka(new Fiszka("avoir", "mieć"));

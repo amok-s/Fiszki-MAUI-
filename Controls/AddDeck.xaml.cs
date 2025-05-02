@@ -44,7 +44,7 @@ public partial class AddDeck : ContentView
 
         if (!String.IsNullOrWhiteSpace(result))
         {
-            var newDeck = new FiszkaDeck(result);
+            FiszkaDeck.AddDeck(result);
         }
         
     }

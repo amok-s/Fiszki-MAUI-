@@ -77,13 +77,15 @@
         </Border>
 
         
-        <!--List of FiszkaCards in Deck-->
+        
         <VerticalStackLayout x:Name="UnfoldDeck"
                              IsVisible="False"
                              Spacing="12">
 
 
             <local:AddFiszka/>
+
+            <!--List of FiszkaCards in Deck-->
             <VerticalStackLayout 
                              BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
                              BindingContext="{x:Reference this}"

@@ -28,7 +28,6 @@ namespace Fiszki.Data
                 Name = name;
             }
             Deck = new ObservableCollection<Fiszka>();
-            AllDecks.Add(this);
         }
     
         //----Methods--->
@@ -60,9 +59,10 @@ namespace Fiszki.Data
             AllDecks.Remove(selectedDeck);
         }
 
-        static public void AddDeck(string newDeck)
+        static public void AddDeck(string deckName)
         {
-            AllDecks.Add(new FiszkaDeck(newDeck));
+            var x = new FiszkaDeck(deckName);
+            AllDecks.Insert(0, x);
         }
 
   
