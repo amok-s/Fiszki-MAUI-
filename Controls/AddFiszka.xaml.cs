@@ -2,7 +2,8 @@ namespace Fiszki.Controls;
 
 public partial class AddFiszka : ContentView
 {
-	public AddFiszka()
+
+    public AddFiszka()
 	{
 		InitializeComponent();
 	}

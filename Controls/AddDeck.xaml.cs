@@ -5,7 +5,8 @@ namespace Fiszki.Controls;
 
 public partial class AddDeck : ContentView
 {
-	public AddDeck()
+
+    public AddDeck()
 	{
 		InitializeComponent();
 	}
@@ -20,7 +21,7 @@ public partial class AddDeck : ContentView
         ChangeBorderStyle("BorderNormal");
     }
 
-    private async void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
+    private void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
         ChangeBorderStyle("BorderNormal");
         DisplayNewDeckPrompt();

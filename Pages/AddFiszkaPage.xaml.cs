@@ -71,4 +71,9 @@ public partial class AddFiszkaPage : ContentPage
 
 
     }
+
+    public void SetCurrentDeck(FiszkaDeck deck)
+    {
+        currentDeck = deck;
+    }
 }
