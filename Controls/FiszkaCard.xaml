@@ -32,7 +32,8 @@
                 <Border Stroke="#cfc517"
                         StrokeThickness="2"
                         StrokeShape="RoundRectangle 0,5,0,5"
-                        WidthRequest="500">
+                        WidthRequest="500"
+                        x:Name="FiszkaBorder">
                     
                     <!--Background-->
                    <Border.Background>
@@ -41,6 +42,13 @@
                             <GradientStop Color="#cfc517" Offset="0.95"/>
                         </LinearGradientBrush>
                   </Border.Background>
+
+                <Border.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="FiszkaCard_PointerEntered"/>
+                    <PointerGestureRecognizer PointerExited="FiszkaCard_PointerExited"/>
+
+                </Border.GestureRecognizers>
+                    
 
                     <!--Inside of Fiszka-->
                     <VerticalStackLayout Spacing="10" Padding="0,0,0,20">
@@ -52,27 +60,55 @@
                                 <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}" TextColor="Gray"/>
                                 <Label Text="{Binding FiszkaObject.MemoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}" TextColor="Gray"/>
                             </VerticalStackLayout>
+
                             
+                        <!--Menu overlay (buttons)-->
+                        <HorizontalStackLayout Spacing="5" x:Name="MenuOverlayLayout" Opacity="0" IsVisible="False">
+                            
+                            <!--Edit Button-->
+                            <Button HorizontalOptions="End"
+                                     VerticalOptions="Start"
+                                     x:Name="FiszkaEditBtn"
+                                     FontFamily="FontAwesome"
+                                     Text="{x:Static models:Icons.PenToSquare}"
+                                     TextColor="White"
+                                     Opacity="0.5"
+                                     FontSize="Medium"
+                                     BackgroundColor="Transparent"
+                                     BorderWidth="0"
+                                     Clicked="RemoveClicked">
+
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="FiszkaBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="FiszkaBtn_PointerExited"/>
+                                </Button.GestureRecognizers>
+
+                            </Button>
+                            <!--Remove Button-->
                             <Button HorizontalOptions="End"
                                     VerticalOptions="Start"
-                                    x:Name="FiszkaEditBtn"
+                                    x:Name="FiszkaRemoveBtn"
                                     FontFamily="FontAwesome"
-                                    Text="{x:Static models:Icons.CircleXmark}"
-                                    TextColor="WhiteSmoke"
+                                    Text="{x:Static models:Icons.TrashCan}"
+                                    TextColor="White"
+                                    Opacity="0.5"
                                     FontSize="Medium"
                                     BackgroundColor="Transparent"
                                     BorderWidth="0"
                                     Clicked="RemoveClicked">
 
                                 <Button.GestureRecognizers>
-                                    <PointerGestureRecognizer PointerEntered="FiszkaEditBtn_PointerEntered"/>
-                                    <PointerGestureRecognizer PointerExited="FiszkaEditBtn_PointerExited"/>
+                                    <PointerGestureRecognizer PointerEntered="FiszkaBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="FiszkaBtn_PointerExited"/>
                                 </Button.GestureRecognizers>
-                                
-                            </Button>
 
+                            </Button>
+                           
+                        </HorizontalStackLayout>
+                
                         </FlexLayout>
 
+                        
                         <!--Słówka-->
                         <VerticalStackLayout Spacing="10" Padding="10" Margin="0, 0, 10, 0">
 

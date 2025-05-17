@@ -43,6 +43,8 @@ public partial class FiszkaCard : ContentView
         
     }
 
+
+
     private async Task RemoveAnimation()
     {
         await Fiszka.ScaleTo(1.02, 80);
@@ -50,13 +52,31 @@ public partial class FiszkaCard : ContentView
         await Fiszka.ScaleTo(0.8, 120);
     }
 
-    private void FiszkaEditBtn_PointerEntered(object sender, PointerEventArgs e)
+    private void FiszkaBtn_PointerEntered(object sender, PointerEventArgs e)
     {
-        FiszkaEditBtn.TextColor = Color.FromArgb("#96B639");
+        Button button = sender as Button;
+        button.FadeTo(1, 250);
     }
 
-    private void FiszkaEditBtn_PointerExited(object sender, PointerEventArgs e)
+    private void FiszkaBtn_PointerExited(object sender, PointerEventArgs e)
     {
-        FiszkaEditBtn.TextColor = Color.FromArgb("#FFF5F5F5");
+        Button button = sender as Button;
+        button.FadeTo(0.5, 250);
     }
+
+    private void FiszkaCard_PointerEntered(object sender, PointerEventArgs e)
+    {
+        MenuOverlayLayout.IsVisible = true;
+        MenuOverlayLayout.FadeTo(1, 350);
+        FiszkaBorder.Stroke = Color.Parse("White");
+    }
+
+    private async void FiszkaCard_PointerExited(object sender, PointerEventArgs e)
+    {
+        FiszkaBorder.Stroke = Color.FromArgb("#cfc517");
+        await MenuOverlayLayout.FadeTo(0, 300);
+        MenuOverlayLayout.IsVisible = false;
+    }
+
+
 }
