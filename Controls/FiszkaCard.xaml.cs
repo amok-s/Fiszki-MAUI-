@@ -50,24 +50,7 @@ public partial class FiszkaCard : ContentView
     }
     private async void EditClicked(object sender, EventArgs e)
     {
-        // var firstDeckName = FiszkaObject.DecksIsIn[0];
-        // FiszkaDeck firstDeck = null;
-
-        //foreach (FiszkaDeck deck in FiszkaDeck.AllDecks)
-        // {
-        //     if (deck.Name == firstDeckName)
-        //     {
-        //         firstDeck = deck;
-        //     }
-        // }
-
-        //if (firstDeck != null)
-        // {
-        //     await Navigation.PushAsync(new AddFiszkaPage(firstDeck));
-        // }
-
         await Navigation.PushAsync(new AddFiszkaPage(null, FiszkaObject));
-
     }
 
 
@@ -91,7 +74,7 @@ public partial class FiszkaCard : ContentView
         button.FadeTo(0.5, 250);
     }
 
-    private void FiszkaCard_PointerEntered(object sender, PointerEventArgs e)
+    private async void FiszkaCard_PointerEntered(object sender, PointerEventArgs e)
     {
         MenuOverlayLayout.IsVisible = true;
         MenuOverlayLayout.FadeTo(1, 350);
@@ -101,7 +84,7 @@ public partial class FiszkaCard : ContentView
     private async void FiszkaCard_PointerExited(object sender, PointerEventArgs e)
     {
         FiszkaBorder.Stroke = Color.FromArgb("#cfc517");
-        await MenuOverlayLayout.FadeTo(0, 300);
+        MenuOverlayLayout.FadeTo(0, 300);
         MenuOverlayLayout.IsVisible = false;
     }
 

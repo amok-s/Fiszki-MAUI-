@@ -41,6 +41,7 @@ public partial class AddFiszkaPage : ContentPage
             NativeTextEntry.Text = editingFiszka.NativePhrase;
             TranslatedTextEntry.Text = editingFiszka.TranslatedPhrase;
             editFiszka = editingFiszka;
+            addFiszkaBtn.Text = "Akceptuj";
         }
 
 

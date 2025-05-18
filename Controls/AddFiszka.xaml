@@ -80,7 +80,7 @@
                                FontSize="30"
                                TextColor="#DEDBAB"
                                FontAttributes="Bold"/>
-                        <Label Text="Dodaj nową fiszkę"
+                        <Label Text="Dodaj nowe fiszki"
                                TextColor="#DEDBAB"
                                FontSize="Medium"
                                FontAttributes="Bold"
