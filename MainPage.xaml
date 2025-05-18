@@ -32,14 +32,14 @@
                                  Spacing="20">
 
           
-                <Button
+                <!--<Button
                     
                     x:Name="addFiszkaBtn"
                     StyleClass="MainMenuButton"
                     Text="Dodaj Fiszkę" 
                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
                     Clicked="OnAddFiszkaClicked"
-                    HorizontalOptions="Fill" />
+                    HorizontalOptions="Fill" />-->
               
 
 
