@@ -43,6 +43,11 @@ public partial class FiszkaCard : ContentView
         
     }
 
+    private async void EditClicked(object sender, EventArgs e)
+    {
+
+    }
+
 
 
     private async Task RemoveAnimation()

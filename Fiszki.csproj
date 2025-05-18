@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\EditFiszkaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AddFiszkaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -112,6 +115,9 @@
 	  </Compile>
 	  <Compile Update="Controls\FiszkaCard.xaml.cs">
 	    <DependentUpon>FiszkaCard.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\EditFiszkaPage.xaml.cs">
+	    <DependentUpon>EditFiszkaPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

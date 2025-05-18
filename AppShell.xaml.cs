@@ -12,6 +12,7 @@ namespace Fiszki
             Routing.RegisterRoute(nameof(LearnPage), typeof(LearnPage));
             Routing.RegisterRoute(nameof(Test), typeof(Test));
             Routing.RegisterRoute(nameof(AddDeckPage), typeof(AddDeckPage));
+            Routing.RegisterRoute(nameof(EditFiszkaPage), typeof(EditFiszkaPage));
         }
     }
 }

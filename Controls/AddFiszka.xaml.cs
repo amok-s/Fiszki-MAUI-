@@ -3,10 +3,20 @@ namespace Fiszki.Controls;
 public partial class AddFiszka : ContentView
 {
 
+    public static readonly BindableProperty DeckObjectProperty = BindableProperty.Create(nameof(DeckObject), typeof(Data.FiszkaDeck), typeof(DeckCard), null);
+    public Data.FiszkaDeck DeckObject
+    {
+        get => (Data.FiszkaDeck)GetValue(DeckObjectProperty);
+        set => SetValue(DeckObjectProperty, value);
+    }
+
+
     public AddFiszka()
 	{
 		InitializeComponent();
 	}
+
+
 
     private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
     {
@@ -21,7 +31,7 @@ public partial class AddFiszka : ContentView
     private async void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
         ChangeBorderStyle("BorderNormal");
-        await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
+        await Navigation.PushAsync(new AddFiszkaPage(DeckObject));
     }
 
     private void ChangeBorderStyle(string styleName)

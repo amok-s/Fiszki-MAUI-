@@ -80,10 +80,11 @@
         
         <VerticalStackLayout x:Name="UnfoldDeck"
                              IsVisible="False"
-                             Spacing="12">
+                             Spacing="12"
+                             BindingContext="{x:Reference this}">
 
 
-            <local:AddFiszka/>
+            <local:AddFiszka DeckObject="{Binding DeckObject}"/>
 
             <!--List of FiszkaCards in Deck-->
             <VerticalStackLayout 

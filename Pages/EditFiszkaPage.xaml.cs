@@ -2,17 +2,16 @@
 
 namespace Fiszki;
 
-public partial class AddFiszkaPage : ContentPage
+public partial class EditFiszkaPage : ContentPage
 {
     FiszkaDeck? currentDeck;
     string? nativeString;
     string? translatedString;
 
-    public AddFiszkaPage(FiszkaDeck deck)
+    public EditFiszkaPage()
     {
         InitializeComponent();
-        currentDeck = deck;
-        DeckNameLabel.Text = deck.Name;
+        currentDeck = FiszkaDeck.AllDecks[0];
     }
     
     private static bool CheckStrings(string a, string b)
@@ -73,4 +72,8 @@ public partial class AddFiszkaPage : ContentPage
 
     }
 
+    public void SetCurrentDeck(FiszkaDeck deck)
+    {
+        currentDeck = deck;
+    }
 }

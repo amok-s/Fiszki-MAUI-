@@ -12,10 +12,6 @@
                              Spacing="25"
                              HorizontalOptions="Center">
 
-            <Button Text="Test"
-                    BindingContext="this"
-                    Command="{Binding TestCommand}"/>
-
             <controls:AddDeck/>
 
             <!--CollectionView-->

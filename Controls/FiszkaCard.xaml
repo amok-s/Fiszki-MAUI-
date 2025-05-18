@@ -63,7 +63,11 @@
 
                             
                         <!--Menu overlay (buttons)-->
-                        <HorizontalStackLayout Spacing="5" x:Name="MenuOverlayLayout" Opacity="0" IsVisible="False">
+                        <HorizontalStackLayout Spacing="5" 
+                                               x:Name="MenuOverlayLayout" 
+                                               Opacity="0" 
+                                               IsVisible="False"
+                                               Padding="0, 0, 7, 0">
                             
                             <!--Edit Button-->
                             <Button HorizontalOptions="End"
@@ -76,7 +80,7 @@
                                      FontSize="Medium"
                                      BackgroundColor="Transparent"
                                      BorderWidth="0"
-                                     Clicked="RemoveClicked">
+                                     Clicked="EditClicked">
 
                                 <Button.GestureRecognizers>
                                     <PointerGestureRecognizer PointerEntered="FiszkaBtn_PointerEntered"/>
