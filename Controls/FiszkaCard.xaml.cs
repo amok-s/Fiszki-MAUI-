@@ -6,17 +6,23 @@ namespace Fiszki.Controls;
 public partial class FiszkaCard : ContentView
 {
 
+    //-----bindable properties-------
 	public static readonly BindableProperty FiszkaObjectProperty = BindableProperty.Create(nameof(FiszkaObject), typeof(Fiszka), typeof(FiszkaCard), null);
 	public Fiszka FiszkaObject
 	{
 		get => (Fiszka)GetValue(FiszkaObjectProperty);
 		set => SetValue(FiszkaObjectProperty, value);
     }
+
+
+
 	public FiszkaCard()
 	{
 		InitializeComponent();
     }
 
+
+    //-----Menu overlay buttons------
     private async void RemoveClicked(object sender, EventArgs e)
     {
         bool answer = await App.Current?.Windows[0]?.Page?.DisplayAlert(
@@ -42,9 +48,25 @@ public partial class FiszkaCard : ContentView
         }
         
     }
-
     private async void EditClicked(object sender, EventArgs e)
     {
+        // var firstDeckName = FiszkaObject.DecksIsIn[0];
+        // FiszkaDeck firstDeck = null;
+
+        //foreach (FiszkaDeck deck in FiszkaDeck.AllDecks)
+        // {
+        //     if (deck.Name == firstDeckName)
+        //     {
+        //         firstDeck = deck;
+        //     }
+        // }
+
+        //if (firstDeck != null)
+        // {
+        //     await Navigation.PushAsync(new AddFiszkaPage(firstDeck));
+        // }
+
+        await Navigation.PushAsync(new AddFiszkaPage(null, FiszkaObject));
 
     }
 

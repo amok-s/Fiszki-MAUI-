@@ -64,7 +64,9 @@
                                 <Label Text="NOWA FISZKA"
                                        FontSize="Medium"
                                        TextColor="White"
-                                       FontAttributes="Bold"/>
+                                       FontAttributes="Bold"
+                                       TextTransform="Uppercase"
+                                       x:Name="MainLabel"/>
                             </HorizontalStackLayout>
 
                             <!--Lists-->
