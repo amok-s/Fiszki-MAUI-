@@ -1,5 +1,4 @@
 ﻿using Fiszki.Data;
-using Fiszki.Pages;
 
 namespace Fiszki.Controls;
 
