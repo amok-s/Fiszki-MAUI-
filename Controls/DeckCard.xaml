@@ -15,7 +15,7 @@
         <!--Deck border-->
         <Border Stroke="#cfc517"
                 StrokeThickness="2"
-                Padding="15"
+                Padding="15, 0, 15, 15"
                 StrokeShape="RoundRectangle 5,5,5,5"
                 WidthRequest="550"
                 BindingContext="{x:Reference this}"
@@ -42,21 +42,76 @@
             </Border.GestureRecognizers>
 
 
-            <VerticalStackLayout Spacing="25" Margin="35,0,35,0 ">
+            <VerticalStackLayout Margin="35,0,10,0 ">
 
-                <!--deck header-->
                 <VerticalStackLayout Spacing="10">
-                    <HorizontalStackLayout Spacing="10">
-                        <Label FontFamily="FontAwesome"
-                               Text="{x:Static models:Icons.Copy}" 
-                               FontSize="30"
-                               TextColor="White"
-                               FontAttributes="Bold"/>
-                        <Label Text="{Binding DeckObject.Name}"
-                               FontSize="Medium"
-                               TextColor="White"
-                               FontAttributes="Bold"/>
-                    </HorizontalStackLayout>
+                    <FlexLayout JustifyContent="SpaceBetween">
+
+                        <!--deck header-->
+                        <HorizontalStackLayout Spacing="10" Padding="0, 12, 0, 0">
+                            <Label FontFamily="FontAwesome"
+                                   Text="{x:Static models:Icons.Copy}" 
+                                   FontSize="30"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding DeckObject.Name}"
+                                   FontSize="Medium"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+
+                        <!--Menu overlay (buttons)-->
+                        <HorizontalStackLayout Spacing="5" 
+                                               x:Name="MenuOverlayLayout" 
+                                               Opacity="0" 
+                                               IsVisible="False"
+                                               VerticalOptions="Start">
+
+                            <!--Edit Button-->
+                            <Button HorizontalOptions="End"
+                                     VerticalOptions="Start"
+                                     x:Name="FiszkaEditBtn"
+                                     FontFamily="FontAwesome"
+                                     Text="{x:Static models:Icons.PenToSquare}"
+                                     TextColor="White"
+                                     Opacity="0.5"
+                                     FontSize="Medium"
+                                     BackgroundColor="Transparent"
+                                     BorderWidth="0"
+                                     Clicked="EditClicked">
+
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="DeckBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="DeckBtn_PointerExited"/>
+                                </Button.GestureRecognizers>
+
+                            </Button>
+                            
+                            <!--Remove Button-->
+                            <Button HorizontalOptions="End"
+                                    VerticalOptions="Start"
+                                    x:Name="FiszkaRemoveBtn"
+                                    FontFamily="FontAwesome"
+                                    Text="{x:Static models:Icons.TrashCan}"
+                                    TextColor="White"
+                                    Opacity="0.5"
+                                    FontSize="Medium"
+                                    BackgroundColor="Transparent"
+                                    BorderWidth="0"
+                                    Clicked="RemoveClicked">
+
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="DeckBtn_PointerEntered"/>
+                                    <PointerGestureRecognizer PointerExited="DeckBtn_PointerExited"/>
+                                </Button.GestureRecognizers>
+
+                            </Button>
+
+                        </HorizontalStackLayout>
+
+
+
+                    </FlexLayout>
 
                     <!--subheader, number of FiszkaCard in deck-->
                     <VerticalStackLayout Spacing="3" Margin="35, 0">

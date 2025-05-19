@@ -54,7 +54,7 @@ namespace Fiszki.Data
             Deck.Remove(fiszka);
         }
 
-        public void RemoveDeck(FiszkaDeck selectedDeck)
+        static public void RemoveDeck(FiszkaDeck selectedDeck)
         {
             AllDecks.Remove(selectedDeck);
         }
