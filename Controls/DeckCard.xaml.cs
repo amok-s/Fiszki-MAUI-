@@ -69,7 +69,21 @@ public partial class DeckCard : ContentView
 
     private async void EditClicked(object sender, EventArgs e)
     {
+        string result = await App.Current?.Windows[0]?.Page?.DisplayPromptAsync(
+            "Podaj nazwę talii",
+            "",
+            initialValue: DeckObject.Name,
+            maxLength: 30,
+            cancel: "Anuluj",
+            accept: "Ok");
 
+        if (!String.IsNullOrWhiteSpace(result))
+        {
+            DeckObject.Name = result;
+            var page = Navigation.NavigationStack.LastOrDefault();
+            await Shell.Current.GoToAsync(nameof(BrowseFiszkaPage));
+            Navigation.RemovePage(page);
+        }
     }
 
 

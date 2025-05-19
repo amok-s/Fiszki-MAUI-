@@ -25,7 +25,6 @@ public partial class AddDeck : ContentView
     {
         ChangeBorderStyle("BorderNormal");
         DisplayNewDeckPrompt();
-        //await Shell.Current.GoToAsync(nameof(AddDeckPage));
     }
     private void ChangeBorderStyle(string styleName)
     {
