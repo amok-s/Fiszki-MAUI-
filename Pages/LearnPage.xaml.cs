@@ -8,7 +8,19 @@ using Fiszki.Data;
 namespace Fiszki;
 
 public partial class LearnPage : ContentPage
-{
+{   
+	
+	//-----bindable properties-------
+    public static readonly BindableProperty FiszkaObjectProperty = BindableProperty.Create(nameof(FiszkaObject), typeof(Fiszka), typeof(LearnPage), null);
+    public Fiszka FiszkaObject
+    {
+        get => (Fiszka)GetValue(FiszkaObjectProperty);
+        set => SetValue(FiszkaObjectProperty, value);
+    }
+
+
+
+    public static ObservableCollection<FiszkaDeck> selectedDecks;
 	int previous_n;
 	FiszkaDeck? currentDeck;
 	Fiszka? currentFiszka;
@@ -16,9 +28,12 @@ public partial class LearnPage : ContentPage
 	public LearnPage()
 	{
 		InitializeComponent();
+		selectedDecks = FiszkaDeck.AllDecks;
+
+		FiszkaObject = (FiszkaDeck.AllDecks[0]).Deck[0];
+
 
 		currentDeck = FiszkaDeck.AllDecks[0];
-		currentDeck.Deck.CollectionChanged += FiszkaDeck_CollectionChanged;
         fullFiszkaControl.IsVisible = false;
         ScoreButtons.IsVisible = false;
 
@@ -26,7 +41,10 @@ public partial class LearnPage : ContentPage
 		{
          halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(currentDeck.Deck);
         }
-	}
+
+        fullFiszkaControl.IsEditable = false;
+
+    }
 
 
 	private bool CheckIfNotEmpty()
@@ -75,14 +93,5 @@ public partial class LearnPage : ContentPage
 		Refresh(0, null);
 	}
 
-    private async void FiszkaDeck_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-    {
-        await DisplayAlert(
-				"",
-				"Usunięto fiszkę!",
-				"ok");
-
-		Refresh(0, null);
-    }
 
 }

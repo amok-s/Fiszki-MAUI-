@@ -3,29 +3,22 @@ using Fiszki.Data;
 
 namespace Fiszki.Controls;
 
-public partial class FiszkaCard : ContentView
+public partial class LearnCard : ContentView
 {
 
     //-----bindable properties-------
 	public static readonly BindableProperty FiszkaObjectProperty = BindableProperty.Create(nameof(FiszkaObject), typeof(Fiszka), typeof(FiszkaCard), null);
 	public Fiszka FiszkaObject
-    {
-        get => (Fiszka)GetValue(FiszkaObjectProperty);
-        set => SetValue(FiszkaObjectProperty, value);
+	{
+		get => (Fiszka)GetValue(FiszkaObjectProperty);
+		set => SetValue(FiszkaObjectProperty, value);
     }
 
-    public bool IsEditable = true;
 
 
-
-    public FiszkaCard()
+	public LearnCard()
 	{
 		InitializeComponent();
-
-        if (!IsEditable)
-        {
-            UpperBar.IsVisible = false;
-        }
     }
 
 
@@ -69,29 +62,25 @@ public partial class FiszkaCard : ContentView
         await Fiszka.ScaleTo(0.8, 120);
     }
 
-    //----Button(in overlay menu) Pointer Recognizers---->
     private void FiszkaBtn_PointerEntered(object sender, PointerEventArgs e)
     {
         Button button = sender as Button;
         button.FadeTo(1, 250);
     }
+
     private void FiszkaBtn_PointerExited(object sender, PointerEventArgs e)
     {
         Button button = sender as Button;
         button.FadeTo(0.5, 250);
     }
 
-
-    //---- Fiszka Card Pointer Recognizers---->
     private async void FiszkaCard_PointerEntered(object sender, PointerEventArgs e)
     {
-        if (IsEditable)
-        {
-            MenuOverlayLayout.IsVisible = true;
-            MenuOverlayLayout.FadeTo(1, 350);
-        }
+        MenuOverlayLayout.IsVisible = true;
+        MenuOverlayLayout.FadeTo(1, 350);
         FiszkaBorder.Stroke = Color.Parse("White");
     }
+
     private async void FiszkaCard_PointerExited(object sender, PointerEventArgs e)
     {
         FiszkaBorder.Stroke = Color.FromArgb("#cfc517");

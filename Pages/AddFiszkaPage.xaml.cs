@@ -75,7 +75,9 @@ public partial class AddFiszkaPage : ContentPage
         if (StringsNotEmpty)
         {
             try
-            {   
+            {
+
+                //-----Editing fiszka----->
                 if (editFiszka != null)
                 {
                     editFiszka.TranslatedPhrase = translatedString;
@@ -88,6 +90,7 @@ public partial class AddFiszkaPage : ContentPage
                     Navigation.RemovePage(this);
                 }
 
+                //-----New fiszka------>
                 else
                 {
                     var p = new Fiszka(nativeString, translatedString);
