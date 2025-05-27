@@ -14,7 +14,5 @@ public partial class BrowseFiszkaPage : ContentPage
         BindableLayout.SetItemsSource(DeckCollectionView, FiszkaDeck.AllDecks);
     }
 
-    
-
 }
 

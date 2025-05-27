@@ -4,82 +4,71 @@
              xmlns:local="clr-namespace:Fiszki.Controls"
              x:Class="Fiszki.Controls.HalfFiszkaCard"
              x:DataType="local:HalfFiszkaCard"
-             x:Name="this">
+             x:Name="this"
+             xmlns:models="clr-namespace:Fiszki.Models">
 
 
     <VerticalStackLayout Padding="10">
 
-        <!--F I S Z K A-->
+        <!--Fiszka-->
+        <HorizontalStackLayout x:Name="Fiszka"
+                          HorizontalOptions="Center"
+                          BindingContext="{x:Reference this}">
 
-        <!--Obramowanie fiszki-->
-        <Border Stroke="#475708"
-                StrokeThickness="2"
-                StrokeShape="RoundRectangle 10,10,10,10"
-                Background="#475708"
-                MaximumWidthRequest="500"
-                >
+            <!--Circles-->
+            <FlexLayout Margin="5, 45" Direction="Column" JustifyContent="Center">
+                <Ellipse Stroke="#cfc517"
+                    StrokeThickness="2"
+                    WidthRequest="20"
+                    HeightRequest="20"/>
+            </FlexLayout>
 
-            <VerticalStackLayout>
+            <!--Fiszka border-->
+            <Border Stroke="#cfc517"
+               StrokeThickness="2"
+               StrokeShape="RoundRectangle 0,5,0,5"
+               WidthRequest="500"
+               x:Name="FiszkaBorder">
 
-                <Border StrokeThickness="10"
-                         StrokeShape="RoundRectangle 5,5,5,5"
-                         BackgroundColor="#ebc034"
-                         BindingContext="{x:Reference this}">
-
-                    <Border.Stroke>
-                        <LinearGradientBrush EndPoint="0,1.6">
-                            <GradientStop Color="#ebc034" Offset="0.3" />
-                            <GradientStop Color="#cfc517" Offset="0.6" />
-                        </LinearGradientBrush>
-                    </Border.Stroke>
-
-                    <VerticalStackLayout>
-
-                        <!--Słówka-->
-                        <VerticalStackLayout Padding="10,10"
-                                          BackgroundColor="#333333" >
-
-                            <HorizontalStackLayout FlowDirection="RightToLeft">
-
-
-                            </HorizontalStackLayout>
-
-                            <VerticalStackLayout Spacing="35"
-                                                 Padding="25,55" >
+                <!--Background-->
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#282628" Offset="0.95"/>
+                        <GradientStop Color="#cfc517" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
 
 
+                <!--Inside of Fiszka-->
+                <VerticalStackLayout Spacing="10" Padding="0,0,0,20">
 
+                    <!--Słówka-->
+                    <VerticalStackLayout Spacing="10" Padding="10" Margin="0, 0, 10, 0">
 
-                                <Label x:Name="NativePhraseLabel"
-                                    Text="{Binding FiszkaObject.NativePhrase, FallbackValue='brakuje fiszki :c'}" 
-                                    HorizontalOptions="Center"
-                                    StyleClass="FiszkaLabel"
-                                    TextColor="#96B639"
-                                    FontSize="Header"
-                                      
-                                       />
+                        <Label x:Name="NativePhraseLabel"
+                               Text="{Binding FiszkaObject.NativePhrase, FallbackValue='pusta fiszka'}" 
+                               HorizontalOptions="Center"
+                               StyleClass="FiszkaLabel"
+                               FontSize="Header"
+                               TextColor="#cfc517"
+                               VerticalOptions="End"/>
 
-                                <Label x:Name="TranslatedPhraseLabel"
-                                        Text="{Binding FiszkaObject.TranslatedPhrase, FallbackValue='brakuje fiszki :c'}" 
-                                        HorizontalOptions="Center"
-                                        StyleClass="FiszkaLabel"
-                                        TextColor="#96B639"
-                                        FontSize="Header"/>
+                        <Label x:Name="TranslatedPhraseLabel"
+                               Text="{Binding FiszkaObject.TranslatedPhrase, FallbackValue='jest smutna :c'}"
+                               HorizontalOptions="Center"
+                               StyleClass="FiszkaLabel"
+                               FontSize="Header"
+                               TextColor="#cfc517"
+                               VerticalOptions="End"/>
 
-
-
-                            </VerticalStackLayout>
-
-                        </VerticalStackLayout>
 
                     </VerticalStackLayout>
 
-                </Border>
+                </VerticalStackLayout>
 
-            </VerticalStackLayout>
-
-        </Border>
+            </Border>
+        </HorizontalStackLayout>
 
 
     </VerticalStackLayout>

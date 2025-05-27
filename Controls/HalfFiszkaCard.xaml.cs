@@ -23,14 +23,14 @@ public partial class HalfFiszkaCard : ContentView
 		var r = new Random();
 		int n = r.Next(1, 3);
 		if (n == 1)
-		{
+		{	
 			NativePhraseLabel.IsVisible = false;
 			TranslatedPhraseLabel.IsVisible = true;
 
 		}
 		else
 		{
-			TranslatedPhraseLabel.IsVisible = false;
+            TranslatedPhraseLabel.IsVisible = false;
 			NativePhraseLabel.IsVisible = true;
 		}
 	}
