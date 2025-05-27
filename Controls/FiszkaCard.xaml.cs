@@ -14,6 +14,15 @@ public partial class FiszkaCard : ContentView
         set => SetValue(FiszkaObjectProperty, value);
     }
 
+    public static readonly BindableProperty UpperBarIsVisibleProperty = BindableProperty.Create(nameof(UpperBarIsVisible), typeof(string), typeof(FiszkaCard), null);
+    public string UpperBarIsVisible
+    {
+        get => (string)GetValue(UpperBarIsVisibleProperty);
+        set => SetValue(UpperBarIsVisibleProperty, value);
+    }
+
+
+
     public bool IsEditable = true;
 
 
@@ -21,11 +30,6 @@ public partial class FiszkaCard : ContentView
     public FiszkaCard()
 	{
 		InitializeComponent();
-
-        if (!IsEditable)
-        {
-            UpperBar.IsVisible = false;
-        }
     }
 
 

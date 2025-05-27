@@ -10,49 +10,49 @@ namespace Fiszki;
 public partial class LearnPage : ContentPage
 {   
 	
-	//-----bindable properties-------
-    public static readonly BindableProperty FiszkaObjectProperty = BindableProperty.Create(nameof(FiszkaObject), typeof(Fiszka), typeof(LearnPage), null);
-    public Fiszka FiszkaObject
-    {
-        get => (Fiszka)GetValue(FiszkaObjectProperty);
-        set => SetValue(FiszkaObjectProperty, value);
-    }
-
-
-
     public static ObservableCollection<FiszkaDeck> selectedDecks;
-	int previous_n;
-	FiszkaDeck? currentDeck;
+    ObservableCollection<Fiszka> learningDeck = new ObservableCollection<Fiszka>();
+    int previous_n;
 	Fiszka? currentFiszka;
 	
 	public LearnPage()
 	{
 		InitializeComponent();
-		selectedDecks = FiszkaDeck.AllDecks;
-
-		FiszkaObject = (FiszkaDeck.AllDecks[0]).Deck[0];
-
-
-		currentDeck = FiszkaDeck.AllDecks[0];
+        fullFiszkaControl.IsEditable = false;
+        selectedDecks = FiszkaDeck.AllDecks;
+		MixDecks();
         fullFiszkaControl.IsVisible = false;
         ScoreButtons.IsVisible = false;
 
         if (CheckIfNotEmpty())
 		{
-         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(currentDeck.Deck);
+         halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(learningDeck);
         }
 
-        fullFiszkaControl.IsEditable = false;
+        
 
     }
 
 
 	private bool CheckIfNotEmpty()
 	{
-		if (currentDeck.Deck.Count > 0) return true;
+		if (learningDeck.Count > 0) return true;
 		else return false;
 
 	}
+
+	private void MixDecks()
+	{
+		foreach (FiszkaDeck deck in selectedDecks)
+		{
+			foreach (Fiszka fiszka in deck.Deck)
+			{
+				learningDeck.Add(fiszka);
+			}
+		}
+
+	}
+
     private Fiszka ChooseRandomFiszka(ObservableCollection<Fiszka> deck)
 	{
 		var r = new Random();
@@ -72,7 +72,7 @@ public partial class LearnPage : ContentPage
 		halfFiszkaControl.IsVisible = true;
 		ScoreButtons.IsVisible = false;
 
-        halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(currentDeck.Deck);
+        halfFiszkaControl.FiszkaObject = ChooseRandomFiszka(learningDeck);
 		halfFiszkaControl.ShowRandomPhrase();
 
     }

@@ -152,8 +152,8 @@
 
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <local:FiszkaCard FiszkaObject="{Binding}"/>
-                </DataTemplate>
+                        <local:FiszkaCard FiszkaObject="{Binding}"/>
+                    </DataTemplate>
 
             </BindableLayout.ItemTemplate>
 

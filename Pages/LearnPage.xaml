@@ -24,7 +24,8 @@
                 </Border>
                 
                 <Border x:Name="FullFiszkaFrame" StrokeThickness="0">
-                    <controls:FiszkaCard x:Name="fullFiszkaControl"/>
+                    <controls:FiszkaCard x:Name="fullFiszkaControl"
+                                         UpperBarIsVisible="False"/>
                 </Border>
             </VerticalStackLayout>
 
