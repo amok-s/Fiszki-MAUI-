@@ -41,16 +41,15 @@
 
 
                 <!--Inside of Fiszka-->
-                <VerticalStackLayout Spacing="10" Padding="0,0,0,20">
+                <VerticalStackLayout Spacing="10" Padding="0,10,0,20">
 
                     <!--Słówka-->
-                    <VerticalStackLayout Spacing="10" Padding="10" Margin="0, 0, 10, 0">
+                    <VerticalStackLayout Padding="10" Margin="0, 0, 10, 0">
 
                         <Label x:Name="NativePhraseLabel"
                                Text="{Binding FiszkaObject.NativePhrase, FallbackValue='pusta fiszka'}" 
                                HorizontalOptions="Center"
                                StyleClass="FiszkaLabel"
-                               FontSize="Header"
                                TextColor="#cfc517"
                                VerticalOptions="End"/>
 
@@ -58,7 +57,6 @@
                                Text="{Binding FiszkaObject.TranslatedPhrase, FallbackValue='jest smutna :c'}"
                                HorizontalOptions="Center"
                                StyleClass="FiszkaLabel"
-                               FontSize="Header"
                                TextColor="#cfc517"
                                VerticalOptions="End"/>
 
