@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Fiszki.Models"
+             xmlns:data="clr-namespace:Fiszki.Data"
+             x:Class="Fiszki.LearnSetupPage"
+             x:Name="this"
+             Title="LearnSetupPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="Label" Class="OptionLabel">
+                <Setter Property="TextColor" Value="{StaticResource MainYellow}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                
+
+            </Style>
+
+
+      
+
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    
+    <ScrollView BackgroundColor="#171615" HorizontalOptions="Center">
+
+        <VerticalStackLayout Spacing="10" WidthRequest="550">
+
+            <VerticalStackLayout x:Name="LearningLength">
+
+                <Label Text="Długość rozgrywki"
+                       StyleClass="OptionLabel"/>
+
+                <RadioButton Content="Krótka"/>
+                <RadioButton Content="Średnia"
+                             IsChecked="True"/>
+                <RadioButton Content="Długa"/>
+
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout x:Name="ChooseDecks">
+
+                <Label Text="Wybierz talie do nauki"
+                       StyleClass="OptionLabel"/>
+
+                <ListView x:Name="DeckListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:FiszkaDeck">
+                            <ViewCell>
+
+                                <Border>
+
+                                    <VerticalStackLayout Padding="7" Spacing="4">
+
+                                        <HorizontalStackLayout Spacing="5">
+
+                                            <Label  VerticalOptions="End"
+                                                    FontFamily="FontAwesome"
+                                                    FontSize="18"
+                                                    Text="{x:Static models:Icons.Copy}"
+                                                    FontAttributes="Bold"/>
+
+
+                                            <Label Text="{Binding Name}"
+                                                   TextColor="{StaticResource MainYellow}"
+                                                   FontSize="18"
+                                                   VerticalOptions="Center"/>
+
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout Spacing="5" Margin="20, 0, 0, 0">
+
+                                            <Label  VerticalOptions="End"
+                                                    FontFamily="FontAwesome"
+                                                    Text="{x:Static models:Icons.PenToSquare}"/>
+
+                                            <Label Text="{Binding Deck.Count}"/>
+
+                                            <Label Text="fiszek"/>
+
+                                        </HorizontalStackLayout>
+
+
+                                    </VerticalStackLayout>
+
+                                </Border>
+
+                                
+
+                            </ViewCell>
+
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+
+
+                </ListView>
+
+            </VerticalStackLayout>
+
+            <Button Text="Zacznij sesję"
+                    StyleClass="MainMenuButton"
+                    HorizontalOptions="Fill"/>
+
+        </VerticalStackLayout>
+
+
+
+
+    </ScrollView>
+</ContentPage>

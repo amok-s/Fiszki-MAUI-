@@ -47,7 +47,7 @@ namespace Fiszki
 
         private async void OnTestClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(Test));
+            await Shell.Current.GoToAsync(nameof(LearnSetupPage));
         }
 
         public void GetExamples()
