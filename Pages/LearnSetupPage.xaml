@@ -27,7 +27,9 @@
                             </VisualState>
 
                             <VisualState x:Name="Selected">
-                                
+                                <VisualState.Setters>
+                                    <Setter Property="StrokeThickness" Value="1"/>
+                                </VisualState.Setters>
                             </VisualState>
 
 
@@ -55,6 +57,7 @@
 
         <VerticalStackLayout Spacing="10" WidthRequest="550">
 
+            <!--Lenght of study session-->
             <VerticalStackLayout x:Name="LearningLengthLayout">
 
                 <Label Text="Długość rozgrywki"
@@ -67,6 +70,8 @@
 
             </VerticalStackLayout>
             
+            
+            <!--Choosing deck to learn from-->
             <VerticalStackLayout x:Name="ChooseDecksLayout"
                                  Spacing="13">
 
