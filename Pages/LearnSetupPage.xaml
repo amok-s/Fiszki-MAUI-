@@ -15,8 +15,31 @@
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextTransform" Value="Uppercase"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                
+            </Style>
 
+            <Style TargetType="Border" Class="DeckBorder">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+
+                            <VisualState x:Name="Normal">
+                                
+                            </VisualState>
+
+                            <VisualState x:Name="Selected">
+                                
+                            </VisualState>
+
+
+                        </VisualStateGroup> 
+                    </VisualStateGroupList>
+                    
+                    
+                    
+                </Setter>
+                
+                
+                
             </Style>
 
 
@@ -32,31 +55,63 @@
 
         <VerticalStackLayout Spacing="10" WidthRequest="550">
 
-            <VerticalStackLayout x:Name="LearningLength">
+            <VerticalStackLayout x:Name="LearningLengthLayout">
 
                 <Label Text="Długość rozgrywki"
                        StyleClass="OptionLabel"/>
 
-                <RadioButton Content="Krótka"/>
-                <RadioButton Content="Średnia"
+                <RadioButton Content="Krótka (~ 7-10 fiszek)"/>
+                <RadioButton Content="Średnia (~ 18-25 fiszek)"
                              IsChecked="True"/>
-                <RadioButton Content="Długa"/>
+                <RadioButton Content="Długa (~ 30-40 fiszek)"/>
 
             </VerticalStackLayout>
             
-            <VerticalStackLayout x:Name="ChooseDecks">
+            <VerticalStackLayout x:Name="ChooseDecksLayout"
+                                 Spacing="13">
 
                 <Label Text="Wybierz talie do nauki"
                        StyleClass="OptionLabel"/>
 
-                <ListView x:Name="DeckListView">
-                    <ListView.ItemTemplate>
+                <HorizontalStackLayout Spacing="15" Margin="5, 0">
+
+                    <Button Text="Odznacz wszystkie"
+                            StyleClass="MainMenuButton"
+                            FontSize="Default"/>
+
+                    <Button Text="Zaznacz wszystkie"
+                            StyleClass="MainMenuButton"
+                            FontSize="Default"/>
+
+                </HorizontalStackLayout>
+
+                <CollectionView x:Name="DeckCollectionView"
+                                SelectionMode="Multiple">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="5"/>
+
+                    </CollectionView.ItemsLayout>
+                    
+                    
+                    <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="data:FiszkaDeck">
-                            <ViewCell>
+                            
 
-                                <Border>
+                                <Border StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 5,5,5,5"
+                                        StyleClass="DeckBorder">
 
-                                    <VerticalStackLayout Padding="7" Spacing="4">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="1,0">
+                                            <GradientStop Color="#cfc517" Offset="0.025"/>
+                                            <GradientStop Color="Transparent" Offset="0.025"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+
+                                    <VerticalStackLayout Margin="20, 2, 5, 5" Spacing="4">
 
                                         <HorizontalStackLayout Spacing="5">
 
@@ -70,7 +125,8 @@
                                             <Label Text="{Binding Name}"
                                                    TextColor="{StaticResource MainYellow}"
                                                    FontSize="18"
-                                                   VerticalOptions="Center"/>
+                                                   VerticalOptions="Center"
+                                                   FontAttributes="Bold"/>
 
                                         </HorizontalStackLayout>
 
@@ -93,20 +149,22 @@
 
                                 
 
-                            </ViewCell>
+                           
 
                         </DataTemplate>
 
-                    </ListView.ItemTemplate>
+                    </CollectionView.ItemTemplate>
 
 
-                </ListView>
+                </CollectionView>
 
             </VerticalStackLayout>
 
-            <Button Text="Zacznij sesję"
+            <Button x:Name="StartSessionButton"
+                    Text="Zacznij sesję"
                     StyleClass="MainMenuButton"
-                    HorizontalOptions="Fill"/>
+                    HorizontalOptions="Fill"
+                    Clicked="StartSessionButton_Clicked"/>
 
         </VerticalStackLayout>
 

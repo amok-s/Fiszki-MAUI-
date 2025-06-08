@@ -14,11 +14,14 @@ public partial class LearnSetupPage : ContentPage
 	{
 		InitializeComponent();
 
-		DeckListView.ItemsSource = FiszkaDeck.AllDecks;
+		DeckCollectionView.ItemsSource = FiszkaDeck.AllDecks;
     }
 
+    private void StartSessionButton_Clicked(object sender, EventArgs e)
+    {
+		int howManyCards;
+		Random r = new Random();
+		
 
-	
-
-
+    }
 }
