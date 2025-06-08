@@ -9,8 +9,6 @@ namespace Fiszki;
 
 public partial class LearnSetupPage : ContentPage
 {
-    public static ObservableCollection<FiszkaDeck> selectedDecks;
-
     public LearnSetupPage()
 	{
 		InitializeComponent();
@@ -32,20 +30,20 @@ public partial class LearnSetupPage : ContentPage
 
         else
         {
-            FiszkaDeck g = DeckCollectionView.SelectedItems[0] as FiszkaDeck;
+            ObservableCollection<FiszkaDeck> selectedDecks = new ObservableCollection<FiszkaDeck>();
+            foreach (var item in DeckCollectionView.SelectedItems)
+            {
+                FiszkaDeck deck = item as FiszkaDeck;
+                selectedDecks.Add(deck);
+            }
 
-            await DisplayAlert(
-                      "Brak fiszek do nauki",
-                      g.Name,
-                      "Ok");
+            int howManyCards;
+            Random r = new Random();
+
+
+
+            await Navigation.PushAsync(new NewLearnPage(selectedDecks));
         }
-
-
-
-
-        int howManyCards;
-		Random r = new Random();
-		
 
     }
 }

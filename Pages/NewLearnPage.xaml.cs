@@ -15,11 +15,11 @@ public partial class NewLearnPage : ContentPage
     int previous_n;
 	Fiszka? currentFiszka;
 	
-	public NewLearnPage()
+	public NewLearnPage(ObservableCollection<FiszkaDeck> decks)
 	{
 		InitializeComponent();
         fullFiszkaControl.IsEditable = false;
-        selectedDecks = FiszkaDeck.AllDecks;
+		selectedDecks = decks;
 		MixDecks();
         fullFiszkaControl.IsVisible = false;
         ScoreButtons.IsVisible = false;
