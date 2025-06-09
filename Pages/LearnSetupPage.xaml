@@ -73,7 +73,7 @@
                 <HorizontalStackLayout Spacing="7">
                     <RadioButton Content="Krótka"
                                  Value="1"/>
-                    <Label Text="(~ 7-10 fiszek)" 
+                    <Label Text="(~ do 12 fiszek)" 
                            StyleClass="LenghtDescriptionLabel"/>
                 </HorizontalStackLayout>
 
@@ -81,7 +81,7 @@
                     <RadioButton Content="Średnia"
                                  Value="2"
                                  IsChecked="True"/>
-                    <Label Text="(~ 18-25 fiszek)" 
+                    <Label Text="(~ 15-25 fiszek)" 
                            StyleClass="LenghtDescriptionLabel"/>
                 </HorizontalStackLayout>
 

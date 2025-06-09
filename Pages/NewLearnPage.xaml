@@ -5,13 +5,22 @@
              xmlns:models="clr-namespace:Fiszki.Models"
              x:Class="Fiszki.NewLearnPage"
              x:Name="this"
-             Title="LearnPage">
+             Title="NewLearnPage">
 
     <ScrollView BackgroundColor="#171615" HorizontalOptions="Center">
 
 
         
         <VerticalStackLayout Spacing="10" WidthRequest="550">
+
+            <HorizontalStackLayout Spacing="7">
+                <Label Text="{x:Static models:Icons.Copy}"
+                       FontFamily="FontAwesome"/>
+
+                <Label x:Name="LearningDeckCount"/>
+                
+
+            </HorizontalStackLayout>
 
             <Label x:Name="ChosenSettingLabel"/>
 
