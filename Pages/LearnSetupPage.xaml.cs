@@ -37,13 +37,28 @@ public partial class LearnSetupPage : ContentPage
                 selectedDecks.Add(deck);
             }
 
-            int howManyCards;
-            Random r = new Random();
 
+            var lengthSetting = RadioButtonGroup.GetSelectedValue(LearningLengthLayout);
 
-
-            await Navigation.PushAsync(new NewLearnPage(selectedDecks));
+            await Navigation.PushAsync(new NewLearnPage(lengthSetting.ToString(),selectedDecks));
         }
 
     }
+    
+    private void SelectAllButton_Clicked(object sender, EventArgs e)
+    {
+        foreach (var item in DeckCollectionView.ItemsSource)
+        {
+            DeckCollectionView.SelectedItems.Add(item);
+        }
+
+    }
+
+    private void DeselectAllButton_Clicked(object sender, EventArgs e)
+    {
+        DeckCollectionView.SelectedItems = null;
+
+    }
+
+
 }

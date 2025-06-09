@@ -12,7 +12,9 @@
 
         
         <VerticalStackLayout Spacing="10" WidthRequest="550">
-            
+
+            <Label x:Name="ChosenSettingLabel"/>
+
             <!--Widok fiszki-->
             <VerticalStackLayout>
                 <VerticalStackLayout.GestureRecognizers>

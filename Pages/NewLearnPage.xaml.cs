@@ -15,9 +15,10 @@ public partial class NewLearnPage : ContentPage
     int previous_n;
 	Fiszka? currentFiszka;
 	
-	public NewLearnPage(ObservableCollection<FiszkaDeck> decks)
+	public NewLearnPage(string lengthSetting, ObservableCollection<FiszkaDeck> decks)
 	{
 		InitializeComponent();
+		ChosenSettingLabel.Text = "Wybrana długość: " + lengthSetting;
         fullFiszkaControl.IsEditable = false;
 		selectedDecks = decks;
 		MixDecks();

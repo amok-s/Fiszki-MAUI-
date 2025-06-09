@@ -17,6 +17,12 @@
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
 
+            <Style TargetType="Label" Class="LenghtDescriptionLabel">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0, 0, 0, 8"/>
+                <Setter Property="TextColor" Value="DarkGray"/>
+            </Style>
+
             <Style TargetType="Border" Class="DeckBorder">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -58,15 +64,35 @@
         <VerticalStackLayout Spacing="10" WidthRequest="550">
 
             <!--Lenght of study session-->
-            <VerticalStackLayout x:Name="LearningLengthLayout">
+            <VerticalStackLayout x:Name="LearningLengthLayout"
+                                 RadioButtonGroup.GroupName="LenghtOptions">
 
                 <Label Text="Długość rozgrywki"
                        StyleClass="OptionLabel"/>
 
-                <RadioButton Content="Krótka (~ 7-10 fiszek)"/>
-                <RadioButton Content="Średnia (~ 18-25 fiszek)"
-                             IsChecked="True"/>
-                <RadioButton Content="Długa (~ 30-40 fiszek)"/>
+                <HorizontalStackLayout Spacing="7">
+                    <RadioButton Content="Krótka"
+                                 Value="1"/>
+                    <Label Text="(~ 7-10 fiszek)" 
+                           StyleClass="LenghtDescriptionLabel"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="7">
+                    <RadioButton Content="Średnia"
+                                 Value="2"
+                                 IsChecked="True"/>
+                    <Label Text="(~ 18-25 fiszek)" 
+                           StyleClass="LenghtDescriptionLabel"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="7">
+                    <RadioButton Content="Długa"
+                                 Value="3"/>
+                    <Label Text="(~ 30-40 fiszek)" 
+                           StyleClass="LenghtDescriptionLabel"/>
+                </HorizontalStackLayout>
+               
+                
 
             </VerticalStackLayout>
             
@@ -82,11 +108,13 @@
 
                     <Button Text="Odznacz wszystkie"
                             StyleClass="MainMenuButton"
-                            FontSize="Default"/>
+                            FontSize="Default"
+                            Clicked="DeselectAllButton_Clicked"/>
 
                     <Button Text="Zaznacz wszystkie"
                             StyleClass="MainMenuButton"
-                            FontSize="Default"/>
+                            FontSize="Default"
+                            Clicked="SelectAllButton_Clicked"/>
 
                 </HorizontalStackLayout>
 
