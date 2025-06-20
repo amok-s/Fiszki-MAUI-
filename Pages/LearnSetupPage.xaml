@@ -34,7 +34,21 @@
 
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
+                                    
                                     <Setter Property="StrokeThickness" Value="1"/>
+                                    <Setter Property="Stroke" Value="#cfc517"/>
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush EndPoint="1,0">
+                                                <LinearGradientBrush.GradientStops>
+                                                    <GradientStop Color="#cfc517" Offset="0.025"/>
+                                                    <GradientStop Color="#282628" Offset="0.025"/>
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                        
+                                        
+                                    </Setter>
                                 </VisualState.Setters>
                             </VisualState>
 
@@ -130,21 +144,15 @@
                     
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="data:FiszkaDeck">
-                            
-
-                                <Border StrokeThickness="0"
-                                        StrokeShape="RoundRectangle 5,5,5,5"
-                                        StyleClass="DeckBorder">
-
-                                    <Border.Background>
-                                        <LinearGradientBrush EndPoint="1,0">
-                                            <GradientStop Color="#cfc517" Offset="0.025"/>
-                                            <GradientStop Color="Transparent" Offset="0.025"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
 
 
-                                    <VerticalStackLayout Margin="20, 2, 5, 5" Spacing="4">
+                            <Border StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                    StyleClass="DeckBorder">
+                                    
+
+
+                                <VerticalStackLayout Margin="20, 2, 5, 5" Spacing="4">
 
                                         <HorizontalStackLayout Spacing="5">
 

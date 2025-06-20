@@ -22,7 +22,6 @@
 
             </HorizontalStackLayout>
 
-            <Label x:Name="ChosenSettingLabel"/>
 
             <!--Widok fiszki-->
             <VerticalStackLayout>

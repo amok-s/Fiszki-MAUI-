@@ -5,4 +5,12 @@
     xmlns:maui="using:Microsoft.Maui"
     xmlns:local="using:Fiszki.WinUI">
 
+    <maui:MauiWinUIApplication.Resources>
+        <StaticResource x:Key="ListViewItemCheckBrush" ResourceKey="ControlAltFillColorTransparent" />
+        <StaticResource x:Key="ListViewItemCheckBoxBrush" ResourceKey="ControlAltFillColorTransparent" />
+        <ListViewItemPresenterCheckMode x:Key="ListViewItemCheckMode">Overlay</ListViewItemPresenterCheckMode>
+    </maui:MauiWinUIApplication.Resources>
+
+
 </maui:MauiWinUIApplication>
+

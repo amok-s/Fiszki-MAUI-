@@ -29,7 +29,6 @@ public partial class NewLearnPage : ContentPage
         selectedDecks = decks;
 		chosenSetting = lengthSetting;
 
-        ChosenSettingLabel.Text = "Wybrana długość: " + chosenSetting;
 
         fullFiszkaControl.IsEditable = false;
         fullFiszkaControl.IsVisible = false;
