@@ -47,7 +47,19 @@ namespace Fiszki
 
         private async void OnTestClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(LearnSetupPage));
+            if (Data.FiszkaDeck.AllDecks.Count == 0)
+            {
+                await DisplayAlert(
+                    "Brak fiszek!",
+                    "Aby móc się uczyć dodaj napierw jakieś fiszki.",
+                    "Ok"
+                    );
+            }
+            else
+            {
+                await Shell.Current.GoToAsync(nameof(LearnSetupPage));
+            }
+
         }
 
         public void GetExamples()

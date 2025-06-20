@@ -19,7 +19,8 @@ public partial class LearnSetupPage : ContentPage
 
     private async void StartSessionButton_Clicked(object sender, EventArgs e)
     {
-        
+
+        //--first, check if there is any deck selected   
         if (DeckCollectionView.SelectedItems.Count == 0)
 		{
             await DisplayAlert(
@@ -37,10 +38,31 @@ public partial class LearnSetupPage : ContentPage
                 selectedDecks.Add(deck);
             }
 
+            //then, it checks if in selected decks there are any cards
+            int count = 0;
+            foreach (var deck in selectedDecks)
+            {
+                foreach (var fiszka in deck.Deck)
+                {
+                    count++;
+                }
+            }
 
-            var lengthSetting = RadioButtonGroup.GetSelectedValue(LearningLengthLayout);
+            if (count == 0)
+            {
+                await DisplayAlert(
+                    "Brak fiszek!",
+                    "W talii brakuje fiszek do nauki. Dodaj je!",
+                    "Ok"
+                    );
+            }
 
-            await Navigation.PushAsync(new NewLearnPage(lengthSetting.ToString(),selectedDecks));
+            //in the end it creates a new LearnPage
+            else
+            {
+                var lengthSetting = RadioButtonGroup.GetSelectedValue(LearningLengthLayout);
+                await Navigation.PushAsync(new NewLearnPage(lengthSetting.ToString(), selectedDecks));
+            }
         }
 
     }

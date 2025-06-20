@@ -28,13 +28,16 @@
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
 
+                            
+                            <!--Normal View-->
                             <VisualState x:Name="Normal">
-                                
+
                             </VisualState>
 
+                            <!--Selected view-->
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    
+
                                     <Setter Property="StrokeThickness" Value="1"/>
                                     <Setter Property="Stroke" Value="#cfc517"/>
                                     <Setter Property="Background">
@@ -46,28 +49,16 @@
                                                 </LinearGradientBrush.GradientStops>
                                             </LinearGradientBrush>
                                         </Setter.Value>
-                                        
-                                        
                                     </Setter>
                                 </VisualState.Setters>
                             </VisualState>
 
-
-                        </VisualStateGroup> 
+                        </VisualStateGroup>
                     </VisualStateGroupList>
-                    
-                    
-                    
                 </Setter>
-                
-                
-                
             </Style>
 
 
-      
-
-            
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -149,52 +140,59 @@
                             <Border StrokeThickness="0"
                                     StrokeShape="RoundRectangle 5,5,5,5"
                                     StyleClass="DeckBorder">
-                                    
+
 
 
                                 <VerticalStackLayout Margin="20, 2, 5, 5" Spacing="4">
 
-                                        <HorizontalStackLayout Spacing="5">
+                                    <HorizontalStackLayout Spacing="5">
 
-                                            <Label  VerticalOptions="End"
+                                        <Label  VerticalOptions="End"
                                                     FontFamily="FontAwesome"
                                                     FontSize="18"
                                                     Text="{x:Static models:Icons.Copy}"
                                                     FontAttributes="Bold"/>
 
 
-                                            <Label Text="{Binding Name}"
+                                        <Label Text="{Binding Name}"
                                                    TextColor="{StaticResource MainYellow}"
                                                    FontSize="18"
                                                    VerticalOptions="Center"
                                                    FontAttributes="Bold"/>
 
-                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
 
-                                        <HorizontalStackLayout Spacing="5" Margin="20, 0, 0, 0">
+                                    <HorizontalStackLayout Spacing="5" Margin="20, 0, 0, 0">
 
-                                            <Label  VerticalOptions="End"
+                                        <Label  VerticalOptions="End"
                                                     FontFamily="FontAwesome"
                                                     Text="{x:Static models:Icons.PenToSquare}"/>
 
-                                            <Label Text="{Binding Deck.Count}"/>
+                                        <Label Text="{Binding Deck.Count}"/>
 
-                                            <Label Text="fiszek"/>
+                                        <Label Text="fiszek"/>
 
-                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
 
+                                </VerticalStackLayout>
 
-                                    </VerticalStackLayout>
-
-                                </Border>
-
-                                
-
-                           
-
+                            </Border>
                         </DataTemplate>
-
                     </CollectionView.ItemTemplate>
+
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label Text="Nie masz żadnych fiszek :("/>
+                                <Label Text="Aby dodać fiszki kliknij w poniższy przycisk"/>
+                                <Button Text="dodaj fiszki"
+                                        StyleClass="MainMenuButton"/>
+
+                            </StackLayout>
+                            
+                        </ContentView>
+                        
+                    </CollectionView.EmptyView>
 
 
                 </CollectionView>

@@ -55,7 +55,7 @@
                      Text="Test" 
                      SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
                      Clicked="OnTestClicked"
-                     HorizontalOptions="Fill" />        
+                     HorizontalOptions="Fill"/>        
 
             </VerticalStackLayout>
 
