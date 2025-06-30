@@ -14,10 +14,10 @@ public partial class FiszkaCard : ContentView
         set => SetValue(FiszkaObjectProperty, value);
     }
 
-    public static readonly BindableProperty UpperBarIsVisibleProperty = BindableProperty.Create(nameof(UpperBarIsVisible), typeof(string), typeof(FiszkaCard), null);
-    public string UpperBarIsVisible
+    public static readonly BindableProperty UpperBarIsVisibleProperty = BindableProperty.Create(nameof(UpperBarIsVisible), typeof(bool), typeof(FiszkaCard), null);
+    public bool UpperBarIsVisible
     {
-        get => (string)GetValue(UpperBarIsVisibleProperty);
+        get => (bool)GetValue(UpperBarIsVisibleProperty);
         set => SetValue(UpperBarIsVisibleProperty, value);
     }
 
