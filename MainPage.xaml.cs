@@ -174,6 +174,27 @@ namespace Fiszki
             Amour.AddFiszka(new Fiszka("sortir ensemble", "chodzić ze sobą"));
             Amour.AddFiszka(new Fiszka("vivre en concubinage", "żyć w konkubinacie"));
             Amour.AddFiszka(new Fiszka("demander qqn en mariage", "poprosić kogoś o rękę"));
+            Amour.AddFiszka(new Fiszka("un garçon d’honneur", "drużba"));
+            Amour.AddFiszka(new Fiszka("une demoiselle d’honneur", "druhna"));
+            Amour.AddFiszka(new Fiszka("un mari, un époux", "maż, małżonek"));
+            Amour.AddFiszka(new Fiszka("une femme, une épouse", "żona, małżonka"));
+            Amour.AddFiszka(new Fiszka("des fiançailles (f.)", "zaręczyny"));
+            Amour.AddFiszka(new Fiszka("se fiancer", "zaręczyny"));
+            Amour.AddFiszka(new Fiszka("un enterrement de vie de garçon", "wieczór kawalerski"));
+            Amour.AddFiszka(new Fiszka("un enterrement de vie de jeune fille", "wieczór panienski"));
+            Amour.AddFiszka(new Fiszka("un mariage civil", "ślub cywilny"));
+            Amour.AddFiszka(new Fiszka("un mariage religieux", "ślub kościelny"));
+            Amour.AddFiszka(new Fiszka("être fiancé(e) ", "być zaręczonym (-ą)"));
+            Amour.AddFiszka(new Fiszka("une réception de mariage, les noces (f.)", "wesele (x2)"));
+            Amour.AddFiszka(new Fiszka("un voyage de noces", "podróż poślubna"));
+            Amour.AddFiszka(new Fiszka("tomber amoureux(-euse) de qqn", "zakochać się w kimś"));
+            Amour.AddFiszka(new Fiszka("se marier (avec qqn)", "wziąć ślub (z kimś), pobrać się"));
+            Amour.AddFiszka(new Fiszka("tromper qqn", "zdradzić kogoś"));
+            Amour.AddFiszka(new Fiszka("avoir un amant", "mieć kochanka"));
+            Amour.AddFiszka(new Fiszka("avoir une maîtresse", "mieć kochankę"));
+            Amour.AddFiszka(new Fiszka("demander le divorce", "wystąpić o rozwód"));
+            Amour.AddFiszka(new Fiszka("divorcer (de qqn)", "rozwodzić się z kimś"));
+
         }
 
     }
