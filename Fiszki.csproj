@@ -83,13 +83,10 @@
 	  <MauiXaml Update="Controls\HalfFiszkaCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\NewLearnPage.xaml">
+	  <MauiXaml Update="Pages\LearnPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LearnSetupPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\LearnPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\MyStyles.xaml">
@@ -116,8 +113,8 @@
 	  <Compile Update="Controls\FiszkaCard.xaml.cs">
 	    <DependentUpon>FiszkaCard.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\NewLearnPage.xaml.cs">
-	    <DependentUpon>NewLearnPage.xaml</DependentUpon>
+	  <Compile Update="Pages\LearnPage.xaml.cs">
+	    <DependentUpon>LearnPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\LearnSetupPage.xaml.cs">
 	    <DependentUpon>LearnSetupPage.xaml</DependentUpon>

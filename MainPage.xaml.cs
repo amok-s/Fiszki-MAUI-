@@ -19,19 +19,6 @@ namespace Fiszki
         private async void OnAddFiszkaClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
-            //DisplayAlert(
-            //    "Dodaj fiszkę",
-            //    "Tutaj coś będzie",
-            //    "OK");
-            
-
-
-            //DisplayActionSheet(
-            //    "",
-            //    "Anuluj",
-            //    "Dodaj");
-
-
 
             //SemanticScreenReader.Announce(CounterBtn.Text);
         }
@@ -41,11 +28,6 @@ namespace Fiszki
             await Shell.Current.GoToAsync(nameof(BrowseFiszkaPage));
         }
         private async void OnLearnClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(nameof(LearnPage));
-        }
-
-        private async void OnTestClicked(object sender, EventArgs e)
         {
             if (Data.FiszkaDeck.AllDecks.Count == 0)
             {
@@ -59,7 +41,11 @@ namespace Fiszki
             {
                 await Shell.Current.GoToAsync(nameof(LearnSetupPage));
             }
+        }
 
+        private async void OnTestClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(Test));
         }
 
         public void GetExamples()

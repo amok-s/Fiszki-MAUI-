@@ -61,7 +61,7 @@ public partial class LearnSetupPage : ContentPage
             else
             {
                 var lengthSetting = RadioButtonGroup.GetSelectedValue(LearningLengthLayout);
-                await Navigation.PushAsync(new NewLearnPage(lengthSetting.ToString(), selectedDecks));
+                await Navigation.PushAsync(new LearnPage(lengthSetting.ToString(), selectedDecks));
             }
         }
 

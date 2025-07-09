@@ -12,7 +12,17 @@
 
         
         <VerticalStackLayout Spacing="10" WidthRequest="550">
-            
+
+            <HorizontalStackLayout Spacing="7">
+                <Label Text="{x:Static models:Icons.Copy}"
+                       FontFamily="FontAwesome"/>
+
+                <Label x:Name="LearningDeckCount"/>
+                
+
+            </HorizontalStackLayout>
+
+
             <!--Widok fiszki-->
             <VerticalStackLayout>
                 <VerticalStackLayout.GestureRecognizers>

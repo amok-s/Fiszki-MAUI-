@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Net.NetworkInformation;
 using System.Xml.Linq;
 using Fiszki.Data;
@@ -11,18 +9,34 @@ public partial class LearnPage : ContentPage
 {   
 	
     public static ObservableCollection<FiszkaDeck> selectedDecks;
+	ObservableCollection<Fiszka> mixedDecks = new ObservableCollection<Fiszka>();
     ObservableCollection<Fiszka> learningDeck = new ObservableCollection<Fiszka>();
+    string chosenSetting;
+
     int previous_n;
+	int count = 0;
+	int countGoal;
+
+	double sessionScore = 0;
+
 	Fiszka? currentFiszka;
 	
-	public LearnPage()
+	
+	public LearnPage(string lengthSetting, ObservableCollection<FiszkaDeck> decks)
 	{
 		InitializeComponent();
+
+        selectedDecks = decks;
+		chosenSetting = lengthSetting;
+
+
         fullFiszkaControl.IsEditable = false;
-        selectedDecks = FiszkaDeck.AllDecks;
-		MixDecks();
         fullFiszkaControl.IsVisible = false;
         ScoreButtons.IsVisible = false;
+
+        MixDecks();
+		SetLearningLength(lengthSetting);
+		LearningDeckCount.Text = count + " / " + countGoal;
 
         if (CheckIfNotEmpty())
 		{
@@ -33,6 +47,28 @@ public partial class LearnPage : ContentPage
 
     }
 
+	private void SetLearningLength(string setting)
+	{
+		Random r = new Random();
+
+		switch (setting)
+		{
+			//up to 12 cards----->
+			case "1":
+				countGoal = r.Next(8, 10);
+				break;
+
+			//15-25 cards------>
+			case "2":
+				countGoal = r.Next(15, 25);
+				break;
+
+			//30-40 cards------>
+			case "3":
+				countGoal = r.Next(30, 40);
+				break;
+		}
+	}
 
 	private bool CheckIfNotEmpty()
 	{
@@ -47,10 +83,11 @@ public partial class LearnPage : ContentPage
 		{
 			foreach (Fiszka fiszka in deck.Deck)
 			{
-				learningDeck.Add(fiszka);
+				mixedDecks.Add(fiszka);
 			}
 		}
 
+		learningDeck = mixedDecks;
 	}
 
     private Fiszka ChooseRandomFiszka(ObservableCollection<Fiszka> deck)
@@ -62,11 +99,11 @@ public partial class LearnPage : ContentPage
 			n = r.Next(0, deck.Count() - 1);
         }
 		previous_n = n;
-        currentFiszka = deck[n];
+		currentFiszka = deck[n];
 		return deck[n];
 	}
 
-    private void Refresh(object sender, EventArgs e)
+    private void Refresh()
     {
 		fullFiszkaControl.IsVisible = false;
 		halfFiszkaControl.IsVisible = true;
@@ -85,13 +122,32 @@ public partial class LearnPage : ContentPage
 		ScoreButtons.IsVisible = true;
     }
 
-	private void ScoreClicked(object sender, EventArgs e)
+	private async void ScoreClicked(object sender, EventArgs e)
     {
 		var param = ((Button)sender).CommandParameter;
 		double score = Double.Parse((string)param);
-		currentFiszka.AddScore(score);
-		Refresh(0, null);
-	}
+		currentFiszka!.AddScore(score);
+        count++;
+        LearningDeckCount.Text = count + " / " + countGoal;
+		sessionScore += score;
 
+		if (count == countGoal)
+		{
+			sessionScore = sessionScore / count;
+			await DisplayAlert(
+				"Gratulację!",
+				"Ukończyłeś sesję ze średnim wynikiem " + Double.Round(sessionScore, 2),
+				"Ok");
+            Navigation.RemovePage(this);
+
+        }
+
+		else
+		{
+            Refresh();
+        }
+
+			
+	}
 
 }
