@@ -137,7 +137,8 @@
                         <DataTemplate x:DataType="data:FiszkaDeck">
 
 
-                            <Border StrokeThickness="0"
+                            <Border StrokeThickness="1"
+                                    Stroke="Transparent"
                                     StrokeShape="RoundRectangle 5,5,5,5"
                                     StyleClass="DeckBorder">
 
