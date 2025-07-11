@@ -38,6 +38,11 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
+                <Border.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="PointerGestureRecognizer_PointerEntered"/>
+                    <PointerGestureRecognizer PointerExited="PointerGestureRecognizer_PointerExited"/>
+                </Border.GestureRecognizers>
+
 
 
                 <!--Inside of Fiszka-->

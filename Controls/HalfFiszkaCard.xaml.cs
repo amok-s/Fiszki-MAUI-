@@ -35,4 +35,13 @@ public partial class HalfFiszkaCard : ContentView
 		}
 	}
 
+    private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
+    {
+        FiszkaBorder.Stroke = Color.Parse("White");
+    }
+
+    private void PointerGestureRecognizer_PointerExited(object sender, PointerEventArgs e)
+    {
+        FiszkaBorder.Stroke = Color.FromArgb("#cfc517");
+    }
 }
