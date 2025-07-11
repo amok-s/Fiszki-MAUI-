@@ -128,7 +128,7 @@
 
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
-                                           ItemSpacing="5"/>
+                                           ItemSpacing="3"/>
 
                     </CollectionView.ItemsLayout>
                     

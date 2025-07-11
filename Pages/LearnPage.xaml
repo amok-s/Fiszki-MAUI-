@@ -13,13 +13,20 @@
         
         <VerticalStackLayout Spacing="10" WidthRequest="550">
 
-            <HorizontalStackLayout Spacing="7">
+            
+            <!--Górna belka: licznik fiszek-->
+            <HorizontalStackLayout Spacing="7"
+                                   Padding="40,0">
+
                 <Label Text="{x:Static models:Icons.Copy}"
-                       FontFamily="FontAwesome"/>
-
-                <Label x:Name="LearningDeckCount"/>
+                       FontFamily="FontAwesome"
+                       FontSize="20"
+                       TextColor="White"/>
+                <Label x:Name="LearningDeckCount"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource MainYellow}"/>
                 
-
             </HorizontalStackLayout>
 
 
