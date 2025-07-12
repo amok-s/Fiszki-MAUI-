@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Net.NetworkInformation;
-using System.Windows.Input;
-using Fiszki.Data;
+﻿using Fiszki.Data;
 
 namespace Fiszki;
 

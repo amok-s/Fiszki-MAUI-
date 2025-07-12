@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using Fiszki.Controls;
-using Fiszki.Data;
+﻿using Fiszki.Data;
 
 namespace Fiszki;
 

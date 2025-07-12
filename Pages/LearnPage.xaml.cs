@@ -1,6 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Net.NetworkInformation;
-using System.Xml.Linq;
 using Fiszki.Data;
 
 namespace Fiszki;

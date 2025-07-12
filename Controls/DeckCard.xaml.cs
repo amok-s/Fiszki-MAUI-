@@ -1,5 +1,4 @@
 ﻿using Fiszki.Data;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 
 namespace Fiszki.Controls;
 
