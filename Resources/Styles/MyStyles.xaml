@@ -60,22 +60,22 @@
         </Setter>
         
         <Setter Property="MaximumWidthRequest" Value="300"/>
-        <Setter Property="BorderColor" Value="#cfc517"/>
+        <Setter Property="BorderColor" Value="{StaticResource MainYellow}"/>
         <Setter Property="BorderWidth" Value="3"/>
         <Setter Property="FontSize" Value="Subtitle"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
-        <Setter Property="TextColor" Value="#cfc517"/>
+        <Setter Property="TextColor" Value="{StaticResource MainYellow}"/>
         <Setter Property="CornerRadius" Value="5"/>
     </Style>
 
     
     
     <Style TargetType="Label" Class="FiszkaLabel">
-        <Setter Property="FontSize" Value="35"/>
+        <Setter Property="FontSize" Value="32"/>
         <Setter Property="TextColor" Value="WhiteSmoke"/>
         <Setter Property="FontAttributes" Value="Bold"/>
-        <Setter Property="CharacterSpacing" Value="1.2"/>
+        <Setter Property="CharacterSpacing"                         Value="1.2"/>
     </Style>
 
 

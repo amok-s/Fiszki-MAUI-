@@ -51,17 +51,20 @@
                     
 
                     <!--Inside of Fiszka-->
-                    <VerticalStackLayout Spacing="10" Padding="0,0,0,20">
+                    <VerticalStackLayout Padding="0,0,1,20">
 
                         <!--Górna belka-->
                         <FlexLayout Margin="7,0,16,0" JustifyContent="SpaceBetween" x:Name="UpperBar" IsVisible="{Binding UpperBarIsVisible, FallbackValue='True'}">
                             
                             <VerticalStackLayout Padding="4">
-                                <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}" TextColor="Gray"/>
-                                <Label Text="{Binding FiszkaObject.MemoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}" TextColor="Gray"/>
+                                <Label Text="{Binding FiszkaObject.LastTimeLearn, FallbackValue=' ', StringFormat='{0:dd MMMM yyyy}'}" 
+                                       TextColor="Gray"
+                                       FontSize="13"/>
+                                <Label Text="{Binding FiszkaObject.MemoScore, FallbackValue='0', StringFormat='Score: {0:F2}'}" 
+                                       TextColor="Gray"
+                                       FontSize="13"/>
                             </VerticalStackLayout>
 
-                            
                         <!--Menu overlay (buttons)-->
                         <HorizontalStackLayout Spacing="5" 
                                                x:Name="MenuOverlayLayout" 
@@ -114,7 +117,7 @@
 
                         
                         <!--Słówka-->
-                        <VerticalStackLayout Spacing="10" Padding="10" Margin="0, 0, 15, 0">
+                        <VerticalStackLayout Spacing="10" Margin="0, 8, 0, 6" Padding="8, 0, 24, 0">
 
                             <Label x:Name="NativePhraseLabel"
                                    Text="{Binding FiszkaObject.NativePhrase, FallbackValue='pusta fiszka'}" 
