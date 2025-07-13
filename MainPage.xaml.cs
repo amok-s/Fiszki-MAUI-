@@ -6,7 +6,8 @@ namespace Fiszki
 {
     public partial class MainPage : ContentPage
     {
-        
+
+        BrowseFiszkaPage bfp;
 
         public MainPage()
         {

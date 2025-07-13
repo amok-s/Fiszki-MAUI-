@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Fiszki;
 
 public partial class Test : ContentPage
@@ -6,4 +8,5 @@ public partial class Test : ContentPage
 	{
 		InitializeComponent();
 	}
+
 }

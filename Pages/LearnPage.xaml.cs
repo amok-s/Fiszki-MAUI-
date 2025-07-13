@@ -120,7 +120,7 @@ public partial class LearnPage : ContentPage
 		ScoreButtons.IsVisible = true;
     }
 
-	private async void ScoreClicked(object sender, EventArgs e)
+	private void ScoreClicked(object sender, EventArgs e)
     {
 		var param = ((Button)sender).CommandParameter;
 		double score = Double.Parse((string)param);
@@ -131,21 +131,36 @@ public partial class LearnPage : ContentPage
 
 		if (count == countGoal)
 		{
-			sessionScore = sessionScore / count;
-			await DisplayAlert(
-				"Gratulację!",
-				"Ukończyłeś sesję ze średnim wynikiem " + Double.Round(sessionScore, 2),
-				"Ok");
-            Navigation.RemovePage(this);
-
+			EndSession();
         }
 
 		else
 		{
             Refresh();
         }
-
-			
 	}
+    protected override bool OnBackButtonPressed()
+    {
+		EndSession();
+        return true;
+        //return base.OnBackButtonPressed();
+    }
 
+	private async void EndSession()
+	{
+		if (sessionScore != 0)
+		{
+			sessionScore = sessionScore / count;
+			await DisplayAlert(
+              "Gratulację!",
+              "Ukończyłeś sesję ze średnim wynikiem " + Double.Round(sessionScore, 2),
+              "Ok");
+        }
+        Navigation.RemovePage(this);
+    }
+
+    private void EndSessionClicked(object sender, EventArgs e)
+    {
+		EndSession();
+    }
 }
