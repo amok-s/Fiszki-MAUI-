@@ -117,7 +117,7 @@
 
                         
                         <!--Słówka-->
-                        <VerticalStackLayout Spacing="10" Margin="0, 8, 0, 6" Padding="8, 0, 24, 0">
+                        <VerticalStackLayout Spacing="10" Margin="0, 8, 0, 6" Padding="8, 0, 25, 0">
 
                             <Label x:Name="NativePhraseLabel"
                                    Text="{Binding FiszkaObject.NativePhrase, FallbackValue='pusta fiszka'}" 
