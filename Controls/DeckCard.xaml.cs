@@ -48,7 +48,7 @@ public partial class DeckCard : ContentView
     private async void DeckBorder_PointerPressed(object sender, PointerEventArgs e)
     {
         await UnfoldAnimation();
-        UnfoldDeck.IsVisible = UnfoldDeck.IsVisible ? false : true;
+        //UnfoldDeck.IsVisible = UnfoldDeck.IsVisible ? false : true;
     }
 
     private async void RemoveClicked(object sender, EventArgs e)

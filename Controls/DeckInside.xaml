@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Fiszki.Controls"
+             xmlns:models="clr-namespace:Fiszki.Models"
+             x:Class="Fiszki.Controls.DeckInside"
+             x:Name="this">
+
+
+    <VerticalStackLayout x:Name="UnfoldDeck"
+                     IsVisible="True"
+                     Spacing="12"
+                     BindingContext="{x:Reference this}">
+
+
+        <!--Add fiszka control-->
+        <local:AddFiszka DeckObject="{Binding DeckObject}"/>
+
+        <!--List of FiszkaCards in Deck-->
+        <VerticalStackLayout 
+                     BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
+                     BindingContext="{x:Reference this}"
+                     WidthRequest="600"
+                     IsVisible="True"
+                     Spacing="20">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <local:FiszkaCard FiszkaObject="{Binding}"
+                                  UpperBarIsVisible="True"/>
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentView>

@@ -131,36 +131,6 @@
             </VerticalStackLayout>
         </Border>
 
-        
-        
-        <VerticalStackLayout x:Name="UnfoldDeck"
-                             IsVisible="False"
-                             Spacing="12"
-                             BindingContext="{x:Reference this}">
-
-            
-            <!--Add fiszka control-->
-            <local:AddFiszka DeckObject="{Binding DeckObject}"/>
-
-            <!--List of FiszkaCards in Deck-->
-            <VerticalStackLayout 
-                             BindableLayout.ItemsSource="{Binding DeckObject.Deck}"
-                             BindingContext="{x:Reference this}"
-                             WidthRequest="600"
-                             IsVisible="True"
-                             Spacing="20">
-
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                        <local:FiszkaCard FiszkaObject="{Binding}"
-                                          UpperBarIsVisible="True"/>
-                    </DataTemplate>
-
-            </BindableLayout.ItemTemplate>
-
-        </VerticalStackLayout>
-            
-        </VerticalStackLayout>
 
     </VerticalStackLayout>
 

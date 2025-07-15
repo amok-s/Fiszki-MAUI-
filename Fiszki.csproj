@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\DeckInside.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AddFiszkaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -103,6 +106,9 @@
 	<ItemGroup>
 	  <Compile Update="Controls\DeckCard.xaml.cs">
 	    <DependentUpon>DeckCard.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Controls\DeckInside.xaml.cs">
+	    <DependentUpon>DeckInside.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\BrowseFiszkaPage.xaml.cs">
 	    <DependentUpon>BrowseFiszkaPage.xaml</DependentUpon>

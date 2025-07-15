@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fiszki.Test"
              Title="Test">
-    <VerticalStackLayout>
+    <VerticalStackLayout x:Name="TestLayout">
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="Dodaj Deck"
+                Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
