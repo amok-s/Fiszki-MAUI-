@@ -8,7 +8,6 @@
 
 
    
-    
     <VerticalStackLayout Spacing="20"
                          x:Name="WholeView">
 

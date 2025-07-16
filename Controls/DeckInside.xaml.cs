@@ -11,25 +11,9 @@ public partial class DeckInside : ContentView
         set => SetValue(DeckObjectProperty, value);
     }
 
-
-    public DeckInside()
-	{
-		InitializeComponent();
-        //DeckObject = deck;
-    }
-
     public DeckInside(FiszkaDeck deck)
     {
         DeckObject = deck;
         InitializeComponent();
-        Log();
-    }
-
-    private async void Log()
-    {
-        await App.Current?.Windows[0]?.Page?.DisplayAlert(
-          "Usunąć Talię?",
-          DeckObject.Name,
-          "Tak");
     }
 }

@@ -12,6 +12,8 @@ public partial class DeckCard : ContentView
     }
 
 
+    DeckInside? unfoldControl;
+
     public DeckCard()
 	{
 		InitializeComponent();
@@ -20,7 +22,6 @@ public partial class DeckCard : ContentView
 
 
     //------deck pointer HOVER recognizers-----
-
     private void DeckBorder_PointerEntered(object sender, PointerEventArgs e)
     {
         ShowMenuOverlay();
@@ -44,13 +45,23 @@ public partial class DeckCard : ContentView
         button.FadeTo(0.5, 250);
     }
 
+
     //-----deck pointer PRESSED------
     private async void DeckBorder_PointerPressed(object sender, PointerEventArgs e)
     {
         await UnfoldAnimation();
-        //UnfoldDeck.IsVisible = UnfoldDeck.IsVisible ? false : true;
+        if (unfoldControl == null)
+        {
+            unfoldControl = new DeckInside(DeckObject);
+            WholeView.Add(unfoldControl);
+        }
+        else
+        {
+            unfoldControl.IsVisible = false;
+            WholeView.RemoveAt(1);
+            unfoldControl = null;
+        }
     }
-
     private async void RemoveClicked(object sender, EventArgs e)
     {
         bool answer = await App.Current?.Windows[0]?.Page?.DisplayAlert(
@@ -65,7 +76,6 @@ public partial class DeckCard : ContentView
             FiszkaDeck.RemoveDeck(DeckObject);
         }
     }
-
     private async void EditClicked(object sender, EventArgs e)
     {
         string result = await App.Current?.Windows[0]?.Page?.DisplayPromptAsync(
@@ -86,12 +96,12 @@ public partial class DeckCard : ContentView
     }
 
 
+    //-----Animations------>
     private async Task UnfoldAnimation()
     {
         await DeckBorder.TranslateTo(0, -3.0, 80, Easing.CubicInOut);
         DeckBorder.TranslateTo(0, 0, 100, Easing.CubicOut);
     }
-
     private async Task RemoveAnimation()
     {
         await DeckBorder.ScaleTo(1.02, 80);
@@ -99,22 +109,6 @@ public partial class DeckCard : ContentView
         await DeckBorder.ScaleTo(0.8, 120);
     }
 
-    private async void DisplayNewDeckPrompt()
-    {
-        string result = await App.Current?.Windows[0]?.Page?.DisplayPromptAsync(
-            "Podaj nazwę talii",
-            "",
-            initialValue: "Nowa talia",
-            maxLength: 30,
-            cancel: "Anuluj",
-            accept: "Ok");
-
-        if (!String.IsNullOrWhiteSpace(result))
-        {
-            FiszkaDeck.AddDeck(result);
-        }
-
-    }
 
 
     //----menu overlay-----
