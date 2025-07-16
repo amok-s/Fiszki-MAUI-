@@ -1,29 +1,19 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Fiszki.Data;
+using Fiszki.Pages;
 
 namespace Fiszki
 {
     public partial class MainPage : ContentPage
     {
-
-        BrowseFiszkaPage bfp;
-
         public MainPage()
         {
             InitializeComponent();
             GetExamples();
         }
 
-
-
-        private async void OnAddFiszkaClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync(nameof(AddFiszkaPage));
-
-            //SemanticScreenReader.Announce(CounterBtn.Text);
-        }
-
+        //-----Main Menu buttons------>
         private async void OnBrowseFiszkaClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(BrowseFiszkaPage));
@@ -43,12 +33,14 @@ namespace Fiszki
                 await Shell.Current.GoToAsync(nameof(LearnSetupPage));
             }
         }
-
         private async void OnTestClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(Test));
+            await Shell.Current.GoToAsync(nameof(DebugMenu));
         }
 
+
+
+        //-----Delete later------>
         public void GetExamples()
         {
             FiszkaDeck.AddDeck("les animaux");

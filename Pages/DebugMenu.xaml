@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fiszki.Pages.DebugMenu"
+             Title="Debug Menu">
+    
+    
+    <VerticalStackLayout Spacing="15"
+                         Padding="0,40">
+        <Button Text="Dodaj przykłady fiszek"
+                StyleClass="MainMenuButton"
+                Clicked="AddExamples_Clicked"/>
+        
+        <Button Text="Strona testowa"
+                StyleClass="MainMenuButton"
+                Clicked="TestPage_Clicked"/>
+        
+        <Button Text="Testowy przycisk"
+                StyleClass="MainMenuButton"
+                Clicked="TestBtn_Clicked"/>
+    </VerticalStackLayout>
+    
+    
+</ContentPage>
