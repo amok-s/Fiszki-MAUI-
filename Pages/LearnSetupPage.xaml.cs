@@ -8,9 +8,7 @@ public partial class LearnSetupPage : ContentPage
     public LearnSetupPage()
 	{
 		InitializeComponent();
-
 		DeckCollectionView.ItemsSource = FiszkaDeck.AllDecks;
-
     }
 
     private async void StartSessionButton_Clicked(object sender, EventArgs e)
@@ -30,7 +28,7 @@ public partial class LearnSetupPage : ContentPage
             ObservableCollection<FiszkaDeck> selectedDecks = new ObservableCollection<FiszkaDeck>();
             foreach (var item in DeckCollectionView.SelectedItems)
             {
-                FiszkaDeck deck = item as FiszkaDeck;
+                FiszkaDeck? deck = item as FiszkaDeck;
                 selectedDecks.Add(deck);
             }
 

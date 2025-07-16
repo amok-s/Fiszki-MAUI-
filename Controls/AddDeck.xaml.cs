@@ -14,17 +14,16 @@ public partial class AddDeck : ContentView
     {
         ChangeBorderStyle("BorderOnHover");
     }
-
     private void PointerGestureRecognizer_PointerExited(object sender, PointerEventArgs e)
     {
         ChangeBorderStyle("BorderNormal");
     }
-
     private void PointerGestureRecognizer_PointerPressed(object sender, PointerEventArgs e)
     {
         ChangeBorderStyle("BorderNormal");
         DisplayNewDeckPrompt();
     }
+
     private void ChangeBorderStyle(string styleName)
     {
         var hasStyle = Resources.TryGetValue(styleName, out object style);

@@ -27,33 +27,27 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <VerticalStackLayout x:Name="ButtonGroup"
+            <VerticalStackLayout x:Name="MainMenuButtons"
                                  Padding="30,5"
                                  Spacing="20">
 
-         
-
                 <Button
-                     x:Name="browseFiszkaBtn"
                      StyleClass="MainMenuButton"
                      Text="Przeglądaj Fiszki" 
-                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     SemanticProperties.Hint="Przycisk do zarządzania fiszami"
                      Clicked="OnBrowseFiszkaClicked"
                      HorizontalOptions="Fill" />
 
                 <Button
-                     x:Name="LearnBtn"
                      StyleClass="MainMenuButton"
                      Text="Nauka" 
-                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     SemanticProperties.Hint="Przycisk do nauki fiszek"
                      Clicked="OnLearnClicked"
                      HorizontalOptions="Fill" />
 
                 <Button
-                     x:Name="TestBtn"
                      StyleClass="MainMenuButton"
-                     Text="Test" 
-                     SemanticProperties.Hint="Dodaje fiszkę do stosu fiszek"
+                     Text="Debug Menu" 
                      Clicked="OnTestClicked"
                      HorizontalOptions="Fill"/>        
 
