@@ -12,7 +12,6 @@
                      Spacing="12"
                      BindingContext="{x:Reference this}">
 
-
         <!--Add fiszka control-->
         <local:AddFiszka DeckObject="{Binding DeckObject}"/>
 

@@ -12,8 +12,6 @@ namespace Fiszki.Data
         public string Name { get; set; }
         public ObservableCollection<Fiszka> Deck { get; set; }
 
-        public bool ShowFiszkaInDeck { get; set; } = false;
-
         //-----Constructor--->
         public FiszkaDeck(string name)
         {

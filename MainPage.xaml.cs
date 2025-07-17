@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Fiszki.Data;
+﻿using Fiszki.Data;
 using Fiszki.Pages;
 
 namespace Fiszki
