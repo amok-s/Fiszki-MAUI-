@@ -2,13 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fiszki.TestPage"
+             xmlns:controls="clr-namespace:Fiszki.Controls"
              Title="Test Page">
-    
-    
-    <VerticalStackLayout x:Name="TestLayout">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        
+  
+        <VerticalStackLayout x:Name="TestLayout">
+            <Label 
+                Text="Welcome to .NET MAUI!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            
+            <Border Stroke="{StaticResource MainYellow}"
+                    StrokeThickness="2"
+                    MaximumWidthRequest="300"
+                    StrokeShape="RoundRectangle 6,6,6,6">
+                
+            
+            <Picker x:Name="SortFiszkaPicker"
+                    Title="Sortuj fiszki w talii według:"
+                    FontAutoScalingEnabled="False"
+                    MaximumWidthRequest="300">
+                
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>wyniku zapamiętania (score)</x:String>
+                        <x:String>daty ostatniej nauki (rosnąco)</x:String>
+                        <x:String>daty ostatniej nauki (malejąco)</x:String>
+                        <x:String>Frazy/słówka</x:String>
+                        <x:String>tłumaczenia</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+                
+                
+            </Picker>
+            </Border>
+
+
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
 </ContentPage>
