@@ -12,7 +12,35 @@
                      Spacing="12"
                      BindingContext="{x:Reference this}">
 
-        <!--Add fiszka control-->
+
+        <Border Stroke="{StaticResource MainYellow}"
+        StrokeThickness="2"
+        MaximumWidthRequest="300"
+        StrokeShape="RoundRectangle 6,6,6,6">
+
+
+            <Picker x:Name="SortFiszkaPicker"
+        Title="Sortuj fiszki w talii według:"
+        FontAutoScalingEnabled="False"
+        MaximumWidthRequest="300"
+        SelectedIndexChanged="SortFiszkaPicker_SelectedIndexChanged">
+
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>wyniku zapamiętania (score)</x:String>
+                        <x:String>daty ostatniej nauki (rosnąco)</x:String>
+                        <x:String>daty ostatniej nauki (malejąco)</x:String>
+                        <x:String>Frazy/słówka</x:String>
+                        <x:String>tłumaczenia</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+
+
+            </Picker>
+            </Border>
+
+
+            <!--Add fiszka control-->
         <local:AddFiszka DeckObject="{Binding DeckObject}"/>
 
         <!--List of FiszkaCards in Deck-->

@@ -10,6 +10,7 @@
   
         <VerticalStackLayout x:Name="TestLayout">
             <Label 
+                x:Name="TestLabel"
                 Text="Welcome to .NET MAUI!"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
@@ -23,7 +24,8 @@
             <Picker x:Name="SortFiszkaPicker"
                     Title="Sortuj fiszki w talii według:"
                     FontAutoScalingEnabled="False"
-                    MaximumWidthRequest="300">
+                    MaximumWidthRequest="300"
+                    SelectedIndexChanged="SortFiszkaPicker_SelectedIndexChanged">
                 
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

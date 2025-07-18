@@ -16,4 +16,15 @@ public partial class DeckInside : ContentView
         DeckObject = deck;
         InitializeComponent();
     }
+
+    private void SortFiszkaPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+
+        if (selectedIndex != -1)
+        {
+            DeckObject.SortBy(selectedIndex);
+        }
+    }
 }

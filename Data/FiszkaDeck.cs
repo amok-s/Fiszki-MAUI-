@@ -23,11 +23,28 @@ namespace Fiszki.Data
             }
             Deck = new ObservableCollection<Fiszka>();
         }
-    
-        //----Methods--->
-        public void Sort()
+
+        //-------------Methods--------------->
+
+        //-----SORTING
+        //-- 0 : Score
+        //-- 0 : LastTimeLearn (ascending)
+        //-- 0 : LastTimeLearn (descending)
+        //-- 0 : Phrase
+        //-- 0 : Translation
+        public void SortBy(int setting)
         {
-            Deck.OrderBy(x => x.MemoScore);
+            switch (setting)
+            {
+                case 0:
+                    Deck.OrderBy(x => x.MemoScore);
+                    break;
+
+                default:
+                    string result = "Jeszcze nie zaimplementowano";
+                    break;
+            }
+            //Deck.OrderBy(x => x.MemoScore);
         }
 
         public void AddFiszka(Fiszka fiszka)
